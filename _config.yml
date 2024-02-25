@@ -5,19 +5,19 @@
 # General blog information
 ############################################################
 # Name of your blog (this will show up at the top of your page and in the RSS feed)
-title: Peter's Notes
-name: Peter's Notes
+title: Xinyang's Blog
+name: Xinyang's Blog
 # Short description (goes below the title; it will also be used in the RSS feed)
 description: Aggregation of notes and code samples.
 # Your name, as you want it to appear underneath each post and in the footer
-author: Peter
+author: Xinyang Li
 # Your email if you want it to be linked on the contact page
-author_email: peter.roelants+githubblog@gmail.com
-email: peter.roelants+githubblog@gmail.com
+author_email: lix@lanl.gov
+email: lix@lanl.gov
 # The URL of your actual domain. This will be used to make absolute links in the RSS feed.
-url: https://peterroelants.github.io
-twitter_username: PeterRoelants
-github_username:  peterroelants
+url: https://tautomer.github.io
+twitter_username: XinyangLiChem
+github_username: tautomer
 
 # Where things are
 ############################################################
@@ -61,6 +61,7 @@ plugins:
 
 # Conversion
 ############################################################
+theme: jekyll-theme-hacker
 markdown: kramdown
 mathjax: true
 highlighter: rouge
@@ -96,7 +97,7 @@ baseurl: "" # does not include hostname
 permalink: /posts/:title/
 paginate_path: /page:num
 # Set the time zone for site generation.
-timezone: Europe/Brussels
+timezone: America/Denver
 
 quiet: false
 defaults: []
@@ -104,4 +105,4 @@ defaults: []
 
 # Analytics
 ############################################################
-google_analytics: UA-63103629-1
+google_analytics: UA-195402331-1

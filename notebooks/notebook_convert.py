@@ -30,7 +30,8 @@ def nb2html(nb_filepath: Path) -> str:
     Convert notebook to html string.
     """
     # Save notebook
-    exporter = HTMLExporter(template_name="classic")
+    exporter = HTMLExporter(template_name="reveal")
+    exporter.theme = "dark"
     # Use simple `nbconvert` provided template that excludes css and js.
     exporter.template_file = "base.html.j2"
     output, _ = exporter.from_filename(nb_filepath)
