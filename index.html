@@ -1,7 +1,7 @@
 ---
 layout: default_container
 title: Home
-description: Posts on Machine Learning, Software Engineering, and Mathematics.
+description: Posts on my work and my hobbies.
 ---
 
 <h1><span class="fa fa-home" aria-hidden="true"></span> {{ page.title }}</h1>
@@ -16,6 +16,19 @@ description: Posts on Machine Learning, Software Engineering, and Mathematics.
 </div>
 <div class="text-center">
 	<a class="btn btn-outline-primary btn-block" href="{% post_url /blog/homelab/2024-02-24-npm_reverse_proxy %}" role="button">Let's encrypt and resolve »</a>
+<br>
+</div>
+
+<!-- Fix Synology DS2415+ -->
+<div class="clearfix">
+	<h2>Fix Synology DS2415+ NAS that suffered from an Intel CPU bug</h2>
+	<a href="{% post_url /blog/fix_stuff/2021-04-24-fix_synology_ds2415+ %}">
+		<img class="rounded-circle img-fluid float-left mr-2 img-padding" src="/images/fix_stuff/fixing_synology/intel.jpg" alt="Intel" width="200" height="200">
+	</a>
+	<p>There is a hardware bug in certain Intel Atom CPUs. These CPUs will degrade over time and eventually the computer will not boot up due to the clock issue of the CPU. Funnily, fixing the problem only need one resistor to be soldered on the motherboard. The only thing is that the CPU will die again and by that time, there is no way to fix it.</p>
+</div>
+<div class="text-center">
+	<a class="btn btn-outline-primary btn-block" href="{% post_url /blog/fix_stuff/2021-04-24-fix_synology_ds2415+ %}" role="button">First soldering stuff »</a>
 <br>
 </div>
 
