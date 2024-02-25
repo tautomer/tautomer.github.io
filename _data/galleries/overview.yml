@@ -1,11 +1,9 @@
 -
- title: A Very Basic Example Gallery
- directory: san-francisco
+ title: Astrophotography
+ directory: nightsky
  preview:
-  filename: VS-2012-6088
-  original: VS-2012-6088-6000x4000.jpg
+  filename: nighsky_4
+  original: nighsky_4-11546x3702.jpg
   sizes:
-  - VS-2012-6088-4242x2828.jpg
-  - VS-2012-6088-2121x1414.jpg
-  - VS-2012-6088-2999x1999.jpg
-  thumbnail: VS-2012-6088-thumbnail.jpg
+  - nighsky_4-5773x1851.jpg
+  thumbnail: nighsky_4-thumbnail.jpg

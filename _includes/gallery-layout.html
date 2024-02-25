@@ -2,9 +2,9 @@
   <div id="gallery-sizer{% if include.id_number %}-{{ include.id_number }}{% endif %}" class="gallery-sizer"></div>
   {% for picture in include.gallery.pictures %}
   <div class="image-wrapper">
-    <a href="/assets/photography/{{ include.gallery.picture_path }}/{{ picture.original }}"
-    data-responsive="{% for size in picture.sizes %} /assets/photography/{{ include.gallery.picture_path }}/{{ size }} {{ size | split: '-' | last | split: '.' | first | split: 'x' | first | strip }}{% unless forloop.last %},{% endunless %}{% endfor %}" class="image" {% if picture.title %} data-sub-html="<div class='lg-toolbar caption'><h4>{{ picture.title | escape }}</h4>{% if picture.caption %}<p>{{ picture.caption | escape }}</p>{% endif %}</div>"{% endif %}>
-      <img alt="{{ picture.title }}" src="/assets/photography/{{ include.gallery.picture_path }}/{{ picture.thumbnail }}" />
+    <a href="/images/photography/{{ include.gallery.picture_path }}/{{ picture.original }}"
+    data-responsive="{% for size in picture.sizes %} /images/photography/{{ include.gallery.picture_path }}/{{ size }} {{ size | split: '-' | last | split: '.' | first | split: 'x' | first | strip }}{% unless forloop.last %},{% endunless %}{% endfor %}" class="image" {% if picture.title %} data-sub-html="<div class='lg-toolbar caption'><h4>{{ picture.title | escape }}</h4>{% if picture.caption %}<p>{{ picture.caption | escape }}</p>{% endif %}</div>"{% endif %}>
+      <img alt="{{ picture.title }}" src="/images/photography/{{ include.gallery.picture_path }}/{{ picture.thumbnail }}" />
     </a>
   </div>
   {% endfor %}
@@ -23,7 +23,8 @@ var $grid{% if include.id_number %}{{ include.id_number }}{% endif %} = $('#imag
   percentPosition: true,
   columnWidth: '#gallery-sizer{% if include.id_number %}-{{ include.id_number }}{% endif %}',
   itemSelector: '.image-wrapper',
-  layoutMode: "masonry"
+  layoutMode: "masonry",
+  isFitWidth: true
 });
 
 // layout Isotope after each image loads

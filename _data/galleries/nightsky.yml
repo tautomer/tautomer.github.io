@@ -1,0 +1,32 @@
+picture_path: nightsky
+pictures:
+- filename: nighsky_1
+  original: nighsky_1-6000x4000.jpg
+  sizes:
+  - nighsky_1-3000x2000.jpg
+  thumbnail: nighsky_1-thumbnail.jpg
+- filename: nighsky_2
+  original: nighsky_2-6000x4000.jpg
+  sizes:
+  - nighsky_2-3000x2000.jpg
+  thumbnail: nighsky_2-thumbnail.jpg
+- filename: nighsky_3
+  original: nighsky_3-6000x4000.jpg
+  sizes:
+  - nighsky_3-3000x2000.jpg
+  thumbnail: nighsky_3-thumbnail.jpg
+- filename: nighsky_4
+  original: nighsky_4-11546x3702.jpg
+  sizes:
+  - nighsky_4-5773x1851.jpg
+  thumbnail: nighsky_4-thumbnail.jpg
+- filename: nighsky_5
+  original: nighsky_5-6000x4000.jpg
+  sizes:
+  - nighsky_5-3000x2000.jpg
+  thumbnail: nighsky_5-thumbnail.jpg
+- filename: nighsky_6
+  original: nighsky_6-4000x6000.jpg
+  sizes:
+  - nighsky_6-2000x3000.jpg
+  thumbnail: nighsky_6-thumbnail.jpg
