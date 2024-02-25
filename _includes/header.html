@@ -28,5 +28,21 @@
 
 	<!-- jQuery in header because of Bokeh -->
 	<script src="/js/jquery-3.6.0.min.js"></script>
+	{% if page.support contains 'jquery' %}
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  	{% endif %}
+	{% if page.support contains 'gallery' %}
+	<!-- A jQuery plugin that adds cross-browser mouse wheel support. (Optional) -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+	
+	<!-- Actual includes needed for the gallery -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.3/picturefill.min.js"></script>
+	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.0/imagesloaded.pkgd.min.js"></script>
+	<link rel="stylesheet" href="{{ site.url }}{{ site.baseurl }}/{{ "css/gallery.css" }}" />
+	{% endif %}
 </head>
 

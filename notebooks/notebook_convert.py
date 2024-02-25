@@ -92,7 +92,7 @@ def set_anchor_links(soup: BeautifulSoup):
         # Remove previous content
         a_tag.string = ""
         # Insert link symbol as tag
-        a_tag.append(soup.new_tag("i", attrs={"class": "fas fa-sm fa-link"}))
+        a_tag.append(soup.new_tag("i", attrs={"class": "fa-solid fa-sm fa-link"}))
 
 
 def add_table_class(soup: BeautifulSoup):

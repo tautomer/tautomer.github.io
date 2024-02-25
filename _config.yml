@@ -30,6 +30,11 @@ layouts_dir: ./_layouts
 data_dir: ./_data
 collections: null
 
+defaults:
+  - scope:
+      path: "photography"
+    values:
+      permalink: /:path/:basename:output_ext
 # Handling Reading
 ############################################################
 # Safe: Disable custom plugins, and ignore symbolic links.
@@ -61,7 +66,6 @@ plugins:
 
 # Conversion
 ############################################################
-theme: jekyll-theme-hacker
 markdown: kramdown
 mathjax: true
 highlighter: rouge
