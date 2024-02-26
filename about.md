@@ -84,11 +84,11 @@ Please get in touch with me if you have any comments or questions. You can
 contact me via the channels below:
 
 <span>
-	<a href="https://github.com/tautomer" target="_blank"><i class="fab fa-github fa-3x"></i></a>
-	<a href="https://www.linkedin.com/in/xinyang-li-chemist/" target="_blank"><i class="fab fa-linkedin fa-3x"></i></a>
-	<a href="https://twitter.com/XinyangLiChem" target="_blank"><i class="fab fa-twitter fa-3x"></i></a>
-	<a href="https://www.instagram.com/ringpolymer/" target="_blank"><i class="fab fa-instagram fa-3x"></i></a>
-	<a href="mailto:lix@lanl.gov" target="_blank"><i class="fas fa-envelope fa-3x"></i></a>
+	<a href="https://github.com/tautomer" target="_blank"><i class="fab fa-github fa-3x fa-fw"></i></a>
+	<a href="https://www.linkedin.com/in/xinyang-li-chemist/" target="_blank"><i class="fab fa-linkedin fa-3x fa-fw"></i></a>
+	<a href="https://twitter.com/XinyangLiChem" target="_blank"><i class="fab fa-twitter fa-3x fa-fw"></i></a>
+	<a href="https://www.instagram.com/ringpolymer/" target="_blank"><i class="fab fa-instagram fa-3x fa-fw"></i></a>
+	<a href="mailto:lix@lanl.gov" target="_blank"><i class="fas fa-envelope fa-3x fa-fw"></i></a>
 </span>
 
 [jekyll]: https://help.github.com/articles/using-jekyll-with-pages/

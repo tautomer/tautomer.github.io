@@ -4,14 +4,14 @@ title: Home
 description: Posts on my work and my hobbies.
 ---
 
-<h1><span class="fas fa-house" aria-hidden="true"></span> {{ page.title }}</h1>
+<h1><span class="fas fa-house fa-sm" aria-hidden="true"></span> {{ page.title }}</h1>
 
 <!-- protein-protein interactions -->
 <div class="clearfix">
 	<h2>Predict protein-protein interactions with a neural network </h2>
 	<a href="{% post_url /blog/ml/2024-02-25-protein_protein_interaction %}">
-		<img class="rounded-circle img-fluid float-left mr-2 img-padding" src="/images/ml/ppi/ppi_logo.png" alt="PPI"
-			width="200" height="200">
+		<img class="rounded-4 img-fluid float-left mb-2" src="/images/ml/ppi/ppi_logo.png" alt="PPI" width="200"
+			height="200">
 	</a>
 	<p>Well, I recently review a manuscript on predicting the so-called "protein-protein interactions" (PPI) with a
 		convolutional neural network (CNN). The quality of the paper was exceptionally low, but I was really curious on
@@ -25,10 +25,10 @@ description: Posts on my work and my hobbies.
 
 <!-- NPM reverse proxy -->
 <div class="clearfix">
-	<h2>Certify and resolve your self-hosted services</h2>
+	<h2>Encrypt and resolve your self-hosted services</h2>
 	<a href="{% post_url /blog/homelab/2024-02-24-npm_reverse_proxy %}">
-		<img class="rounded-circle img-fluid float-left mr-2 img-padding" src="/images/homelab/ssl/ssl_warning.png"
-			alt="SSL Warning" width="200" height="200">
+		<img class="rounded-4 img-fluid float-left mb-2" src="/images/homelab/ssl/ssl_warning.png" alt="SSL Warning"
+			width="200" height="200">
 	</a>
 	<p>If you are a home lab person, there is no need to explain why the problem here is annoying. Use Nginx Proxy
 		Manager and AdGuard Home to certify your self-hosted services and access them without port numbers.</p>
@@ -43,8 +43,8 @@ description: Posts on my work and my hobbies.
 <div class="clearfix">
 	<h2>Fix Synology DS2415+ NAS that suffered from an Intel CPU bug</h2>
 	<a href="{% post_url /blog/fix_stuff/2021-04-24-fix_synology_ds2415+ %}">
-		<img class="rounded-circle img-fluid float-left mr-2 img-padding"
-			src="/images/fix_stuff/fixing_synology/intel.jpg" alt="Intel" width="200" height="200">
+		<img class="rounded-4 img-fluid float-left mb-2" src="/images/fix_stuff/fixing_synology/intel.jpg" alt="Intel"
+			width="200" height="200">
 	</a>
 	<p>There is a hardware bug in certain Intel Atom CPUs. These CPUs will degrade over time and eventually the computer
 		will not boot up due to the clock issue of the CPU. Funnily, fixing the problem only need one resistor to be
@@ -75,6 +75,6 @@ description: Posts on my work and my hobbies.
 
 <!-- By Tag -->
 <div style="margin-top:50px">
-	<h2><i class="fas fa-tags fa-fw"></i> More posts by tag:</h2>
+	<h2><i class="fas fa-tags fa-fw fa-sm"></i> More posts by tag:</h2>
 	{% include all_tags.html %}
 </div>
