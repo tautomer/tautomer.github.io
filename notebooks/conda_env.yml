@@ -16,7 +16,6 @@ dependencies:
   - pyyaml
   - mypy
   - pip
-  - pyyaml
   - pip:
     - python-slugify
 

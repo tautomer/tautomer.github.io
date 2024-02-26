@@ -78,7 +78,13 @@ This blog is made using
 [Peter Roelants](https://github.com/peterroelants) and is hosted on
 [GitHub Pages](https://pages.github.com/). To know more how this blog
 is made, and how he converted notebooks to blog posts see
-[hosting Jupyter notebooks on a blog](https://peterroelants.github.io/posts/about-this-blog/).
+[hosting Jupyter notebooks on a
+blog](https://peterroelants.github.io/posts/about-this-blog/).
+The gallery code is modified from [this
+repo](https://github.com/opieters/jekyll-image-gallery-example) and the css is
+modified based on [the gallery.css provided
+here](https://github.com/mtailanian/mtailanian.github.io).
+
 Please get in touch with me if you have any comments or questions. You can contact me via the channels below:
 
 <span>

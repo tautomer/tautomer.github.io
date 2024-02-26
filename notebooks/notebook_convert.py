@@ -165,7 +165,11 @@ def save_conversion(html_str: str, nbpath: Path, date: str, subdir: str = ""):
 
     """
     filename = nbpath.stem
-    output_path = BASE_DIR / "_posts" / subdir / f"{date}-{filename}.html"
+    output_dir = BASE_DIR / "_posts" / subdir 
+    if not os.path.exists(output_dir):
+        print(f"{output_dir} does not exist. Create it now.")
+        os.makedirs(output_dir)
+    output_path = output_dir / f"{date}-{filename}.html"
     print(f"conversion output path: {output_path!s}")
     with output_path.open("w") as f:
         f.write(html_str)
