@@ -2,10 +2,20 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', '{{ site.google_analytics }}', { 'anonymize_ip': true });
+  function gtag() {
+      dataLayer.push(arguments);
+  }
   // Disable cookies
-  gtag('consent', 'default', {analytics_storage: 'denied', ad_storage: 'denied'});
+  gtag('consent', 'default', {
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'ad_storage': 'denied',
+      'analytics_storage': 'denied',
+      'wait_for_update': 500,
+  });
+  gtag('js', new Date());
+  gtag('config', '{{ site.google_analytics }}', {
+      'anonymize_ip': true
+  });
 </script>
