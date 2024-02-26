@@ -1,33 +1,41 @@
 ---
 layout: default
-title: Photography
+title: Photo galleries
+description: Here are some my personal favorite photos. I hope these beautiful scenes can bring something positive to you.
 permalink: /photography/
 support: [jquery]
 ---
 
-<h1>{{ page.title }}</h1>
+<div class="container">
+  <div class="main-template">
+    <h1><i class="fa-solid fa-panorama fa-fw"></i>&nbsp;{{ page.title }}</h1>
 
-<p>Here are some my personal favorite photos. I hope these beautiful scenes can bring something positive to you.</p>
 
-{% assign count = 0 %}
-{% assign align = "left" %}
-{% for gallery in site.data.galleries.overview %}
-{% if count == 0 %}<div class="row">{% endif %}
-  <div class="half-width gallery-preview {{ align }}">
-    <h1>{{ gallery.title }}</h1>
-    <a href="{{ site.url }}{{ site.baseurl }}/photography/{{ gallery.directory }}/index.html">
-      <img alt="{{ gallery.title }}" src="{{ site.url }}{{ site.baseurl }}/images/photography/{% if gallery.picture_path %}{{ gallery.picture_path }}{% else %}{{ gallery.directory }}{% endif %}/{{ gallery.preview.thumbnail }}" />
-    </a>
+    <p>{{ page.title }}</p>
+
+    {% assign count = 0 %}
+    {% assign align = "left" %}
+    {% for gallery in site.data.galleries.overview %}
+    {% if count == 0 %}<div class="row">{% endif %}
+      <div class="half-width gallery-preview {{ align }}">
+        <h1>{{ gallery.title }}</h1>
+        <a href="{{ site.url }}{{ site.baseurl }}/photography/{{ gallery.directory }}/index.html">
+          <img class="rounded-3 mt-3" alt="{{ gallery.title }}"
+            src="{{ site.url }}{{ site.baseurl }}/images/photography/{% if gallery.picture_path %}{{ gallery.picture_path }}{% else %}{{ gallery.directory }}{% endif %}/{{ gallery.preview.thumbnail }}" />
+        </a>
+      </div>
+      {% if count == 1 %}
+    </div>{% endif %}
+    {% assign count = count | plus: 1 %}
+    {% assign align = "right" %}
+    {% if count >= 2 %}
+    {% assign align = "left" %}
+    {% assign count = 0 %}
+    {% endif %}
+    {% endfor %}
+
+    {% if count != 1 %}
   </div>
-{% if count == 1 %}</div>{% endif %}
-{% assign count = count | plus: 1 %}
-{% assign align = "right" %}
-{% if count >= 2 %}
-{% assign align = "left" %}
-{% assign count = 0 %}
-{% endif %}
-{% endfor %}
-
-{% if count != 1 %}
+  {% endif %}
 </div>
-{% endif %}
+</div>
