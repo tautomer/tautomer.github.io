@@ -1,0 +1,42 @@
+picture_path: animals
+picutures:
+- filename: IMG_1861
+  original: IMG_1861-3916x2611.jpg
+  sizes:
+  - IMG_1861-1958x1306.jpg
+  thumbnail: IMG_1861-thumbnail.jpg
+- filename: IMG_5599
+  original: IMG_5599-3368x6000.jpg
+  sizes:
+  - IMG_5599-1684x3000.jpg
+  thumbnail: IMG_5599-thumbnail.jpg
+- filename: IMG_6863-Enhanced-NR
+  original: IMG_6863-Enhanced-NR-2667x4000.jpg
+  sizes:
+  - IMG_6863-Enhanced-NR-1334x2000.jpg
+  thumbnail: IMG_6863-Enhanced-NR-thumbnail.jpg
+- filename: P1000065
+  original: P1000065-6000x4000.jpg
+  sizes:
+  - P1000065-3000x2000.jpg
+  thumbnail: P1000065-thumbnail.jpg
+- filename: P1000246-Enhanced-NR
+  original: P1000246-Enhanced-NR-2787x4181.jpg
+  sizes:
+  - P1000246-Enhanced-NR-1394x2091.jpg
+  thumbnail: P1000246-Enhanced-NR-thumbnail.jpg
+- filename: P1000896-Enhanced-NR
+  original: P1000896-Enhanced-NR-6000x4000.jpg
+  sizes:
+  - P1000896-Enhanced-NR-3000x2000.jpg
+  thumbnail: P1000896-Enhanced-NR-thumbnail.jpg
+- filename: P1000940-Enhanced-NR
+  original: P1000940-Enhanced-NR-2667x4000.jpg
+  sizes:
+  - P1000940-Enhanced-NR-1334x2000.jpg
+  thumbnail: P1000940-Enhanced-NR-thumbnail.jpg
+- filename: rattlesnake
+  original: rattlesnake-6000x3368.jpg
+  sizes:
+  - rattlesnake-3000x1684.jpg
+  thumbnail: rattlesnake-thumbnail.jpg

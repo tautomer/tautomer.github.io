@@ -1,32 +1,47 @@
 picture_path: nightsky
-pictures:
-- filename: nighsky_1
-  original: nighsky_1-6000x4000.jpg
+picutures:
+- filename: nightsky_1
+  original: nightsky_1-6000x4000.jpg
   sizes:
-  - nighsky_1-3000x2000.jpg
-  thumbnail: nighsky_1-thumbnail.jpg
-- filename: nighsky_2
-  original: nighsky_2-6000x4000.jpg
+  - nightsky_1-3000x2000.jpg
+  thumbnail: nightsky_1-thumbnail.jpg
+- filename: nightsky_2
+  original: nightsky_2-6000x4000.jpg
   sizes:
-  - nighsky_2-3000x2000.jpg
-  thumbnail: nighsky_2-thumbnail.jpg
-- filename: nighsky_3
-  original: nighsky_3-6000x4000.jpg
+  - nightsky_2-3000x2000.jpg
+  thumbnail: nightsky_2-thumbnail.jpg
+- filename: nightsky_3
+  original: nightsky_3-6000x4000.jpg
   sizes:
-  - nighsky_3-3000x2000.jpg
-  thumbnail: nighsky_3-thumbnail.jpg
-- filename: nighsky_4
-  original: nighsky_4-11546x3702.jpg
+  - nightsky_3-3000x2000.jpg
+  thumbnail: nightsky_3-thumbnail.jpg
+- filename: nightsky_4
+  original: nightsky_4-11546x3702.jpg
   sizes:
-  - nighsky_4-5773x1851.jpg
-  thumbnail: nighsky_4-thumbnail.jpg
-- filename: nighsky_5
-  original: nighsky_5-6000x4000.jpg
+  - nightsky_4-5773x1851.jpg
+  thumbnail: nightsky_4-thumbnail.jpg
+- filename: nightsky_5
+  original: nightsky_5-6000x4000.jpg
   sizes:
-  - nighsky_5-3000x2000.jpg
-  thumbnail: nighsky_5-thumbnail.jpg
-- filename: nighsky_6
-  original: nighsky_6-4000x6000.jpg
+  - nightsky_5-3000x2000.jpg
+  thumbnail: nightsky_5-thumbnail.jpg
+- filename: nightsky_6
+  original: nightsky_6-4000x6000.jpg
   sizes:
-  - nighsky_6-2000x3000.jpg
-  thumbnail: nighsky_6-thumbnail.jpg
+  - nightsky_6-2000x3000.jpg
+  thumbnail: nightsky_6-thumbnail.jpg
+- filename: IMG_5717
+  original: IMG_5717-6000x3368.jpg
+  sizes:
+  - IMG_5717-3000x1684.jpg
+  thumbnail: IMG_5717-thumbnail.jpg
+- filename: IMG_5742
+  original: IMG_5742-2245x3368.jpg
+  sizes:
+  - IMG_5742-1123x1684.jpg
+  thumbnail: IMG_5742-thumbnail.jpg
+- filename: P1000292-Enhanced-NR
+  original: P1000292-Enhanced-NR-3363x5044.jpg
+  sizes:
+  - P1000292-Enhanced-NR-1682x2522.jpg
+  thumbnail: P1000292-Enhanced-NR-thumbnail.jpg

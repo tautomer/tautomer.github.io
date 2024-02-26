@@ -2,8 +2,17 @@
  title: Astrophotography
  directory: nightsky
  preview:
-  filename: nighsky_4
-  original: nighsky_4-11546x3702.jpg
+  filename: nightsky_4
+  original: nightsky_4-11546x3702.jpg
   sizes:
-  - nighsky_4-5773x1851.jpg
-  thumbnail: nighsky_4-thumbnail.jpg
+  - nightsky_4-5773x1851.jpg
+  thumbnail: nightsky_4-thumbnail.jpg
+-
+ title: Animals
+ directory: animals
+ preview:
+  filename: IMG_1861
+  original: IMG_1861-3916x2611.jpg
+  sizes:
+  - IMG_1861-1958x1306.jpg
+  thumbnail: IMG_1861-thumbnail.jpg
