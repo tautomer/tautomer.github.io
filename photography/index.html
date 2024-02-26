@@ -18,7 +18,7 @@ support: [jquery]
     {% for gallery in site.data.galleries.overview %}
     {% if count == 0 %}<div class="row">{% endif %}
       <div class="half-width gallery-preview {{ align }}">
-        <h1>{{ gallery.title }}</h1>
+        <h2>{{ gallery.title }}</h2>
         <a href="{{ site.url }}{{ site.baseurl }}/photography/{{ gallery.directory }}/index.html">
           <img class="rounded-3 mt-3" alt="{{ gallery.title }}"
             src="{{ site.url }}{{ site.baseurl }}/images/photography/{% if gallery.picture_path %}{{ gallery.picture_path }}{% else %}{{ gallery.directory }}{% endif %}/{{ gallery.preview.thumbnail }}" />
