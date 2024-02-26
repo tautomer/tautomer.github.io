@@ -11,15 +11,17 @@
 
 	<!-- Bootstrap core CSS -->
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
-	<html data-bs-theme="dark"></html>
+	<html data-bs-theme="dark">
+
+	</html>
 	<!-- Custom styles for this template -->
 	<link href="/css/notebook.min.css" rel="stylesheet">
 	<link href="/css/main.min.css" rel="stylesheet">
 	<link href="/css/syntax.min.css" rel="stylesheet">
 	<link href="/css/font-awesome-all.css" rel="stylesheet">
-  	{% if page.support contains 'jquery' %}
+	{% if page.support contains 'jquery' %}
 	<link rel="stylesheet" href="/css/gallery.css" />
-  	{% endif %}
+	{% endif %}
 
 	<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
@@ -32,14 +34,13 @@
 	<!-- jQuery in header because of Bokeh -->
 	<script src="/js/jquery-3.6.0.min.js"></script>
 
-  	{% if page.support contains 'gallery' %}
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+	{% if page.support contains 'gallery' %}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.9.0/js/lightgallery-all.min.js"></script>
-  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.9.0/css/lightgallery.min.css" />
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.0/isotope.pkgd.min.js"></script>
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.2/picturefill.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.9.0/css/lightgallery.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.0/isotope.pkgd.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.2/picturefill.min.js"></script>
 	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.0/imagesloaded.pkgd.min.js"></script>
-  	{% endif %}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.0/imagesloaded.pkgd.min.js"></script>
+	{% endif %}
 </head>
-

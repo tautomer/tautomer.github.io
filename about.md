@@ -73,23 +73,28 @@ postdoc, I did my PhD at University of Rochester.
 
 ### Technical side of this blog
 
-This blog is made using
-[Jekyll](https://help.github.com/articles/using-jekyll-with-pages/) by
-[Peter Roelants](https://github.com/peterroelants) and is hosted on
-[GitHub Pages](https://pages.github.com/). To know more how this blog
-is made, and how he converted notebooks to blog posts see
-[hosting Jupyter notebooks on a
-blog](https://peterroelants.github.io/posts/about-this-blog/).
-The gallery code is modified from [this
-repo](https://github.com/opieters/jekyll-image-gallery-example) and the css is
-modified based on [the gallery.css provided
-here](https://github.com/mtailanian/mtailanian.github.io).
+This blog is made using [Jekyll][jekyll] by [Peter Roelants][peterroelants] and
+is hosted on [GitHub Pages][gh_pages] To know more how this blog is made, and
+how he converted notebooks to blog posts see [hosting Jupyter notebooks on a
+blog][tech]. The gallery code is modified from [this repo][gallery] and the css
+is modified based on [the gallery.css provided here][gallery_css]. The syntax
+highlight theme is One Dark taken from [here][syntax_css].
 
-Please get in touch with me if you have any comments or questions. You can contact me via the channels below:
+Please get in touch with me if you have any comments or questions. You can
+contact me via the channels below:
 
 <span>
 	<a href="https://github.com/tautomer" target="_blank"><i class="fab fa-github fa-3x"></i></a>
+	<a href="https://www.linkedin.com/in/xinyang-li-chemist/" target="_blank"><i class="fab fa-linkedin fa-3x"></i></a>
 	<a href="https://twitter.com/XinyangLiChem" target="_blank"><i class="fab fa-twitter fa-3x"></i></a>
 	<a href="https://www.instagram.com/ringpolymer/" target="_blank"><i class="fab fa-instagram fa-3x"></i></a>
-	<a href="mailto:lix@lanl.gov" target="_blank"><i class="fas fa-envelope-square fa-3x"></i></a>
+	<a href="mailto:lix@lanl.gov" target="_blank"><i class="fas fa-envelope fa-3x"></i></a>
 </span>
+
+[jekyll]: https://help.github.com/articles/using-jekyll-with-pages/
+[peterroelants]: https://github.com/peterroelants
+[gh_pages]: https://pages.github.com/
+[tech]: https://peterroelants.github.io/posts/about-this-blog/
+[gallery]: https://github.com/opieters/jekyll-image-gallery-example
+[syntax_css]: https://github.com/mgyongyosi/OneDarkJekyll/blob/master/syntax-one-dark.css
+[gallery_css]: https://github.com/mtailanian/mtailanian.github.io
