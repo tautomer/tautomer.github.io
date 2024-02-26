@@ -2,7 +2,7 @@
 
 dir=${PWD##*/}
 yaml=$dir.yml
-echo -e "picture_path: $dir\npicutures:" > $yaml
+echo -e "picture_path: $dir\npictures:" > $yaml
 
 cd originals
 for i in *.jpg
