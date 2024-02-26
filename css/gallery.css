@@ -25,7 +25,8 @@ button {
 }
 
 .image-gallery {
-    max-width: 1500px; /* 4* masonry column width  */
+    max-width: 1500px;
+    /* 4* masonry column width  */
     display: block
 }
 
