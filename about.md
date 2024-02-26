@@ -7,9 +7,7 @@ description: About this blog and its author.
 
 Hi, welcome to my blog. I would like to use this blog to share some thoughts on
 software development, machine learning, computational chemistry, and my hobbies,
-such as homelab, 3D printing, photography, and maybe games (?). Believe it or
-not, I was top 5% cruiser player on the whole North America server of World of
-Warships.
+such as homelab, 3D printing, photography, and maybe games (?).
 
 ### About me
 
