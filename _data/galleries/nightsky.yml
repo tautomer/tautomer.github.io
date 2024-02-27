@@ -5,43 +5,61 @@ pictures:
   sizes:
   - nightsky_1-3000x2000.jpg
   thumbnail: nightsky_1-thumbnail.jpg
+  title: Panorama in mid Oct
+  caption: Panorama of the Milky Way in the middle of October. Taken with a fisheye lens.
 - filename: nightsky_2
   original: nightsky_2-6000x4000.jpg
   sizes:
   - nightsky_2-3000x2000.jpg
   thumbnail: nightsky_2-thumbnail.jpg
+  title: The Winter Triangle
+  caption: You can see the Orion, Sirius, Procyon, and the Pleiades.
 - filename: nightsky_3
   original: nightsky_3-6000x4000.jpg
   sizes:
   - nightsky_3-3000x2000.jpg
   thumbnail: nightsky_3-thumbnail.jpg
+  title: The core and the cars
+  caption: Cars driving to Los Alamos
 - filename: nightsky_4
   original: nightsky_4-11546x3702.jpg
   sizes:
   - nightsky_4-5773x1851.jpg
   thumbnail: nightsky_4-thumbnail.jpg
+  title: Panorama in mid Feb
+  caption: Panorama of the semi-dark sky right before sunrise in the middle of February.
 - filename: nightsky_5
   original: nightsky_5-6000x4000.jpg
   sizes:
   - nightsky_5-3000x2000.jpg
   thumbnail: nightsky_5-thumbnail.jpg
+  title: Tiangong and the Galactic Core 
+  caption: Chinese space station Tiangong passing in front of the Galactic Core.
 - filename: nightsky_6
   original: nightsky_6-4000x6000.jpg
   sizes:
   - nightsky_6-2000x3000.jpg
   thumbnail: nightsky_6-thumbnail.jpg
+  title: One arm of the Milky Way
+  caption: You can see an arm of the Milky Way almost vertically aligned. Down below is Rio Grande.
 - filename: IMG_5717
   original: IMG_5717-6000x3368.jpg
   sizes:
   - IMG_5717-3000x1684.jpg
   thumbnail: IMG_5717-thumbnail.jpg
+  title: The Bid Dipper and a flight
+  caption: A commercial flight strikes through the Big Dipper.
 - filename: IMG_5742
   original: IMG_5742-2245x3368.jpg
   sizes:
   - IMG_5742-1123x1684.jpg
   thumbnail: IMG_5742-thumbnail.jpg
+  title: The Star Link
+  caption: A train of the Star Link satellite visible in the sky.
 - filename: P1000292-Enhanced-NR
   original: P1000292-Enhanced-NR-3363x5044.jpg
   sizes:
   - P1000292-Enhanced-NR-1682x2522.jpg
   thumbnail: P1000292-Enhanced-NR-thumbnail.jpg
+  title: Orion and the Horsehead Nebula
+  caption: Zoom in, you will see the famous Horsehead Nebula inside the Orion constellation.
