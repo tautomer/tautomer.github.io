@@ -88,8 +88,10 @@ except Exception as e:
 cwd = os.path.realpath(os.getcwd())
 root_dir = os.path.dirname(cwd)
 # obtain the filename and strip the extension
-# the resulting path should be like /posts/file_basename
-post_rel_path = "/posts/" + ".".join(post_path.split("/")[-1].split(".")[:-1]) + "/"
+# the resulting path should be like /posts/file_basename_wo_date
+post_rel_path = (
+    "/posts/" + ".".join(post_path.split("/")[-1].split(".")[:-1])[11:] + "/"
+)
 img_rel_path = "/" + os.path.relpath(img_path, root_dir)
 
 if read_title or read_des:

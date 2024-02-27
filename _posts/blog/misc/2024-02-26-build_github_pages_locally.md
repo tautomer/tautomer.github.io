@@ -159,8 +159,25 @@ Here are some other issues I encountered.
 3. By default, `jekyll` only serves to `LOCALHOST`. If you want to view the site
    on other device, add CLI option `--host==0.0.0.0` so that `jekyll` will
    listen to all LAN IPv4 addresses. Note that, if you serve the site within
-   WSL, other devices cannot access the site. This is very likely the same issue
-   [here][issue] with WSL.
+   WSL, other devices cannot access the site. This is because of
+   [this issue][issue], and the solution is provided in [this comment][comment].
+   I had to run this script to ssh into my WSL before I started doing
+   self-hosting.
+
+   You can add the default port 4000 used by `jekyll serve` or whatever you
+   want to line 29 of the script
+
+   ```powershell
+   #[Ports]
+
+   #All the ports you want to forward separated by coma
+   $ports=@(80,443,10000,2222,3000,4000,5000);
+   ```
+
+   Then run this script as admin on Windows to add a Windows firewall rule, or
+   you can create the rule with the default script and add the port to this rule
+   later.
 
 [tutorial]: https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll?platform=linux
-[issue]: https://github.com/microsoft/WSL/issues/10714
+[issue]: https://github.com/microsoft/WSL/issues/4150
+[comment]: https://github.com/microsoft/WSL/issues/4150#issuecomment-504209723

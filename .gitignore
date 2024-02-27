@@ -12,3 +12,5 @@ __pycache__
 *.ipynb_checkpoints*
 # Mypy
 .mypy_cache/
+# bundle configuration
+.bundle
