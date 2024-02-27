@@ -124,10 +124,10 @@ html_code = f"""<!-- {args.title} -->
 <div class="clearfix">
   <h2>{args.title}</h2>
   <div class="row d-flex justify-content-start">
-    <div class="col-md-2 d-flex align-items-center">
+    <div class="col-auto d-grid align-items-center">
       <a href="{post_rel_path}">
-        <img class="rounded-4 img-fluid float-left mb-2" src="{img_rel_path}" alt="PPI" width="200"
-          height="200">
+        <img class="rounded-4 img-fluid float-left mb-2" src="{img_rel_path}" alt="PPI" width="180"
+          height="180">
       </a>
     </div>
     <div class="col-md-7 d-flex align-items-center table-responsive">
@@ -149,7 +149,7 @@ html_code = f"""<!-- {args.title} -->
         </tr>
       </table>
     </div>
-    <div class="col-md-3"></div>
+    <div class="col"></div>
   </div>
 </div>"""
 # fmt on

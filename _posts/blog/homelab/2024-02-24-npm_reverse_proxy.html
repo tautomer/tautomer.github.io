@@ -24,7 +24,7 @@ tags:
       <h1 id="SSL-certificate-and-LAN-domain-resolution-with-AdGuard-Home-and-Nginx-Proxy-Manager">
        SSL certificate and LAN domain resolution with AdGuard Home and Nginx Proxy Manager
        <a class="anchor-link" href="#SSL-certificate-and-LAN-domain-resolution-with-AdGuard-Home-and-Nginx-Proxy-Manager">
-        <i class="fas fa-sm fa-link">
+        <i class="fa-solid fa-sm fa-link">
         </i>
        </a>
       </h1>
@@ -143,7 +143,7 @@ good reminder on how to replicate this process for myself.
       <h2 id="A-brief-introduction-to-my-setup">
        A brief introduction to my setup
        <a class="anchor-link" href="#A-brief-introduction-to-my-setup">
-        <i class="fas fa-sm fa-link">
+        <i class="fa-solid fa-sm fa-link">
         </i>
        </a>
       </h2>
@@ -293,14 +293,14 @@ public domain, for example,
       <h2 id="Procedure">
        Procedure
        <a class="anchor-link" href="#Procedure">
-        <i class="fas fa-sm fa-link">
+        <i class="fa-solid fa-sm fa-link">
         </i>
        </a>
       </h2>
       <h3 id="Install-AdGuard-Home">
        Install AdGuard Home
        <a class="anchor-link" href="#Install-AdGuard-Home">
-        <i class="fas fa-sm fa-link">
+        <i class="fa-solid fa-sm fa-link">
         </i>
        </a>
       </h3>
@@ -328,6 +328,16 @@ just have to follow it from the beginning to the end, with a couple of things to
 note.
       </p>
       <ol>
+       <li>
+        <p>
+         Before installing AGH, I had been giving the OpenWrt VM 256 MB RAM without an
+issue. However, when I was configuring AGH through the web portal, the whole
+VM crashed a few times when I clicked the "save" button. Since the VM just
+crashed instantly, I did not get too much information on what happened. I
+suspected it was an OOM issue, so I just gave it 284 MB RAM instead, and the
+problem never showed up again.
+        </p>
+       </li>
        <li>
         <p>
          You do not have to follow the reverse proxy, ipset, and iptables section.
@@ -418,7 +428,7 @@ simply stop the service
       <h3 id="Get-a-public-domain">
        Get a public domain
        <a class="anchor-link" href="#Get-a-public-domain">
-        <i class="fas fa-sm fa-link">
+        <i class="fa-solid fa-sm fa-link">
         </i>
        </a>
       </h3>
@@ -483,7 +493,7 @@ time, you need some other tricks to bypass it. I will refer you to Google.
       <h3 id="Install-Nginx-Proxy-Manager">
        Install Nginx Proxy Manager
        <a class="anchor-link" href="#Install-Nginx-Proxy-Manager">
-        <i class="fas fa-sm fa-link">
+        <i class="fa-solid fa-sm fa-link">
         </i>
        </a>
       </h3>
@@ -570,7 +580,7 @@ packages, like
       <h3 id="Create-a-certificate-with-Let's-Encrypt">
        Create a certificate with Let's Encrypt
        <a class="anchor-link" href="#Create-a-certificate-with-Let's-Encrypt">
-        <i class="fas fa-sm fa-link">
+        <i class="fa-solid fa-sm fa-link">
         </i>
        </a>
       </h3>
@@ -689,7 +699,7 @@ domain" src="../../images/homelab/ssl/ssl_cert.png"/>
       <h3 id="Set-up-reverse-proxies">
        Set up reverse proxies
        <a class="anchor-link" href="#Set-up-reverse-proxies">
-        <i class="fas fa-sm fa-link">
+        <i class="fa-solid fa-sm fa-link">
         </i>
        </a>
       </h3>
@@ -799,7 +809,7 @@ Nextcloud. This is where AGH kicks in.
       <h3 id="Use-AdGuard-Home-to-redirect-DNS-resolving-to-Nginx-Proxy-Manager">
        Use AdGuard Home to redirect DNS resolving to Nginx Proxy Manager
        <a class="anchor-link" href="#Use-AdGuard-Home-to-redirect-DNS-resolving-to-Nginx-Proxy-Manager">
-        <i class="fas fa-sm fa-link">
+        <i class="fa-solid fa-sm fa-link">
         </i>
        </a>
       </h3>

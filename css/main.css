@@ -145,9 +145,9 @@ div.highlighter-rouge {
 
 div.highlighter-rouge>div.highlight {
   position: relative;
-  border: 1px solid #cfcfcf;
+  border: 0px solid #cfcfcf;
   border-radius: 2px;
-  background: #f7f7f7;
+  background: #282c34;
   line-height: 1.21429em
 }
 

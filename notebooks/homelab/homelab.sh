@@ -3,7 +3,7 @@
 set -eu
 
 layout="post"
-subdir="blog/homelad"
+subdir="blog/homelab"
 
 ../notebook_convert.py \
     --nbpath npm_reverse_proxy.ipynb \
