@@ -6,21 +6,21 @@ pictures:
   - nightsky_1-3000x2000.jpg
   thumbnail: nightsky_1-thumbnail.jpg
   title: Panorama in mid Oct
-  caption: Panorama of the Milky Way in the middle of October. Taken with a fisheye lens.
+  caption: Panorama of the Milky Way in the middle of October. You can see the Andromeda galaxy in the top of the photo. Taken with a fisheye lens.
 - filename: nightsky_2
-  original: nightsky_2-6000x4000.jpg
+  original: nightsky_2-9733x6952.jpg
   sizes:
-  - nightsky_2-3000x2000.jpg
+  - nightsky_2-4867x3476.jpg
   thumbnail: nightsky_2-thumbnail.jpg
-  title: The Winter Triangle
-  caption: You can see the Orion, Sirius, Procyon, and the Pleiades.
+  title: 360º panorama in mid Oct 
+  caption: Taken at the same time as the previous picture.
 - filename: nightsky_3
   original: nightsky_3-6000x4000.jpg
   sizes:
   - nightsky_3-3000x2000.jpg
   thumbnail: nightsky_3-thumbnail.jpg
-  title: The core and the cars
-  caption: Cars driving to Los Alamos
+  title: The Winter Triangle
+  caption: You can see the Orion, Sirius, Procyon, and the Pleiades.
 - filename: nightsky_4
   original: nightsky_4-11546x3702.jpg
   sizes:
@@ -34,7 +34,7 @@ pictures:
   - nightsky_5-3000x2000.jpg
   thumbnail: nightsky_5-thumbnail.jpg
   title: Tiangong and the Galactic Core 
-  caption: Chinese space station Tiangong passing in front of the Galactic Core.
+  caption: Chinese space station Tiangong passing in front of the Galactic Core. See if you can spot the trail of the space station.
 - filename: nightsky_6
   original: nightsky_6-4000x6000.jpg
   sizes:
@@ -55,7 +55,7 @@ pictures:
   - IMG_5742-1123x1684.jpg
   thumbnail: IMG_5742-thumbnail.jpg
   title: The Star Link
-  caption: A train of the Star Link satellite visible in the sky.
+  caption: A train of the Star Link satellites visible in the sky.
 - filename: P1000292-Enhanced-NR
   original: P1000292-Enhanced-NR-3363x5044.jpg
   sizes:

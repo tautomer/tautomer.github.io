@@ -1,6 +1,6 @@
 ---
 layout: default_container_title
-title: About
+title: About this blog
 permalink: /about/
 description: About this blog and its author.
 ---

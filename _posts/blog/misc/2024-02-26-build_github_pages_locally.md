@@ -131,11 +131,9 @@ Here are some other issues I encountered.
    so is did not exist in the link above so that I could not access this page
    without typing the URL manually. 
    
-   To deal with it, you can either
-   
-   1. Re-serve the site, which will rebuild the pages and include this page.
-   2. Randomly change `posts_chrono.html` a little bit (like add a new line) and
-      save it. The change in the page will trigger `Jekyll` to rebuild the page.
+   To deal with it, I just randomly change `posts_chrono.html` a little bit
+   (like add a new line) and save it. The change in the page will trigger
+   `Jekyll` to rebuild the page.
 
 2. When you run the command with the `--livereload` option, it will tell you
 

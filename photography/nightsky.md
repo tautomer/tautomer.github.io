@@ -12,4 +12,3 @@ At this moment, many people probably have never seen the Milky Way themselves.
 If you are one of them, enjoy these photos.
 
 {% include gallery-layout.html gallery=site.data.galleries.nightsky %}
-
