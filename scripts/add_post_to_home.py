@@ -2,6 +2,7 @@ import argparse
 import os
 import shutil
 import sys
+import textwrap
 
 
 class CustomFormatter(
@@ -122,39 +123,54 @@ if not args.button:
     args.button = args.title
 
 # fmt off
+"""
+Explanation of the html code
+
+1. Layout
+    I. 3 columns, picture, description and buttons, spacer
+    II. For the second column, use rows to stack description and buttons vertically
+    III. Multiple buttons will be placed horizontally whenever possible
+2. `d-grid` needed for 1st level columns (middle column in I)
+3. col-auto is needed to switch buttons to rows when screen is too narrow (III)
+4. Add `border` to the class to visualize the borders of containers for easy development
+"""
 html_code = f"""<!-- {args.title} -->
 <div class="clearfix">
   <h2>{args.title}</h2>
   <div class="row d-flex justify-content-start">
     <div class="col-auto d-grid align-items-center">
       <a href="{post_rel_path}">
-        <img class="rounded-4 img-fluid float-left mb-2" src="{img_rel_path}" alt="PPI" width="180"
-          height="180">
+        <img class="rounded-4 img-fluid float-left mb-2" src="{img_rel_path}" alt="PPI" width="180" height="180">
       </a>
     </div>
-    <div class="col-md-7 d-flex align-items-center table-responsive">
-      <table>
-        <tr>
-          <td>
-            <p>
-              {args.description}
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="text-center">
-              <a class="btn btn-outline-primary btn-block" href="{post_rel_path}" role="button">{args.button} 
-                <i class="fa-solid fa-angles-right fa-sm"></i></a>
-            </div>
-          </td>
-        </tr>
-      </table>
+    <div class="col-md-7 d-grid align-items-center overflow-hidden">
+      <div class="row">
+          <p style="margin-bottom: 0;">
+            {args.description}
+          </p>
+      </div>
+      <div class="row" style="margin: auto;">
+        <div class="col-auto text-center">
+          <a class="btn btn-outline-primary btn-block" style="margin: 3px;" href="{post_rel_path}" role="button"> {args.button} <i class="fa-solid fa-angles-right fa-sm"></i></a>
+        </div>
+      </div>
     </div>
     <div class="col"></div>
   </div>
 </div>"""
 # fmt on
+# with open("123", "w") as test:
+#     tmp = textwrap.wrap(
+#         html_code,
+#         width=120,
+#         replace_whitespace=False,
+#         break_long_words=False,
+#         drop_whitespace=False,
+#         break_on_hyphens=False,
+#         tabsize=2,
+#     )
+#     for i in tmp:
+#         print(i, file=test)
 
 # add html
 updated = False

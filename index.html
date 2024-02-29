@@ -16,28 +16,32 @@ description: Posts on my work and my hobbies.
           height="180">
       </a>
     </div>
-    <div class="col-md-7 d-flex align-items-center table-responsive">
-      <table>
-        <tr>
-          <td>
-            <p>
-              When you are working with Github Pages, it is such a pain to test it, especially if you are working on something like this Jekyll-based site. Without setting up a local environment, to view any change, you have to git commit and push, then wait until GitHub to have your site updated. I decided to follow the official tutorial to do it myself.
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="text-center">
-              <a class="btn btn-outline-primary btn-block" href="/posts/build_github_pages_locally/" role="button">Efficient GitHub Pages development 
-                <i class="fa-solid fa-angles-right fa-sm"></i></a>
-            </div>
-          </td>
-        </tr>
-      </table>
+    <div class="col-md-8 d-grid align-items-center overflow-hidden">
+      <div class="row">
+        <p style="margin-bottom: 0;">
+          When you are working with Github Pages, it is such a pain to test it, especially if you are working on
+          something like this Jekyll-based site. Without setting up a local environment, to view any change, you have to
+          git commit and push, then wait until GitHub to have your site updated. I decided to follow the official
+          tutorial to do it myself.
+        </p>
+      </div>
+      <div class="row" style="margin: auto;">
+        <div class="col-auto text-center">
+          <a class="btn btn-outline-primary btn-block" style="margin: 3px;" href="/posts/build_github_pages_locally/"
+            role="button">Build on WSL
+            <i class="fa-solid fa-angles-right fa-sm"></i></a>
+        </div>
+        <div class="col-auto text-center">
+          <a class="btn btn-outline-primary btn-block" style="margin: 3px;"
+            href="/posts/build_github_pages_locally_with_alpine_lxc/" role="button">On an Alpine LXC
+            <i class="fa-solid fa-angles-right fa-sm"></i></a>
+        </div>
+      </div>
     </div>
     <div class="col"></div>
   </div>
 </div>
+
 
 <!-- protein-protein interactions -->
 <div class="clearfix">
@@ -49,99 +53,84 @@ description: Posts on my work and my hobbies.
           height="180">
       </a>
     </div>
-    <div class="col-md-7 d-flex align-items-center justify-content-start table-responsive">
-      <table>
-        <tr>
-          <td>
-            <p>
-              Well, I recently review a manuscript on predicting the so-called "protein-protein interactions" (PPI) with
-              a convolutional neural network (CNN). The quality of the paper was exceptionally low, but I was really
-              curious on the validity of their results and if I could achieve better predictions, so here it is.
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="text-center">
-              <a class="btn btn-outline-primary btn-block" href="/posts/protein_protein_interaction/" role="button">PPI
-                part 1 <i class="fa-solid fa-angles-right fa-sm"></i></a>
-            </div>
-          </td>
-        </tr>
-      </table>
+    <div class="col-md-8 d-grid align-items-center overflow-hidden">
+      <div class="row">
+        <p style="margin-bottom: 0;">
+          Well, I recently review a manuscript on predicting the so-called "protein-protein interactions" (PPI) with a
+          convolutional neural network (CNN). The quality of the paper was exceptionally low, but I was really curious
+          on the validity of their results and if I could achieve better predictions, so here it is.
+        </p>
+      </div>
+      <div class="row" style="margin: auto;">
+        <div class="col-auto text-center">
+          <a class="btn btn-outline-primary btn-block" style="margin: 3px;" href="/posts/protein_protein_interaction/"
+            role="button">PPI part 1 <i class="fa-solid fa-angles-right fa-sm"></i></a>
+        </div>
+      </div>
     </div>
     <div class="col"></div>
   </div>
 </div>
 
-<!-- NPM reverse proxy -->
+<!-- Encrypt and resolve your self-hosted services -->
 <div class="clearfix">
   <h2>Encrypt and resolve your self-hosted services</h2>
   <div class="row d-flex justify-content-start">
     <div class="col-auto d-grid align-items-center">
       <a href="/posts/npm_reverse_proxy/">
-        <img class="rounded-4 img-fluid float-left" src="/images/homelab/ssl/ssl_warning.png" alt="SSL Warning"
-          width="180" height="180">
+        <img class="rounded-4 img-fluid float-left mb-2" src="/images/homelab/ssl/ssl_warning.png" alt="PPI" width="180"
+          height="180">
       </a>
     </div>
-    <div class="col-md-7 d-flex align-items-center justify-content-start table-responsive">
-      <table>
-        <tr>
-          <td>
-            <p>
-              If you are a home lab person, there is no need to explain why the problem here is annoying. Use Nginx
-              Proxy Manager and AdGuard Home to certify your self-hosted services and access them without port numbers.
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="text-center">
-              <a class="btn btn-outline-primary btn-block flex-column" href="/posts/npm_reverse_proxy/"
-                role="button">Let's encrypt and resolve <i class="fa-solid fa-angles-right fa-sm"></i></a>
-            </div>
-          </td>
-        </tr>
-      </table>
+    <div class="col-md-8 d-grid align-items-center overflow-hidden">
+      <div class="row">
+        <p style="margin-bottom: 0;">
+          If you are a home lab person, there is no need to explain why the problem here is annoying. Use Nginx Proxy
+          Manager and AdGuard Home to certify your self-hosted services and access them without port numbers.
+        </p>
+      </div>
+      <div class="row" style="margin: auto;">
+        <div class="col-auto text-center">
+          <a class="btn btn-outline-primary btn-block" style="margin: 3px;" href="/posts/npm_reverse_proxy/"
+            role="button"> Let's encrypt and resolve
+            <i class="fa-solid fa-angles-right fa-sm"></i></a>
+        </div>
+      </div>
     </div>
     <div class="col"></div>
   </div>
 </div>
 
 
-<!-- Fix Synology DS2415+ -->
+<!-- Fix Synology DS2415+ NAS that suffered from an Intel CPU bug -->
 <div class="clearfix">
   <h2>Fix Synology DS2415+ NAS that suffered from an Intel CPU bug</h2>
   <div class="row d-flex justify-content-start">
-    <div class="col-auto col-lg-2 d-grid align-items-center">
+    <div class="col-auto d-grid align-items-center">
       <a href="/posts/fix_synology_ds2415+/">
-        <img class="rounded-4 img-fluid float-left mb-2" src="/images/fix_stuff/fixing_synology/intel.jpg" alt="Intel"
+        <img class="rounded-4 img-fluid float-left mb-2" src="/images/fix_stuff/fixing_synology/intel.jpg" alt="PPI"
           width="180" height="180">
       </a>
     </div>
-    <div class="col-md-7 d-flex align-items-center justify-content-start table-responsive">
-      <table>
-        <tr>
-          <td>
-            <p>There is a hardware bug in certain Intel Atom CPUs. These CPUs will degrade over time and eventually the
-              computer will not boot up due to the clock issue of the CPU. Funnily, fixing the problem only need one
-              resistor to be soldered on the motherboard. The only thing is that the CPU will die again and by that
-              time, there is no way to fix it.</p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="text-center">
-              <a class="btn btn-outline-primary btn-block" href="/posts/fix_synology_ds2415+/" role="button">First time
-                soldering stuff <i class="fa-solid fa-angles-right fa-sm"></i></a>
-          </td>
-        </tr>
-      </table>
+    <div class="col-md-8 d-grid align-items-center overflow-hidden">
+      <div class="row">
+        <p style="margin-bottom: 0;">
+          There is a hardware bug in certain Intel Atom CPUs. These CPUs will degrade over time and eventually the
+          computer will not boot up due to the clock issue of the CPU. Funnily, fixing the problem only need one
+          resistor to be soldered on the motherboard. The only thing is that the CPU will die again and by that time,
+          there is no way to fix it.
+        </p>
+      </div>
+      <div class="row" style="margin: auto;">
+        <div class="col-auto text-center">
+          <a class="btn btn-outline-primary btn-block" style="margin: 3px;" href="/posts/fix_synology_ds2415+/"
+            role="button"> First time soldering stuff <i class="fa-solid fa-angles-right fa-sm"></i></a>
+        </div>
+      </div>
     </div>
     <div class="col"></div>
   </div>
 </div>
-
 
 
 <!-- Most recent

@@ -9,7 +9,7 @@ tags:
 - OS
 - DIY
 ---
-# Build GitHub Pages locally with Jekyll
+# Build GitHub Pages locally with Jekyll on WSL
 
 When you are working with Github Pages, it is such a pain to test it, especially
 if you are working on something like this Jekyll-based site. Without setting up
@@ -89,7 +89,7 @@ Now you should be able to see your page in the browser!
 
 ![Live view](../../../images/misc/jekyll_served.png)
 
-Here is the live view when I am working this very post.
+Here is the live view when I was working on this very post.
 
 ## Some tips
 
@@ -97,7 +97,7 @@ Here are some other issues I encountered.
 
 1. A site built by Jekyll utilize some pre-processors, for example, in
    `posts_chrono.html`
-   
+
    ```html
    <h1><span class="fas fa-clock-rotate-left fa-fw"></span> Posts</h1>
    <ul>
@@ -126,11 +126,11 @@ Here are some other issues I encountered.
    These are called `liquid syntax` which will be parsed by `Jekyll` to build the
    page. Here this page basically finds all the post and create this
    [posts_chrono](/posts_chrono/) page.
-   
+
    Here comes the problem. I started serving the site and then created this post,
    so is did not exist in the link above so that I could not access this page
    without typing the URL manually. 
-   
+
    To deal with it, I just randomly change `posts_chrono.html` a little bit
    (like add a new line) and save it. The change in the page will trigger
    `Jekyll` to rebuild the page.
