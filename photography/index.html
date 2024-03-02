@@ -13,29 +13,46 @@ support: [jquery]
 
     <p>{{ page.description }}</p>
 
-    {% assign count = 0 %}
-    {% assign align = "left" %}
-    {% for gallery in site.data.galleries.overview %}
-    {% if count == 0 %}<div class="gallery-row">{% endif %}
-      <div class="half-width {{ align }}">
-        <h2>{{ gallery.title }}</h2>
-        <a href="/photography/{{ gallery.directory }}/index.html">
-          <img class="rounded-3 mt-3" alt="{{ gallery.title }}"
+    <!-- total number of galleries -->
+    {% assign n_galleries = site.data.galleries.overview | size %}
+    <div class="row d-flex justify-content-start">
+      <!-- left column-->
+      <div class="col-md-6" style="padding-right: 6px;">
+      {% assign count = 0 %}
+      {% for temp in (0..n_galleries) %}
+        {% assign gallery = site.data.galleries.overview[count] %}
+        <div class="container" style="padding: 0;">
+          <h2>{{ gallery.title }}</h2>
+          <a href="/photography/{{ gallery.directory }}/index.html">
+            <img class="rounded-3 mt-3" alt="{{ gallery.title }}"
             src="/images/photography/{% if gallery.picture_path %}{{ gallery.picture_path }}{% else %}{{ gallery.directory }}{% endif %}/{{ gallery.preview.thumbnail }}" />
-        </a>
+          </a>
+        </div>
+        {% assign count = count | plus: 2 %}
+        {% if n_galleries <= count %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
       </div>
-      {% if count == 1 %}
-    </div>{% endif %}
-    {% assign count = count | plus: 1 %}
-    {% assign align = "right" %}
-    {% if count >= 2 %}
-    {% assign align = "left" %}
-    {% assign count = 0 %}
-    {% endif %}
-    {% endfor %}
 
-    {% if count != 1 %}
+      <!-- right column-->
+      <div class="col-md-6" style="padding-left: 6px;">
+      {% assign count = 1 %}
+      {% for temp in (0..n_galleries) %}
+        {% assign gallery = site.data.galleries.overview[count] %}
+        <div class="container" style="padding: 0;">
+          <h2>{{ gallery.title }}</h2>
+          <a href="/photography/{{ gallery.directory }}/index.html">
+            <img class="rounded-3 mt-3" alt="{{ gallery.title }}"
+            src="/images/photography/{% if gallery.picture_path %}{{ gallery.picture_path }}{% else %}{{ gallery.directory }}{% endif %}/{{ gallery.preview.thumbnail }}" />
+          </a>
+        </div>
+        {% assign count = count | plus: 2 %}
+        {% if n_galleries <= count %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+      </div>
+    </div>
   </div>
-  {% endif %}
-</div>
 </div>

@@ -3,3 +3,15 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="/js/bootstrap.bundle.min.js"></script>
 <script src="/js/input_exapand_collapse.js"></script>
+{% if page.mermaid %}
+<script src="https://unpkg.com/mermaid@10.8.0/dist/mermaid.min.js"></script>
+<script>
+  $(document).ready(function () {
+    mermaid.initialize({
+      startOnLoad:true,
+      theme: "dark",
+    });
+    window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+  });
+</script>
+{% endif %}

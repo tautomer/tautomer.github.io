@@ -16,3 +16,12 @@
   sizes:
   - IMG_1861-1958x1306.jpg
   thumbnail: IMG_1861-thumbnail.jpg
+-
+ title: Ships
+ directory: ships
+ preview:
+  filename: IMG_20220727_123208
+  original: IMG_20220727_123208-2710x3387.jpg
+  sizes:
+  - IMG_20220727_123208-1355x1694.jpg
+  thumbnail: IMG_20220727_123208-thumbnail.jpg
