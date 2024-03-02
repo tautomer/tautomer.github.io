@@ -25,3 +25,12 @@
   sizes:
   - IMG_20220727_123208-1355x1694.jpg
   thumbnail: IMG_20220727_123208-thumbnail.jpg
+-
+ title: Planes
+ directory: planes
+ preview:
+  filename: IMG_20211224_140409
+  original: IMG_20211224_140409-3648x2052.jpg
+  sizes:
+  - IMG_20211224_140409-1824x1026.jpg
+  thumbnail: IMG_20211224_140409-thumbnail.jpg

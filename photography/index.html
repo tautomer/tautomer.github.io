@@ -10,11 +10,10 @@ support: [jquery]
   <div class="main-template">
     <h1><i class="fa-solid fa-panorama fa-fw"></i>&nbsp;{{ page.title }}</h1>
 
-
     <p>{{ page.description }}</p>
 
     <!-- total number of galleries -->
-    {% assign n_galleries = site.data.galleries.overview | size %}
+    {% assign n_galleries = site.data.galleries.overview.size %}
     <div class="row d-flex justify-content-start">
       <!-- left column-->
       <div class="col-md-6" style="padding-right: 6px;">

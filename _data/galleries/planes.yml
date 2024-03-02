@@ -1,0 +1,44 @@
+picture_path: planes
+pictures:
+- filename: IMG_20211223_122410
+  original: IMG_20211223_122410-2592x3456.jpg
+  sizes:
+  - IMG_20211223_122410-1296x1728.jpg
+  thumbnail: IMG_20211223_122410-thumbnail.jpg
+  title: FLAK 36
+  caption: The famous German WWII anti-anything gun, FLAK 36. 11 kill rings on the gun barrel mean that there were 11 Allied planes (or maybe vehicles) destroyed by it.
+- filename: IMG_20211223_123624
+  original: IMG_20211223_123624-3178x2119.jpg
+  sizes:
+  - IMG_20211223_123624-1589x1060.jpg
+  thumbnail: IMG_20211223_123624-thumbnail.jpg
+  title: P-47D
+  caption: A P-47D with a BF-109 in the background. They were some or less rivals in the European theater.
+- filename: IMG_20211223_124622
+  original: IMG_20211223_124622-3547x2660.jpg
+  sizes:
+  - IMG_20211223_124622-1774x1330.jpg
+  thumbnail: IMG_20211223_124622-thumbnail.jpg
+  title: Fritz X
+  caption: The famous German guided bomb, which sank the battleship Roma (Italy's Regia Marina)
+- filename: IMG_20211223_133049
+  original: IMG_20211223_133049-3562x2004.jpg
+  sizes:
+  - IMG_20211223_133049-1781x1002.jpg
+  thumbnail: IMG_20211223_133049-thumbnail.jpg
+  title: MQ-9 Reaper 
+  caption: Succeeder of the earlier MQ-1, MQ-9 is an UAV designed for long-endurance, high-altitude surveillance.
+- filename: IMG_20211224_140348
+  original: IMG_20211224_140348-3648x2432.jpg
+  sizes:
+  - IMG_20211224_140348-1824x1216.jpg
+  thumbnail: IMG_20211224_140348-thumbnail.jpg
+  title: SR-71 with D-21
+  caption: An SR-71 with a D-21 drone to its left. You can also see the P&W J-58 engine behind the drone,
+- filename: IMG_20211224_140409
+  original: IMG_20211224_140409-3648x2052.jpg
+  sizes:
+  - IMG_20211224_140409-1824x1026.jpg
+  thumbnail: IMG_20211224_140409-thumbnail.jpg
+  title: B-2
+  caption: One of the superstars in the museum of USAF. This is the only one of this model that is on display.
