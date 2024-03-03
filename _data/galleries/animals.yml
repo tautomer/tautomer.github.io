@@ -5,38 +5,68 @@ pictures:
   sizes:
   - IMG_1861-1958x1306.jpg
   thumbnail: IMG_1861-thumbnail.jpg
+  title: A drinking panda
+  caption: A stuffed animal is still an animal :)
 - filename: IMG_5599
   original: IMG_5599-3368x6000.jpg
   sizes:
   - IMG_5599-1684x3000.jpg
   thumbnail: IMG_5599-thumbnail.jpg
+  title: Hiker dog at more than 13K ft 
+  caption: I met this cute dog when hiking down Mt Elbert. The elevation was 13,330 feet.
 - filename: IMG_6863-Enhanced-NR
   original: IMG_6863-Enhanced-NR-2667x4000.jpg
   sizes:
   - IMG_6863-Enhanced-NR-1334x2000.jpg
   thumbnail: IMG_6863-Enhanced-NR-thumbnail.jpg
+  title: Unhappy deer
+  caption: I met this male deer right after parking at the trailhead. Probably I was too close.
 - filename: P1000065
   original: P1000065-6000x4000.jpg
   sizes:
   - P1000065-3000x2000.jpg
   thumbnail: P1000065-thumbnail.jpg
+  title: Fluffy pigeon
+  caption: Is this a pigeon? I don't really know. Never seen such a fluffy pigeon before.
 - filename: P1000246-Enhanced-NR
   original: P1000246-Enhanced-NR-2787x4181.jpg
   sizes:
   - P1000246-Enhanced-NR-1394x2091.jpg
   thumbnail: P1000246-Enhanced-NR-thumbnail.jpg
+  title: Doggy snowshoer
+  caption: Met this fluffy guy when snowshoeing.
 - filename: P1000896-Enhanced-NR
   original: P1000896-Enhanced-NR-6000x4000.jpg
   sizes:
   - P1000896-Enhanced-NR-3000x2000.jpg
   thumbnail: P1000896-Enhanced-NR-thumbnail.jpg
+  title: Dogs fighting
+  caption: A dynamic moment when two dogs playing with each other.
 - filename: P1000940-Enhanced-NR
   original: P1000940-Enhanced-NR-2667x4000.jpg
   sizes:
   - P1000940-Enhanced-NR-1334x2000.jpg
   thumbnail: P1000940-Enhanced-NR-thumbnail.jpg
+  title: Proud goose
+  caption: A proud goose sunbathing at the Ashley Pond.
+- filename: P1001450-Enhanced-NR
+  original: P1001450-Enhanced-NR-5333x4000.jpg
+  sizes:
+  - P1001450-Enhanced-NR-2667x2000.jpg
+  thumbnail: P1001450-Enhanced-NR-thumbnail.jpg
+  title: Geese
+  caption: The same goose now with a couple in the background.
+- filename: P1001460-Enhanced-NR
+  original: P1001460-Enhanced-NR-3328x2219.jpg
+  sizes:
+  - P1001460-Enhanced-NR-1664x1110.jpg
+  thumbnail: P1001460-Enhanced-NR-thumbnail.jpg
+  title: Eagle
+  caption: Saw two crows sitting on the tree and a third one coming, but it turned out to be an eagle.
 - filename: rattlesnake
   original: rattlesnake-6000x3368.jpg
   sizes:
   - rattlesnake-3000x1684.jpg
   thumbnail: rattlesnake-thumbnail.jpg
+  title: Angry rattlesnake
+  caption: A rattlesnake resting near the trial at Bandelier. Apparently, the snake wasn't happy when we were passing by.

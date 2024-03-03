@@ -1,0 +1,50 @@
+picture_path: landscapes
+pictures:
+- filename: IMG_20230730_100154
+  original: IMG_20230730_100154-2736x3648.jpg
+  sizes:
+  - IMG_20230730_100154-1368x1824.jpg
+  thumbnail: IMG_20230730_100154-thumbnail.jpg
+  title: Black Canyon National Park
+- filename: IMG_20230902_093741
+  original: IMG_20230902_093741-2736x3648.jpg
+  sizes:
+  - IMG_20230902_093741-1368x1824.jpg
+  thumbnail: IMG_20230902_093741-thumbnail.jpg
+  title: Mt Massive from Mt Elbert
+- filename: IMG_4037
+  original: IMG_4037-4860x2728.jpg
+  sizes:
+  - IMG_4037-2430x1364.jpg
+  thumbnail: IMG_4037-thumbnail.jpg
+  title: The Golden Gate Bridge
+- filename: IMG_5117
+  original: IMG_5117-6000x3368.jpg
+  sizes:
+  - IMG_5117-3000x1684.jpg
+  thumbnail: IMG_5117-thumbnail.jpg
+  title: An alpine lake in the Latir Peak Wilderness
+- filename: IMG_5875
+  original: IMG_5875-6000x3368.jpg
+  sizes:
+  - IMG_5875-3000x1684.jpg
+  thumbnail: IMG_5875-thumbnail.jpg
+  title: The Rio Grande Gorge Bridge
+- filename: IMG_6858-Enhanced-NR
+  original: IMG_6858-Enhanced-NR-4000x6000.jpg
+  sizes:
+  - IMG_6858-Enhanced-NR-2000x3000.jpg
+  thumbnail: IMG_6858-Enhanced-NR-thumbnail.jpg
+  title: Moonrise at the Bosque del Apache National Wildlife Refuge
+- filename: P1001110-Enhanced-NR
+  original: P1001110-Enhanced-NR-4000x6000.jpg
+  sizes:
+  - P1001110-Enhanced-NR-2000x3000.jpg
+  thumbnail: P1001110-Enhanced-NR-thumbnail.jpg
+  title: NM-502 on a foggy day
+- filename: P1001447-Enhanced-NR
+  original: P1001447-Enhanced-NR-4000x6000.jpg
+  sizes:
+  - P1001447-Enhanced-NR-2000x3000.jpg
+  thumbnail: P1001447-Enhanced-NR-thumbnail.jpg
+  title: NM-502 at sunset

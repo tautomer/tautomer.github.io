@@ -17,6 +17,15 @@
   - IMG_1861-1958x1306.jpg
   thumbnail: IMG_1861-thumbnail.jpg
 -
+ title: Landscapes
+ directory: landscapes
+ preview:
+  filename: IMG_5117
+  original: IMG_5117-6000x3368.jpg
+  sizes:
+  - IMG_5117-3000x1684.jpg
+  thumbnail: IMG_5117-thumbnail.jpg
+-
  title: Ships
  directory: ships
  preview:
@@ -26,8 +35,8 @@
   - IMG_20220727_123208-1355x1694.jpg
   thumbnail: IMG_20220727_123208-thumbnail.jpg
 -
- title: Planes
- directory: planes
+ title: Aircraft
+ directory: aircraft
  preview:
   filename: IMG_20211224_140409
   original: IMG_20211224_140409-3648x2052.jpg
