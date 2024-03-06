@@ -20,9 +20,9 @@ Since then, I have been using this username in many different places.
 ### About me
 
 I am theoretical chemist trying to understand chemical reactions through
-molecular dynamics. Currently, I working on building a deep neural network
-framework for predicting excited state properties. Before joining LANL as a
-postdoc, I did my PhD at University of Rochester.
+molecular dynamics simulations. Currently, I am working on building a deep
+neural network framework for predicting excited state properties. Before joining
+LANL as a postdoc, I did my PhD at University of Rochester.
 
 #### Skills
 
@@ -117,7 +117,7 @@ For the ones listed with a cover art, I made all of them.
 ### Technical side of this blog
 
 This blog is made using [Jekyll][jekyll] by [Peter Roelants][peterroelants] and
-is hosted on [GitHub Pages][gh_pages] To know more how this blog is made, and
+is hosted on [GitHub Pages][gh_pages]. To know more how this blog is made, and
 how he converted notebooks to blog posts see [hosting Jupyter notebooks on a
 blog][tech]. The gallery code is modified from [this repo][gallery] and the css
 is modified based on [the gallery.css provided here][gallery_css]. The syntax
@@ -127,11 +127,11 @@ Please get in touch with me if you have any comments or questions. You can
 contact me via the channels below:
 
 <span>
-	<a href="https://github.com/tautomer" target="_blank"><i class="fab fa-github fa-3x fa-fw"></i></a>
-	<a href="https://www.linkedin.com/in/xinyang-li-chemist/" target="_blank"><i class="fab fa-linkedin fa-3x fa-fw"></i></a>
-	<a href="https://twitter.com/XinyangLiChem" target="_blank"><i class="fab fa-twitter fa-3x fa-fw"></i></a>
-	<a href="https://www.instagram.com/ringpolymer/" target="_blank"><i class="fab fa-instagram fa-3x fa-fw"></i></a>
-	<a href="mailto:lix@lanl.gov" target="_blank"><i class="fas fa-envelope fa-3x fa-fw"></i></a>
+	<a href="https://github.com/{{ site.github_username }}" target="_blank"><i class="fab fa-github fa-3x fa-fw"></i></a>
+	<a href="https://www.linkedin.com/in/{{ site.linkedin_username }}/" target="_blank"><i class="fab fa-linkedin fa-3x fa-fw"></i></a>
+	<a href="https://twitter.com/{{ site.twitter_username }}" target="_blank"><i class="fab fa-twitter fa-3x fa-fw"></i></a>
+	<a href="https://www.instagram.com/{{ site.instagram_username }}/" target="_blank"><i class="fab fa-instagram fa-3x fa-fw"></i></a>
+	<a href="mailto:{{ site.email }}" target="_blank"><i class="fas fa-envelope fa-3x fa-fw"></i></a>
 </span>
 
 [jekyll]: https://help.github.com/articles/using-jekyll-with-pages/

@@ -176,6 +176,14 @@ Here are some other issues I encountered.
    you can create the rule with the default script and add the port to this rule
    later.
 
+4. Jekyll does not watch changes made to `_config.yml`. It seems even restarting
+   the server might not work. You have to run `bundle exec jekyll build` or
+   `jekyll build` such that these changes will take effects. In fact, if you run
+   the build command from another terminal, there is no need to terminate and
+   restart the server. Simply, the issue mentioned at the beginning of the list
+   can be solved in the same fashion. Just remember to manually refresh the
+   page.
+
 [tutorial]: https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll?platform=linux
 [issue]: https://github.com/microsoft/WSL/issues/4150
 [comment]: https://github.com/microsoft/WSL/issues/4150#issuecomment-504209723

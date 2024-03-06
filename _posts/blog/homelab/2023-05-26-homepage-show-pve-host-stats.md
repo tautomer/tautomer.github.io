@@ -6,19 +6,16 @@ tags:
 - Home Lab
 - Self-hosted
 - Proxmox
+- Homepage
 ---
 # Show PVE host system load on Homepage LXC
 
-[Homepage][homepage] is a customizable "home page" or "dashboard" that you can
-host yourself. I have to say the name of the project is really bad. It is very
-hard to google it, since the vast majority of "homepage" hints will not be this
-repo.
+We have introduced the [Homepage][homepage] project in our previous post. In
+that post, I have discussed how to build and serve Homepage inside an Alpine
+LXC. If you are interested, you can find the post [here][homepage_alpine].
 
-![screenshot](https://github.com/gethomepage/homepage/blob/main/images/1.png?raw=true)
-
-Screenshot from the README in the official repo.
-
-There is a "widget" that allows you to monitor the system load
+This time, I will talk about a different issue. There is a "widget" that allows
+you to monitor the system load
 
 ```yaml
 - resources:
@@ -80,5 +77,6 @@ it this way.
 Now, your Homepage widgets should show your host's system load.
 
 [homepage]: https://github.com/gethomepage/homepage
+[homepage_alpine]: /posts/host_homepage_in_alpine/
 [issue]: https://github.com/gethomepage/homepage/issues/210#issuecomment-1565088878
 [new]: https://gethomepage.dev/latest/widgets/services/glances/
