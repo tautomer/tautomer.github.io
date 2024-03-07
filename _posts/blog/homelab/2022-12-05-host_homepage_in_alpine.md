@@ -216,4 +216,4 @@ You can start customize your homepage now!
 [homepage]: https://github.com/gethomepage/homepage
 [pve_helper]: https://tteck.github.io/Proxmox/
 [openrc]: https://github.com/OpenRC/openrc
-[screenshot_readme]: https://github.com/gethomepage/homepage/blob/main/images/1.png?raw=true
+[screenshot_readme]: https://raw.githubusercontent.com/gethomepage/homepage/main/images/1.png

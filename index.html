@@ -66,6 +66,10 @@ description: Posts on my work and my hobbies.
           <a class="btn btn-outline-primary btn-block" style="margin: 3px;" href="/posts/protein_protein_interaction/"
             role="button">PPI part 1 <i class="fa-solid fa-angles-right fa-sm"></i></a>
         </div>
+        <div class="col-auto text-center">
+          <a class="btn btn-outline-primary btn-block" style="margin: 3px;" href="/posts/protein_protein_interaction_p2/"
+            role="button">PPI part 2 <i class="fa-solid fa-angles-right fa-sm"></i></a>
+        </div>
       </div>
     </div>
     <div class="col"></div>
@@ -101,6 +105,47 @@ description: Posts on my work and my hobbies.
   </div>
 </div>
 
+<!-- Host Homepage inside a Alpine LXC -->
+<div class="clearfix">
+  <h2>Host Homepage inside a Alpine LXC</h2>
+  <div class="row d-flex justify-content-start">
+    <div class="col-auto d-grid align-items-center">
+      <a href="/posts/host_homepage_in_alpine/">
+        <canvas id="homepage_logo" class="rounded-4 img-fluid float-left mb-2" width="180" height="180" style="background-color: #e4e5ea;">
+          <script>
+            var canvas = document.getElementById('homepage_logo'),
+            context = canvas.getContext('2d');
+            make_base();
+            function make_base()
+            {
+              base_image = new Image();
+              base_image.src = 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/homepage.png';
+              base_image.onload = function(){
+                context.drawImage(base_image, 30, 30, 120, 120);
+              }
+            }
+          </script>
+        </canvas>
+      </a>
+    </div>
+    <div class="col-md-8 d-grid align-items-center overflow-hidden">
+      <div class="row">
+          <p style="margin-bottom: 0;">
+            <a href="https://gethomepage.dev/latest/">Homepage</a> is popular dashboard application that you can
+            self-host. A convenient script to set up Homepage inside a Debian LXC is already provided by Proxmox VE
+            Helper-Scripts, but I just feel it is such an overkill to use Debian here. So here is a quick tutorial on
+            how to set up the Homepage application within Alpine Linux from scratch.
+          </p>
+      </div>
+      <div class="row" style="margin: auto;">
+        <div class="col-auto text-center">
+          <a class="btn btn-outline-primary btn-block" style="margin: 3px;" href="/posts/host_homepage_in_alpine/" role="button"> Homepage @ Alpine <i class="fa-solid fa-angles-right fa-sm"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
 
 <!-- Fix Synology DS2415+ NAS that suffered from an Intel CPU bug -->
 <div class="clearfix">

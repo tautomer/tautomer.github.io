@@ -143,7 +143,7 @@ html_code = f"""<!-- {args.title} -->
         <img class="rounded-4 img-fluid float-left mb-2" src="{img_rel_path}" alt="PPI" width="180" height="180">
       </a>
     </div>
-    <div class="col-md-7 d-grid align-items-center overflow-hidden">
+    <div class="col-md-8 d-grid align-items-center overflow-hidden">
       <div class="row">
           <p style="margin-bottom: 0;">
             {args.description}
