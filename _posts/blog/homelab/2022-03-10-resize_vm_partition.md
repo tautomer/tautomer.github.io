@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post_markdown
 title: Enlarge the system partition of my Debian VM
 description: A tutorial to resize the system partition of a virtual machine
 tags:

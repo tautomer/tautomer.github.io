@@ -1,57 +1,56 @@
 ---
-layout: default
+layout: default_container
 title: Photo galleries
-description: Here are some of my personal favorite photos. I hope these beautiful scenes can bring something positive to you.
+description: Here are some of my personal favorite photos. I hope these beautiful scenes can bring something positive to you. Click on the photos to check out each gallery.
 permalink: /photography/
 support: [jquery]
 ---
 
-<div class="container">
-  <div class="main-template">
-    <h1><i class="fa-solid fa-panorama fa-fw"></i>&nbsp;{{ page.title }}</h1>
+<h1><i class="fa-solid fa-panorama fa-fw"></i>&nbsp;{{ page.title }}</h1>
 
-    <p>{{ page.description }}</p>
+<p>{{ page.description }}</p>
 
-    <!-- total number of galleries -->
-    {% assign n_galleries = site.data.galleries.overview.size %}
-    <div class="row d-flex justify-content-start">
-      <!-- left column-->
-      <div class="col-md-6" style="padding-right: 6px;">
-      {% assign count = 0 %}
-      {% for temp in (0..n_galleries) %}
-        {% assign gallery = site.data.galleries.overview[count] %}
-        <div class="container" style="padding: 0;">
-          <h2>{{ gallery.title }}</h2>
-          <a href="/photography/{{ gallery.directory }}/index.html">
-            <img class="rounded-3 mt-3" alt="{{ gallery.title }}"
-            src="/images/photography/{% if gallery.picture_path %}{{ gallery.picture_path }}{% else %}{{ gallery.directory }}{% endif %}/{{ gallery.preview.thumbnail }}" />
-          </a>
-        </div>
-        {% assign count = count | plus: 2 %}
-        {% if n_galleries <= count %}
-          {% break %}
-        {% endif %}
-      {% endfor %}
-      </div>
-
-      <!-- right column-->
-      <div class="col-md-6" style="padding-left: 6px;">
-      {% assign count = 1 %}
-      {% for temp in (0..n_galleries) %}
-        {% assign gallery = site.data.galleries.overview[count] %}
-        <div class="container" style="padding: 0;">
-          <h2>{{ gallery.title }}</h2>
-          <a href="/photography/{{ gallery.directory }}/index.html">
-            <img class="rounded-3 mt-3" alt="{{ gallery.title }}"
-            src="/images/photography/{% if gallery.picture_path %}{{ gallery.picture_path }}{% else %}{{ gallery.directory }}{% endif %}/{{ gallery.preview.thumbnail }}" />
-          </a>
-        </div>
-        {% assign count = count | plus: 2 %}
-        {% if n_galleries <= count %}
-          {% break %}
-        {% endif %}
-      {% endfor %}
-      </div>
+<!-- total number of galleries -->
+{% assign n_galleries = site.data.galleries.overview.size %}
+<div class="row d-flex justify-content-start">
+  <!-- left column-->
+  <div class="col-md-6" style="padding-right: 6px;">
+  {% assign count = 0 %}
+  {% for temp in (0..n_galleries) %}
+    {% assign gallery = site.data.galleries.overview[count] %}
+    <div class="container" style="padding: 0;">
+      <h2>{{ gallery.title }}</h2>
+      <a href="/photography/{{ gallery.directory }}/index.html">
+        <img class="rounded-3 mt-3" alt="{{ gallery.title }}"
+        src="/images/photography/{% if gallery.picture_path %}{{ gallery.picture_path }}{% else %}{{ gallery.directory }}{% endif %}/{{ gallery.preview.thumbnail }}" />
+      </a>
     </div>
+    {% assign count = count | plus: 2 %}
+    {% if n_galleries <= count %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+  </div>
+
+  <!-- right column-->
+  <div class="col-md-6" style="padding-left: 6px;">
+  {% assign count = 1 %}
+  {% for temp in (0..n_galleries) %}
+    {% assign gallery = site.data.galleries.overview[count] %}
+    <div class="container" style="padding: 0;">
+      <h2>{{ gallery.title }}</h2>
+      <a href="/photography/{{ gallery.directory }}/index.html">
+        <img class="rounded-3 mt-3" alt="{{ gallery.title }}"
+        src="/images/photography/{% if gallery.picture_path %}{{ gallery.picture_path }}{% else %}{{ gallery.directory }}{% endif %}/{{ gallery.preview.thumbnail }}" />
+      </a>
+    </div>
+    {% assign count = count | plus: 2 %}
+    {% if n_galleries <= count %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
   </div>
 </div>
+<br>
+<hr>
+{% include comment_box_github.html %}

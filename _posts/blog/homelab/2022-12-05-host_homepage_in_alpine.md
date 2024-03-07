@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post_markdown
 title: Host Homepage inside a Alpine LXC
 description: A tutorial to set up the Homepage project for Alpine Linux from scratch
 tags:

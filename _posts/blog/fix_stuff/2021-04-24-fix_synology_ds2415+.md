@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post_markdown
 title: Fixing Synology DS2415+ 
 description: There is a hardware bug in certain Intel Atom CPUs. These CPUs will degrade over time and eventually the computer will not boot up due to the clock issue of the CPU. Funnily, fixing the problem only need one resistor to be soldered on the motherboard. The only thing is that the CPU will die again and by that time, there is no way to fix it.
 tags:

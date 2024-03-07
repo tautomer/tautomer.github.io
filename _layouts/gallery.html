@@ -1,12 +1,12 @@
 ---
-layout: default
+layout: default_container
 support: [gallery]
 ---
 
-<div class="container">
-  <div class="main-template">
-    <h1 class="gallery-title">{{ page.title }}</h1>
+<h1 class="gallery-title">{{ page.title }}</h1>
 
-    {{ content }}
-  </div>
-</div>
+{{ content }}
+<br>
+<p>All photos are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><i class="fa-brands fa-creative-commons-nc-jp"></i> CC BY-NC-SA 4.0</a>. Feel free to copy, redistribute, or adapt the photos, as long as appropriate credit is given and the photos are used for non-commercial purposes under the same license.</p>
+<hr>
+{% include comment_box_github.html %}

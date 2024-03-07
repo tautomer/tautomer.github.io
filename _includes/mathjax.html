@@ -1,15 +1,31 @@
 <script>
-    MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$','$$'], ["\\[","\\]"]],
-          processEscapes: true,
-          processEnvironments: true,
-          processRefs: true,
-        },
-        chtml: {
-            displayAlign: 'center',
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      processRefs: true,
+    },
+    chtml: {
+      displayAlign: 'center',
+    },
+    options: {
+      enableMenu: true,
+      // MenuClass: Menu,
+      menuOptions: {
+        settings: {
+          zoom: 'DoubleClick',
         }
-      };
+      }
+    }
+  };
 </script>
 <script id="MathJax-script" async src="/mathjax/tex-chtml.js"></script>
+<!-- style type="text/css">
+  .CtxtMenu_Menu {
+      background-color: rgba(33, 37, 41, 80);
+      color: #e2dee6;
+      border: 1px solid #CCCCCC;
+  }
+</style -->

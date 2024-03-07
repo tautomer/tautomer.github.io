@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post_markdown
 title: Build GitHub Pages locally with Jekyll on Alpine
 description: The workflow is the largely the same with what is on WSL, but with some Alpine specific things and LXC settings.
 tags:

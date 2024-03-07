@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post_markdown
 title: Build GitHub Pages locally with Jekyll
 description: When you are working with Github Pages, it is such a pain to test it, especially if you are working on something like this Jekyll-based site. Without setting up a local environment, to view any change, you have to git commit and push, then wait until GitHub to have your site updated. I decided to follow the official tutorial to do it myself.
 tags:
@@ -55,7 +55,7 @@ like `/usr/local/bin` and `/var/lib/gems/3.1.0`, so `sudo` is obviously needed
 as well. As a result, let us change this behavior as well
 
 ```shell
-bundle config set --local path $HOME/.gem
+bundle config set --local path ${HOME}/.local/share/gem
 ```
 
 Here, with this option, `bundle` and `gem` will both install the packages to the

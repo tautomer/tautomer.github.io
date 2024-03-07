@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post_markdown
 title: Show PVE host system load on Homepage LXC
 description: A tutorial to resize the system partition of a virtual machine
 tags:
