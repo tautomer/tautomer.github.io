@@ -282,7 +282,7 @@ tweaking, I came up with this way of reading the file.
     </div>
     <div class="jp-InputArea jp-Cell-inputArea">
      <div class="jp-InputPrompt jp-InputArea-prompt">
-      In [ ]:
+      In [1]:
      </div>
      <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
       <div class="cm-editor cm-s-jupyter">
@@ -293,7 +293,7 @@ tweaking, I came up with this way of reading the file.
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">TensorDataset</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span><span class="p">,</span> <span class="n">TensorDataset</span><span class="p">,</span> <span class="n">random_split</span>
 </pre>
        </div>
       </div>
@@ -307,7 +307,7 @@ tweaking, I came up with this way of reading the file.
     </div>
     <div class="jp-InputArea jp-Cell-inputArea">
      <div class="jp-InputPrompt jp-InputArea-prompt">
-      In [1]:
+      In [2]:
      </div>
      <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
       <div class="cm-editor cm-s-jupyter">
@@ -363,13 +363,13 @@ tweaking, I came up with this way of reading the file.
     </div>
    </div>
   </div>
-  <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+  <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
    <div class="jp-Cell-inputWrapper">
     <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
     </div>
     <div class="jp-InputArea jp-Cell-inputArea">
      <div class="jp-InputPrompt jp-InputArea-prompt">
-      In [ ]:
+      In [3]:
      </div>
      <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
       <div class="cm-editor cm-s-jupyter">
@@ -377,6 +377,21 @@ tweaking, I came up with this way of reading the file.
         <pre><span></span><span class="n">proteins</span><span class="p">,</span> <span class="n">pairs</span><span class="p">,</span> <span class="n">interactions</span> <span class="o">=</span> <span class="n">read_sequence</span><span class="p">()</span>
 </pre>
        </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="jp-Cell-outputWrapper">
+    <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+    </div>
+    <div class="jp-OutputArea jp-Cell-outputArea">
+     <div class="jp-OutputArea-child">
+      <div class="jp-OutputPrompt jp-OutputArea-prompt">
+      </div>
+      <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+       <pre>Supp-A.txt
+Supp-B.txt
+</pre>
       </div>
      </div>
     </div>
@@ -414,7 +429,7 @@ example, in
     </div>
     <div class="jp-InputArea jp-Cell-inputArea">
      <div class="jp-InputPrompt jp-InputArea-prompt">
-      In [ ]:
+      In [4]:
      </div>
      <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
       <div class="cm-editor cm-s-jupyter">
@@ -462,7 +477,7 @@ their interaction value from the lists.
     </div>
     <div class="jp-InputArea jp-Cell-inputArea">
      <div class="jp-InputPrompt jp-InputArea-prompt">
-      In [ ]:
+      In [5]:
      </div>
      <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
       <div class="cm-editor cm-s-jupyter">
@@ -502,7 +517,7 @@ them really...
     </div>
     <div class="jp-InputArea jp-Cell-inputArea">
      <div class="jp-InputPrompt jp-InputArea-prompt">
-      In [ ]:
+      In [6]:
      </div>
      <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
       <div class="cm-editor cm-s-jupyter">
@@ -562,7 +577,7 @@ be very sparse. As a result, it is wise to cut these long sequences.
     </div>
     <div class="jp-InputArea jp-Cell-inputArea">
      <div class="jp-InputPrompt jp-InputArea-prompt">
-      In [ ]:
+      In [7]:
      </div>
      <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
       <div class="cm-editor cm-s-jupyter">
@@ -600,7 +615,7 @@ II. Note that here we have the tensor of sequences, not pairs yet.
     </div>
     <div class="jp-InputArea jp-Cell-inputArea">
      <div class="jp-InputPrompt jp-InputArea-prompt">
-      In [ ]:
+      In [8]:
      </div>
      <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
       <div class="cm-editor cm-s-jupyter">
@@ -682,7 +697,7 @@ $O(n)$ for a list)
     </div>
     <div class="jp-InputArea jp-Cell-inputArea">
      <div class="jp-InputPrompt jp-InputArea-prompt">
-      In [ ]:
+      In [9]:
      </div>
      <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
       <div class="cm-editor cm-s-jupyter">
@@ -705,7 +720,7 @@ $O(n)$ for a list)
     </div>
     <div class="jp-InputArea jp-Cell-inputArea">
      <div class="jp-InputPrompt jp-InputArea-prompt">
-      In [ ]:
+      In [10]:
      </div>
      <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
       <div class="cm-editor cm-s-jupyter">
@@ -733,11 +748,12 @@ $O(n)$ for a list)
      </div>
      <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
       <p>
-       We have got all the tensors we need, so we can assemble a
+       We have got all the tensors we need, so we can easily assemble a dataset with
+torch's
        <code>
-        torch.Dataset
+        TensorDataset
        </code>
-       .
+       class.
       </p>
      </div>
     </div>
@@ -749,7 +765,7 @@ $O(n)$ for a list)
     </div>
     <div class="jp-InputArea jp-Cell-inputArea">
      <div class="jp-InputPrompt jp-InputArea-prompt">
-      In [ ]:
+      In [11]:
      </div>
      <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
       <div class="cm-editor cm-s-jupyter">
@@ -771,22 +787,12 @@ $O(n)$ for a list)
      </div>
      <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
       <p>
-       After this, we can start to build our network.
-      </p>
-     </div>
-    </div>
-   </div>
-  </div>
-  <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-   <div class="jp-Cell-inputWrapper">
-    <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-    </div>
-    <div class="jp-InputArea jp-Cell-inputArea">
-     <div class="jp-InputPrompt jp-InputArea-prompt">
-     </div>
-     <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-      <p>
-       To be continued
+       After this, we will start to build our network. Please check out the section
+part of this post over
+       <a href="/posts/protein_protein_interaction_p2/">
+        here
+       </a>
+       .
       </p>
      </div>
     </div>
