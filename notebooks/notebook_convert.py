@@ -42,7 +42,7 @@ def insert_collapse_buttons(soup: BeautifulSoup):
     """
     Insert the collapse buttons on the code input field.
     If the input field ends with a line with only `#` it gets
-    collapsed by defaultself.
+    collapsed by default.
 
     Effect:
         Changes soup object to have the collapse buttons.
@@ -165,7 +165,7 @@ def save_conversion(html_str: str, nbpath: Path, date: str, subdir: str = ""):
 
     """
     filename = nbpath.stem
-    output_dir = BASE_DIR / "_posts" / subdir 
+    output_dir = BASE_DIR / "_posts" / subdir
     if not os.path.exists(output_dir):
         print(f"{output_dir} does not exist. Create it now.")
         os.makedirs(output_dir)
@@ -199,12 +199,37 @@ def get_arguments() -> argparse.ArgumentParser:
     return parser
 
 
+def prettify_skip_tags(soup: BeautifulSoup, skipped_tags=["span", "a"]):
+    """Do not break lines for some tags when prettify is used. Adding new lines to,
+    for example, <a>text</a> will add a whitespace to the text. The code is taken
+    from this answer https://stackoverflow.com/a/18428836.
+
+    Args:
+        soup (BeautifulSoup): soup
+        skipped_tags (list, optional): list of tags to skip. Defaults to ["span", "a"].
+
+    Returns:
+        string: prettified html codes
+    """
+
+    unformatted_tag_list = []
+
+    for i, tag in enumerate(soup.find_all(skipped_tags)):
+        unformatted_tag_list.append(str(tag))
+        tag.replace_with("{" + "unformatted_tag_list[{0}]".format(i) + "}")
+
+    html_str = soup.prettify().format(unformatted_tag_list=unformatted_tag_list)
+    return html_str
+
+
 def run(args: argparse.Namespace):
     """Run conversion script."""
     nb_path = Path(args.nbpath)
     print(f"\nConverting: {nb_path!s}")
     # Convert notebook into html
     html_str = nb2html(nb_path)
+    # Double curly brackets to avoid problems with .format()
+    html_str = html_str.replace("{", "{{").replace("}", "}}")
     soup = BeautifulSoup(html_str, "html.parser")
     # Create Title, cell collapse buttons, remove stderr, pandas tables
     insert_collapse_buttons(soup)
@@ -213,7 +238,7 @@ def run(args: argparse.Namespace):
     remove_output_stderr(soup)
     add_table_class(soup)
     set_anchor_links(soup)
-    html_str = soup.prettify()
+    html_str = prettify_skip_tags(soup)
     # Add Jekyll header
     html_str = add_jekyll_header(html_str, args, title)
     # Export

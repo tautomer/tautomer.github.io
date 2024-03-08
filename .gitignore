@@ -6,11 +6,13 @@ _site
 # Python
 *.pyc
 __pycache__
-# IDE
-.idea/*
 # Notebooks
 *.ipynb_checkpoints*
 # Mypy
 .mypy_cache/
 # bundle configuration
 .bundle
+# vim
+*.sw*
+# mac
+.DS_Store
