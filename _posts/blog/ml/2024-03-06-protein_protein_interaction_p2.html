@@ -40,11 +40,8 @@ tags:
        Part 2: building the network
        <a class="anchor-link" href="#Part-2:-building-the-network"><i class="fa-solid fa-sm fa-link"></i></a>
       </h1>
-      <p>
-       This is the second part of the post. For part one, please refer to
-       <a href="/posts/protein_protein_interaction_p1/">this post</a>
-       .
-      </p>
+      <p>This is the second part of the post. For part one, please refer to
+<a href="/posts/protein_protein_interaction_p1/">this post</a>.</p>
      </div>
     </div>
    </div>
@@ -57,12 +54,10 @@ tags:
      <div class="jp-InputPrompt jp-InputArea-prompt">
      </div>
      <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-      <p>
-       After we have all the datasets sorted out, the next step in to build the
+      <p>After we have all the datasets sorted out, the next step in to build the
 network. The design of the network is really simple. I am using one CNN to
 process one sequence, and then concatenate the two networks together and output
-the classification results with a DNN.
-      </p>
+the classification results with a DNN.</p>
      </div>
     </div>
    </div>
@@ -91,10 +86,8 @@ the classification results with a DNN.
      <div class="jp-InputPrompt jp-InputArea-prompt">
      </div>
      <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-      <p>
-       To make sure we run the model on the right device, we first determine the best
-device to use for different platforms.
-      </p>
+      <p>To make sure we run the model on the right device, we first determine the best
+device to use for different platforms.</p>
      </div>
     </div>
    </div>
@@ -135,12 +128,10 @@ device to use for different platforms.
      <div class="jp-InputPrompt jp-InputArea-prompt">
      </div>
      <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-      <p>
-       Next, let us build the network. I will use 1D CCN here, use the sequences as the
+      <p>Next, let us build the network. I will use 1D CCN here, use the sequences as the
 channels. I do not know why, but in my test, this works better than using amino
 acid types as channels for 1D CNN or using the sequence and amino acid types for
-2D CNN.
-      </p>
+2D CNN.</p>
      </div>
     </div>
    </div>
@@ -153,9 +144,7 @@ acid types as channels for 1D CNN or using the sequence and amino acid types for
      <div class="jp-InputPrompt jp-InputArea-prompt">
      </div>
      <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-      <p>
-       First, I will encode the whole sequence with a one-hot encoder.
-      </p>
+      <p>First, I will encode the whole sequence with a one-hot encoder.</p>
      </div>
     </div>
    </div>
@@ -195,9 +184,7 @@ acid types as channels for 1D CNN or using the sequence and amino acid types for
      <div class="jp-InputPrompt jp-InputArea-prompt">
      </div>
      <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-      <p>
-       Then we will build the actual network.
-      </p>
+      <p>Then we will build the actual network.</p>
      </div>
     </div>
    </div>
@@ -278,27 +265,13 @@ acid types as channels for 1D CNN or using the sequence and amino acid types for
      <div class="jp-InputPrompt jp-InputArea-prompt">
      </div>
      <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-      <p>
-       We will process each protein sequence with a 4-layer 1D CNN. Batch
+      <p>We will process each protein sequence with a 4-layer 1D CNN. Batch
 normalization, pooling, dropout, and activation functions are all hyperparameter
-you can play with. We set up
-       <code>
-        cnn1
-       </code>
-       and get an identical copy for the other
-sequence call
-       <code>
-        cnn2
-       </code>
-       . Then we concatenate the two networks together and flatten
+you can play with. We set up <code>cnn1</code> and get an identical copy for the other
+sequence call <code>cnn2</code>. Then we concatenate the two networks together and flatten
 the resulting tensor to 1D and feed it into a 3-layer fully-connected network.
-Sine this is a binary classification problem, we use a
-       <code>
-        Sigmoid
-       </code>
-       function at the
-end.
-      </p>
+Sine this is a binary classification problem, we use a <code>Sigmoid</code> function at the
+end.</p>
      </div>
     </div>
    </div>
@@ -311,9 +284,7 @@ end.
      <div class="jp-InputPrompt jp-InputArea-prompt">
      </div>
      <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-      <p>
-       Next, we will initialize the model.
-      </p>
+      <p>Next, we will initialize the model.</p>
      </div>
     </div>
    </div>
@@ -345,26 +316,12 @@ end.
      <div class="jp-InputPrompt jp-InputArea-prompt">
      </div>
      <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-      <p>
-       Here, 26 is the number of classes. In fact, we only have 21 (20 amino acids + 0
+      <p>Here, 26 is the number of classes. In fact, we only have 21 (20 amino acids + 0
 as a placeholder), but I was too lazy to do a proper mapping. Maybe I should
-have used the
-       <code>
-        LabelEncoder
-       </code>
-       from
-       <code>
-        scikit-learn
-       </code>
-       . 2 is the number of classes.
-Lastly,
-       <code>
-        length
-       </code>
-       is the length of the sequences. In the previous post, we
+have used the <code>LabelEncoder</code> from <code>scikit-learn</code>. 2 is the number of classes.
+Lastly, <code>length</code> is the length of the sequences. In the previous post, we
 decided to set a hard cap at 95% percentile of the all sequence lengths, which
-is 1,563 here.
-      </p>
+is 1,563 here.</p>
      </div>
     </div>
    </div>
@@ -377,13 +334,7 @@ is 1,563 here.
      <div class="jp-InputPrompt jp-InputArea-prompt">
      </div>
      <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-      <p>
-       Then we can print the structure of the model with
-       <code>
-        print(model)
-       </code>
-       .
-      </p>
+      <p>Then we can print the structure of the model with <code>print(model)</code>.</p>
      </div>
     </div>
    </div>
@@ -482,16 +433,10 @@ is 1,563 here.
      <div class="jp-InputPrompt jp-InputArea-prompt">
      </div>
      <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-      <p>
-       This will list the whole setup, but it is literally just how we defined the
+      <p>This will list the whole setup, but it is literally just how we defined the
 class. Is there a better way to visualize this? Actually yes. We can use the
-package
-       <code>
-        torchviz
-       </code>
-       to graph the whole module, but before graphing, you need feed
-some input to the module and then graph with the input and corresponding output.
-      </p>
+package <code>torchviz</code> to graph the whole module, but before graphing, you need feed
+some input to the module and then graph with the input and corresponding output.</p>
      </div>
     </div>
    </div>
@@ -541,11 +486,9 @@ some input to the module and then graph with the input and corresponding output.
      <div class="jp-InputPrompt jp-InputArea-prompt">
      </div>
      <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-      <p>
-       Now you can see the graph of the whole module with all the weights and biases
+      <p>Now you can see the graph of the whole module with all the weights and biases
 and where they kick in. Due to the size of the network, this is a huge graph.
-You can right click to open the image in a new tab to view the full-size svg.
-      </p>
+You can right click to open the image in a new tab to view the full-size svg.</p>
      </div>
     </div>
    </div>
@@ -558,13 +501,9 @@ You can right click to open the image in a new tab to view the full-size svg.
      <div class="jp-InputPrompt jp-InputArea-prompt">
      </div>
      <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-      <p>
-       Fairly simple, right? In fact, with such a simple set up, we can already achieve
+      <p>Fairly simple, right? In fact, with such a simple set up, we can already achieve
 98%+ accuracy. In the next chapter, I will show how I trained this network in
-the
-       <a href="/posts/protein_protein_interaction_p3/">next post</a>
-       .
-      </p>
+the <a href="/posts/protein_protein_interaction_p3/">next post</a>.</p>
      </div>
     </div>
    </div>

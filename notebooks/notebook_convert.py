@@ -199,7 +199,7 @@ def get_arguments() -> argparse.ArgumentParser:
     return parser
 
 
-def prettify_skip_tags(soup: BeautifulSoup, skipped_tags=["span", "a"]):
+def prettify_skip_tags(soup: BeautifulSoup, skipped_tags=["span", "a", "p"]):
     """Do not break lines for some tags when prettify is used. Adding new lines to,
     for example, <a>text</a> will add a whitespace to the text. The code is taken
     from this answer https://stackoverflow.com/a/18428836.
@@ -219,6 +219,7 @@ def prettify_skip_tags(soup: BeautifulSoup, skipped_tags=["span", "a"]):
         tag.replace_with("{" + "unformatted_tag_list[{0}]".format(i) + "}")
 
     html_str = soup.prettify().format(unformatted_tag_list=unformatted_tag_list)
+    html_str = html_str.replace("{{", "{").replace("}}", "}")
     return html_str
 
 

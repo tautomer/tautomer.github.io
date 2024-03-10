@@ -40,18 +40,14 @@ tags:
        Part 1: parsing data
        <a class="anchor-link" href="#Part-1:-parsing-data"><i class="fa-solid fa-sm fa-link"></i></a>
       </h1>
-      <p>
-       Well, I recently review a manuscript on predicting the so-called
+      <p>Well, I recently review a manuscript on predicting the so-called
 "protein-protein interactions" with a convolutional neural network (CNN). The
 quality of the paper was exceptionally low, the authors are from different
 institutions that they are really unlikely to collaborate with each other. It is
-highly likely that the paper was from a
-       <a href="https://spie.org/news/photonics-focus/julyaugust-2023/investigating-publication-fraud#_=_">paper mill</a>
-       . Nonetheless,
+highly likely that the paper was from a <a href="https://spie.org/news/photonics-focus/julyaugust-2023/investigating-publication-fraud#_=_">paper mill</a>. Nonetheless,
 as I have never done formal research on biological system, the draft still
 helped to me know something in the field. I was really curious on the validity
-of their results and if I could achieve better predictions, so here it is.
-      </p>
+of their results and if I could achieve better predictions, so here it is.</p>
      </div>
     </div>
    </div>
@@ -68,24 +64,17 @@ of their results and if I could achieve better predictions, so here it is.
        What are they doing here
        <a class="anchor-link" href="#What-are-they-doing-here"><i class="fa-solid fa-sm fa-link"></i></a>
       </h3>
-      <p>
-       They are basically doing a sequence based binary classification. Some protein
+      <p>They are basically doing a sequence based binary classification. Some protein
 pairs are divided into two categories, interacting paris and non-interacting
 pairs. As far as I understand, "interacting" means the two proteins can bind
 with each other, while "non-interacting" ones will repulse each other (if they
-are close enough).
-      </p>
-      <p>
-       This problem sounds really trivial to me. You just have to process two strings
+are close enough).</p>
+      <p>This problem sounds really trivial to me. You just have to process two strings
 (one-letter amino acid sequence of a protein is just a string) and classify them
 in two two group. I felt I should be able to get it done pretty quickly, so I
-started looking into it.
-      </p>
-      <p>
-       I have attached the original notebook to this site and can be downloaded
-       <a href="/assets/codes/ppi.ipynb">here</a>
-       , so you can play with it yourself.
-      </p>
+started looking into it.</p>
+      <p>I have attached the original notebook to this site and can be downloaded
+<a href="/assets/codes/ppi.ipynb">here</a>, so you can play with it yourself.</p>
      </div>
     </div>
    </div>
@@ -102,24 +91,14 @@ started looking into it.
        The dataset
        <a class="anchor-link" href="#The-dataset"><i class="fa-solid fa-sm fa-link"></i></a>
       </h3>
-      <p>
-       They were dealing with several datasets from different sources, but focused on
-one dataset published by
-       <a href="http://www.csbio.sjtu.edu.cn/bioinf/LR_PPI/Data.htm">a group from SJTU</a>
-       .
-      </p>
-      <p>
-       <img alt="Datasets" src="../../images/ml/ppi/sjtu.png"/>
-      </p>
-      <p>
-       The two files used are supporting information A and B, for interacting and
+      <p>They were dealing with several datasets from different sources, but focused on
+one dataset published by <a href="http://www.csbio.sjtu.edu.cn/bioinf/LR_PPI/Data.htm">a group from SJTU</a>.</p>
+      <p><img alt="Datasets" src="../../images/ml/ppi/sjtu.png"/></p>
+      <p>The two files used are supporting information A and B, for interacting and
 non-interacting pairs, respectively. As the names suggest, these files are SI
 for a certain paper. However, I have no idea who decided a MS Word document
-could be a good choice in this case.
-      </p>
-      <p>
-       The two files consist of a header
-      </p>
+could be a good choice in this case.</p>
+      <p>The two files consist of a header</p>
       <div class="highlight">
        <pre><span></span>Online support information A
 There are 36,630 protein-protein pairs from total 9476 proteins, and the first column is protein ID from HPRD, the second column is the other protein ID and the two proteins constitute the positive Protein-protein interaction.
@@ -127,9 +106,7 @@ There are 36,630 protein-protein pairs from total 9476 proteins, and the first c
 Index        Protein_1_ID         protein_2_ID
 </pre>
       </div>
-      <p>
-       and blocks like the following
-      </p>
+      <p>and blocks like the following</p>
       <div class="highlight">
        <pre><span></span>1 NP_663777.1  NP_001233.1
 &gt;NP_663777.1
@@ -138,18 +115,11 @@ MESSKKMDSPGALQTNPPLKLHTDRSAGTPVFVPEQGGYKEKFVKTVEDKYKCEKCHLVLCSPKQTECGHRFCESCMAAL
 MARPHPWWLCVLGTLVGLSATPAPKSCPERHYWAQGKLCCQMCEPGTFLVKDCDQHRKAAQCDPCIPGVSFSPDHHTRPHCESCRHCNSGLLVRNCTITANAECACRNGWQCRDKECTECDPLPNPSLTARSSQALSPHPQPTHLPYVSEMLEARTAGHMQTLADFRQLPARTLSTHWPPQRSLCSSDFIRILVIFSGMFLVFTLAGALFLHQRRKYRSNKGESPVEPAEPCRYSCPREEEGSTIPIQEDYRKPEPACSP
 </pre>
       </div>
-      <p>
-       In side each block, the first line is the index for the pair, and their
-       <a href="refseq">RefSeq</a>
-       IDs. Then the next line will start with a
-       <code>
-        &gt;
-       </code>
-       symbol and
+      <p>In side each block, the first line is the index for the pair, and their
+<a href="refseq">RefSeq</a> IDs. Then the next line will start with a <code>&gt;</code> symbol and
 followed by the RefSeq ID of the first protein. The next line is the amino acid
 sequence of the protein in the one letter code. Similarly, the next 2 lines are
-for protein 2.
-      </p>
+for protein 2.</p>
      </div>
     </div>
    </div>
@@ -166,17 +136,11 @@ for protein 2.
        Process the Word documents
        <a class="anchor-link" href="#Process-the-Word-documents"><i class="fa-solid fa-sm fa-link"></i></a>
       </h3>
-      <p>
-       Now I need find a programming way to deal with these two files. There are some
+      <p>Now I need find a programming way to deal with these two files. There are some
 Python packages for parsing MS Word documents, but I did not have good luck with
-it, possibly because these files are in the Word 2003 format.
-      </p>
-      <p>
-       After some googling, I decided to give
-       <a href="https://linux.die.net/man/1/antiword">antiword</a>
-       a shot. You can
-easily install it via the package manager from your OS.
-      </p>
+it, possibly because these files are in the Word 2003 format.</p>
+      <p>After some googling, I decided to give <a href="https://linux.die.net/man/1/antiword">antiword</a> a shot. You can
+easily install it via the package manager from your OS.</p>
       <div class="highlight">
        <pre><span></span><span class="c1"># download the MS Word file</span>
 wget<span class="w"> </span>http://www.csbio.sjtu.edu.cn/bioinf/LR_PPI/Supp-A.doc
@@ -186,18 +150,12 @@ sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </
 antiword<span class="w"> </span>Supp-A.doc<span class="w"> </span>&gt;<span class="w"> </span>Supp-A.txt
 </pre>
       </div>
-      <p>
-       A very smooth process. It worked like a charm. The resulting
-       <code>
-        Supp-A.txt
-       </code>
-       is
+      <p>A very smooth process. It worked like a charm. The resulting <code>Supp-A.txt</code> is
 just a plaintext version of the Word document. The only difference is that the
 soft wrap in the Word document is now a hard wrap, meaning that the super long
 sequences will be break into multiple lines. This makes parsing the file a
 little bit more tedious. Before, you know that the sequence is always stored in
-one line.
-      </p>
+one line.</p>
       <div class="highlight">
        <pre><span></span>Online support information A
 There are 36,630 protein-protein pairs from total 9476 proteins, and the
@@ -235,10 +193,8 @@ AEPCRYSCPREEEGSTIPIQEDYRKPEPACSP
      <div class="jp-InputPrompt jp-InputArea-prompt">
      </div>
      <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-      <p>
-       Anyway, once we have a plaintext file, reading it is always easy. After some
-tweaking, I came up with this way of reading the file.
-      </p>
+      <p>Anyway, once we have a plaintext file, reading it is always easy. After some
+tweaking, I came up with this way of reading the file.</p>
      </div>
     </div>
    </div>
@@ -251,9 +207,7 @@ tweaking, I came up with this way of reading the file.
      <div class="jp-InputPrompt jp-InputArea-prompt">
      </div>
      <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-      <p>
-       Let us load necessary packages first.
-      </p>
+      <p>Let us load necessary packages first.</p>
      </div>
     </div>
    </div>
@@ -295,14 +249,14 @@ tweaking, I came up with this way of reading the file.
       <div class="cm-editor cm-s-jupyter">
        <div class="highlight hl-ipython3">
         <pre><span></span><span class="k">def</span> <span class="nf">read_sequence</span><span class="p">():</span>
-    <span class="n">digits</span> <span class="o">=</span> <span class="p">{{}}</span>
+    <span class="n">digits</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">):</span>
         <span class="n">digits</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="s2">""</span>
     <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Supp-A.txt"</span><span class="p">,</span> <span class="s2">"Supp-B.txt"</span><span class="p">]</span>
     <span class="n">types</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
     <span class="n">skip_lines</span> <span class="o">=</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
     <span class="n">pairs</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">proteins</span> <span class="o">=</span> <span class="p">{{}}</span>
+    <span class="n">proteins</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">interactions</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">file</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">files</span><span class="p">):</span>
         <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
@@ -387,18 +341,12 @@ Supp-B.txt
      <div class="jp-InputPrompt jp-InputArea-prompt">
      </div>
      <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-      <p>
-       It is a little tricky to make a script to read the script fully automatically. I
+      <p>It is a little tricky to make a script to read the script fully automatically. I
 guess I will add some comments over here later. The resulting sequences need to
-be further processed before we can use them.
-      </p>
-      <p>
-       One common thing people in this field do is to exclude all sequences below 50
+be further processed before we can use them.</p>
+      <p>One common thing people in this field do is to exclude all sequences below 50
 amino acids and remove all sequences with non-canonical amino acids, for
-example, in
-       <a href="https://pubmed.ncbi.nlm.nih.gov/31029609/">this paper</a>
-       .
-      </p>
+example, in <a href="https://pubmed.ncbi.nlm.nih.gov/31029609/">this paper</a>.</p>
      </div>
     </div>
    </div>
@@ -415,7 +363,7 @@ example, in
       <div class="cm-editor cm-s-jupyter">
        <div class="highlight hl-ipython3">
         <pre><span></span><span class="c1"># use the dictionary `to_remove` to store any protein ID that follows in the two criteria above</span>
-<span class="n">to_remove</span> <span class="o">=</span> <span class="p">{{}}</span>
+<span class="n">to_remove</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">proteins</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">:</span>
         <span class="n">to_remove</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="s2">""</span>
@@ -439,14 +387,8 @@ example, in
      <div class="jp-InputPrompt jp-InputArea-prompt">
      </div>
      <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-      <p>
-       Then if the keys in
-       <code>
-        to_remove
-       </code>
-       show up in any pair, we remove the pair and
-their interaction value from the lists.
-      </p>
+      <p>Then if the keys in <code>to_remove</code> show up in any pair, we remove the pair and
+their interaction value from the lists.</p>
      </div>
     </div>
    </div>
@@ -483,10 +425,8 @@ their interaction value from the lists.
      <div class="jp-InputPrompt jp-InputArea-prompt">
      </div>
      <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-      <p>
-       Then I would like to save the processed data as csv files, though I never use
-them really...
-      </p>
+      <p>Then I would like to save the processed data as csv files, though I never use
+them really...</p>
      </div>
     </div>
    </div>
@@ -502,9 +442,9 @@ them really...
      <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
       <div class="cm-editor cm-s-jupyter">
        <div class="highlight hl-ipython3">
-        <pre><span></span><span class="n">ppi</span> <span class="o">=</span> <span class="p">{{}}</span>
+        <pre><span></span><span class="n">ppi</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">pair</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">pairs</span><span class="p">,</span> <span class="n">interactions</span><span class="p">)):</span>
-    <span class="n">ppi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">{{</span><span class="s2">"protein 1"</span><span class="p">:</span> <span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">"protein 2"</span><span class="p">:</span> <span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">"interaction"</span><span class="p">:</span> <span class="n">value</span><span class="p">}}</span>
+    <span class="n">ppi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"protein 1"</span><span class="p">:</span> <span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">"protein 2"</span><span class="p">:</span> <span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">"interaction"</span><span class="p">:</span> <span class="n">value</span><span class="p">}</span>
 <span class="n">protein_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">proteins</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
 <span class="n">protein_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"sequence"</span><span class="p">]</span>
 <span class="n">interaction_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ppi</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
@@ -525,13 +465,11 @@ them really...
      <div class="jp-InputPrompt jp-InputArea-prompt">
      </div>
      <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-      <p>
-       Next, I would like to find a percentile to truncate long sequences. The reason
+      <p>Next, I would like to find a percentile to truncate long sequences. The reason
 to do it is that vast majority of the sequences are very short (a few hundred),
 but there are some very long outliers (for example, &gt; 30K). If you allocate a
 tensor based on the longest sequence, the drawback is obvious. The tensor will
-be very sparse. As a result, it is wise to cut these long sequences.
-      </p>
+be very sparse. As a result, it is wise to cut these long sequences.</p>
      </div>
     </div>
    </div>
@@ -544,9 +482,7 @@ be very sparse. As a result, it is wise to cut these long sequences.
      <div class="jp-InputPrompt jp-InputArea-prompt">
      </div>
      <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-      <p>
-       Loop through all sequences and get the length of the sequence at 95% percentile.
-      </p>
+      <p>Loop through all sequences and get the length of the sequence at 95% percentile.</p>
      </div>
     </div>
    </div>
@@ -581,10 +517,8 @@ be very sparse. As a result, it is wise to cut these long sequences.
      <div class="jp-InputPrompt jp-InputArea-prompt">
      </div>
      <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-      <p>
-       Next, convert the strings of all sequences to a tensor of integers based on ASC
-II. Note that here we have the tensor of sequences, not pairs yet.
-      </p>
+      <p>Next, convert the strings of all sequences to a tensor of integers based on ASC
+II. Note that here we have the tensor of sequences, not pairs yet.</p>
      </div>
     </div>
    </div>
@@ -619,29 +553,11 @@ II. Note that here we have the tensor of sequences, not pairs yet.
      <div class="jp-InputPrompt jp-InputArea-prompt">
      </div>
      <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-      <p>
-       Then we can build the tensors for the pairs.
-       <code>
-        protein1
-       </code>
-       and
-       <code>
-        protein2
-       </code>
-       are the
-sequences of the first and second proteins in each pair.
-       <code>
-        targets
-       </code>
-       is the tensor
+      <p>Then we can build the tensors for the pairs. <code>protein1</code> and <code>protein2</code> are the
+sequences of the first and second proteins in each pair. <code>targets</code> is the tensor
 of labels for whether the pair is interacting or not. I am doing a manual
-one-hot encoder here. Of course you can ask
-       <code>
-        torch
-       </code>
-       to do it. Not sure why I
-wanted to do it manually.
-      </p>
+one-hot encoder here. Of course you can ask <code>torch</code> to do it. Not sure why I
+wanted to do it manually.</p>
      </div>
     </div>
    </div>
@@ -654,19 +570,9 @@ wanted to do it manually.
      <div class="jp-InputPrompt jp-InputArea-prompt">
      </div>
      <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-      <p>
-       Here I build another helper dictionary called
-       <code>
-        protein_idx
-       </code>
-       just to quickly
-locate the index of each protein in
-       <code>
-        sequences
-       </code>
-       . ($O(1)$ for a hashtable and
-$O(n)$ for a list)
-      </p>
+      <p>Here I build another helper dictionary called <code>protein_idx</code> just to quickly
+locate the index of each protein in <code>sequences</code>. ($O(1)$ for a hashtable and
+$O(n)$ for a list)</p>
      </div>
     </div>
    </div>
@@ -682,7 +588,7 @@ $O(n)$ for a list)
      <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
       <div class="cm-editor cm-s-jupyter">
        <div class="highlight hl-ipython3">
-        <pre><span></span><span class="n">protein_idx</span> <span class="o">=</span> <span class="p">{{}}</span>
+        <pre><span></span><span class="n">protein_idx</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">proteins</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="n">protein_idx</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
@@ -727,14 +633,8 @@ $O(n)$ for a list)
      <div class="jp-InputPrompt jp-InputArea-prompt">
      </div>
      <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-      <p>
-       We have got all the tensors we need, so we can easily assemble a dataset with
-torch's
-       <code>
-        TensorDataset
-       </code>
-       class.
-      </p>
+      <p>We have got all the tensors we need, so we can easily assemble a dataset with
+torch's <code>TensorDataset</code> class.</p>
      </div>
     </div>
    </div>
@@ -766,12 +666,8 @@ torch's
      <div class="jp-InputPrompt jp-InputArea-prompt">
      </div>
      <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-      <p>
-       After this, we will start to build our network. Please check out the section
-part of this post over
-       <a href="/posts/protein_protein_interaction_p2/">here</a>
-       .
-      </p>
+      <p>After this, we will start to build our network. Please check out the section
+part of this post over <a href="/posts/protein_protein_interaction_p2/">here</a>.</p>
      </div>
     </div>
    </div>
