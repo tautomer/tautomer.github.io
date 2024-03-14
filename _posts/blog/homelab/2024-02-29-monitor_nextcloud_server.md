@@ -2127,7 +2127,7 @@ pasted below. It is so lengthy that I have to make it scrollable.
 ```
 
 However, if the dashboard is imported directly, there will be a bunch of error,
-because missing matching data source.
+because the data source is missing.
 
 ![import](/images/homelab/grafana/imported.png)
 
@@ -2139,19 +2139,28 @@ better way. We just have to replace the ID of the data source in the json file.
 
    ![id](/images/homelab/grafana/id.png)
 
-    See the selected string? That is the UID of this Prometheus data source.
+   See the selected string? That is the UID of our Prometheus data source.
 
 2. Globally replace the existing UID `P3791F55F620A72A5` with our own's. You can
    do this with any editor.
 
    ![replace](/images/homelab/grafana/replace.png)
 
-3. Paste the modified json to Grafana. To do this, go to `Dashboards` >
+   Do not use this "ddf3" one. Mine ID will not work for you, either.
+
+3. There is one type of graph that is deprecated which can also be fixed here.
+   Simply replace all occurrences of `"type": "graph"` to any current type
+   ("timeseries" is probably the closest one) `"type": "timeseries"`.
+
+   You can also fix this manually after the dashboard is imported, as there are
+   only two occurrences.
+
+4. Paste the modified json to Grafana. To do this, go to `Dashboards` >
    `New` > `Import`. Now you should only see a warning, not errors.
 
-4. As for the warning about the deprecated `Angular plugin`, just simply switch
-   the visualization type from legacy `Graph(old)` to `Time series` or other
-   types that work for you.
+5. If you want to fix the warning about the deprecated `Angular plugin`
+   manually, just simply switch the visualization type from legacy `Graph(old)`
+   to `Time series` or other types that work for you.
 
    ![angular](/images/homelab/grafana/angular.png)
 
