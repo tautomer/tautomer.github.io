@@ -22,7 +22,8 @@ Since then, I have been using this username in many different places.
 I am theoretical chemist trying to understand chemical reactions through
 molecular dynamics simulations. Currently, I am working on building a deep
 neural network framework for predicting excited state properties. Before joining
-LANL as a postdoc, I did my PhD at University of Rochester.
+LANL as a postdoc, I did my PhD at University of Rochester. You can download my
+resume [here][resume].
 
 #### Skills
 
@@ -142,3 +143,4 @@ contact me via the channels below:
 [syntax_css]: https://github.com/mgyongyosi/OneDarkJekyll/blob/master/syntax-one-dark.css
 [gallery_css]: https://github.com/mtailanian/mtailanian.github.io
 [tautomer_paper]: https://pubs.acs.org/doi/10.1021/ja102004b
+[resume]: /assets/files/Resume_Xinyang_Li.pdf
