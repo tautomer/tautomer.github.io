@@ -40,6 +40,13 @@ apk add ruby ruby-dev libffi-dev alpine-sdk
 gem install bundle 
 ```
 
+Due to a recent change in the `ffi` gem, you need run this command
+to update your lock file to correctly install the `ffi` gem on Alpine Linux.
+
+```shell
+bundle lock --add-platform x86_64-linux-musl
+```
+
 Since we are using the root user of the LXC anyway, you do not need `sudo` or
 `--user-install` options. Then you just have to clone your repo, run `bundle
 install`, and serve your site with `bundle exec jekyll serve --host=0.0.0.0

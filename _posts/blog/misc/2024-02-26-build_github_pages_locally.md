@@ -176,6 +176,9 @@ Here are some other issues I encountered.
    you can create the rule with the default script and add the port to this rule
    later.
 
+   > If you want to use `--livereload`, the port `35729` needs to be added to
+   > the firewall rule as well.
+
 4. Jekyll does not watch changes made to `_config.yml`. It seems even restarting
    the server might not work. You have to run `bundle exec jekyll build` or
    `jekyll build` such that these changes will take effects. In fact, if you run
