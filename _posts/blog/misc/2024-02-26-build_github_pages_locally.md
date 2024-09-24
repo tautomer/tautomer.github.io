@@ -8,6 +8,7 @@ tags:
 - Coding
 - OS
 - DIY
+- This Blog
 ---
 # Build GitHub Pages locally with Jekyll on WSL
 
