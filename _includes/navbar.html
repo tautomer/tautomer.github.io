@@ -7,13 +7,25 @@
     </button>
 
     <!-- Navbar toggle button (Use custom botton) -->
-    <button class="navbar-custom-toggler btn btn-outline-secondary dropdown-toggle order-0" type="button"
+    {% if page.url == "/" and page.path == "index.html" %}
+      <button class="navbar-custom-toggler btn btn-outline-secondary order-0" type="button"
+    {% else %}
+      <button class="navbar-custom-toggler btn btn-outline-secondary dropdown-toggle order-0" type="button"
+    {% endif %}
       data-bs-toggle="collapse" data-bs-target="#menuButton" aria-controls="menuButton" aria-expanded="false"
       aria-label="Toggle navigation">
+    {% if page.url == "/" and page.path == "index.html" %}
+      <span class="fa-solid fa-home"></span>&nbsp;&nbsp; 昕旸's personal blog
+    {% else %}
       <span class="fa-solid fa-bars"></span>&nbsp;&nbsp; 昕旸's personal blog
+    {% endif %}
     </button>
 
-    <div class="collapse navbar-collapse order-3" id="menuButton">
+    {% if page.url == "/" and page.path == "index.html" %}
+      <div class="navbar-collapse order-3" id="menuButton">
+    {% else %}
+      <div class="collapse navbar-collapse order-3" id="menuButton">
+    {% endif %}
       <!-- Inside collapse of navbar -->
       <div class="d-grid gap-2 d-md-block">
         <!-- Use custom buttons for navbar collapsable content -->
