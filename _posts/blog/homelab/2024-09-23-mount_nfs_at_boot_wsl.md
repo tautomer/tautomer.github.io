@@ -1,12 +1,12 @@
 ---
 layout: post_markdown
-title: Mount a NFS drive at boot in WSL
-description: A tutorial to install and run Grafana and Prometheus on Alpine
+title: Mounting an NFS Drive at Boot in WSL
+description: WSL fails to mount a NFS drive defined in /etc/fstab. Here is an easy fix.
 tags:
 - Home Lab
 - Sysadmin
 ---
-# Mount a NFS drive at boot in WSL
+# Mounting an NFS Drive at Boot in WSL
 
 The following is the `/etc/fstab` file I use in a Debian VM to mount a NFS drive
 from my NAS at boot, which works flawlessly.
