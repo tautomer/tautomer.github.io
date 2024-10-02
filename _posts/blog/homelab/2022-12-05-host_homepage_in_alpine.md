@@ -81,12 +81,15 @@ devs
 
 ```shell
 apk add npm
-apk add pnpm --repository=https://dl-cdn.alpinelinux.org/alpine/edge/testing
+apk add pnpm --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community
 ```
 
 If you want to install pnpm from Alpine's package manager, make sure use the
-"testing" branch from the "edge" repo. This is currently the only available
+"community" branch from the "edge" repo. This is currently the only available
 `pnpm` from `apk`.
+
+> Note: the pnpm package has been moved to the "community" branch of the "edge"
+> repo other than "testing".
 
 Next build Homepage
 
