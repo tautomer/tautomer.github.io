@@ -242,7 +242,7 @@ div.bk-root {
   margin-left: 10px
 }
 
-.btn-outline-post {
+.btn-outline-gallery {
   --bs-btn-color: #3498db;
   --bs-btn-border-color: #3498db;
   --bs-btn-hover-bg: #3498db;
@@ -252,6 +252,18 @@ div.bk-root {
   --bs-btn-active-border-color: #3498db;
   --bs-btn-disabled-color: #3498db;
   --bs-btn-disabled-border-color: #3498db
+}
+
+.btn-outline-tags {
+  --bs-btn-color: #546de5;
+  --bs-btn-border-color: #546de5;
+  --bs-btn-hover-bg: #546de5;
+  --bs-btn-hover-border-color: #546de5;
+  --bs-btn-focus-shadow-rgb: 41, 128, 185;
+  --bs-btn-active-bg: #546de5;
+  --bs-btn-active-border-color: #546de5;
+  --bs-btn-disabled-color: #546de5;
+  --bs-btn-disabled-border-color: #546de5
 }
 
 .btn-outline-about {
