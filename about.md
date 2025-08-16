@@ -128,11 +128,11 @@ Please get in touch with me if you have any comments or questions. You can
 contact me via the channels below:
 
 <span>
-	<a href="https://github.com/{{ site.github_username }}" target="_blank"><i class="fab fa-github fa-3x fa-fw"></i></a>
-	<a href="https://www.linkedin.com/in/{{ site.linkedin_username }}/" target="_blank"><i class="fab fa-linkedin fa-3x fa-fw"></i></a>
-	<a href="https://twitter.com/{{ site.twitter_username }}" target="_blank"><i class="fab fa-twitter fa-3x fa-fw"></i></a>
-	<a href="https://www.instagram.com/{{ site.instagram_username }}/" target="_blank"><i class="fab fa-instagram fa-3x fa-fw"></i></a>
-	<a href="mailto:{{ site.email }}" target="_blank"><i class="fas fa-envelope fa-3x fa-fw"></i></a>
+	<a href="https://github.com/{{ site.github_username }}" target="_blank"><i class="fab fa-github fa-3x"></i></a>
+	<a href="https://www.linkedin.com/in/{{ site.linkedin_username }}/" target="_blank"><i class="fab fa-linkedin fa-3x"></i></a>
+	<a href="https://twitter.com/{{ site.twitter_username }}" target="_blank"><i class="fab fa-twitter fa-3x"></i></a>
+	<a href="https://www.instagram.com/{{ site.instagram_username }}/" target="_blank"><i class="fab fa-instagram fa-3x"></i></a>
+	<a href="mailto:{{ site.email }}" target="_blank"><i class="fas fa-envelope fa-3x"></i></a>
 </span>
 
 [jekyll]: https://help.github.com/articles/using-jekyll-with-pages/
