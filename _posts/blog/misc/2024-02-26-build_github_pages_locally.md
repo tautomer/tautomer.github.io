@@ -100,7 +100,7 @@ Here are some other issues I encountered.
    `posts_chrono.html`
 
    ```html
-   <h1><span class="fas fa-clock-rotate-left fa-fw"></span> Posts</h1>
+   <h1><span class="fas fa-clock-rotate-left"></span> Posts</h1>
    <ul>
    {% raw %}
    {{% for post in site.posts %\}}
