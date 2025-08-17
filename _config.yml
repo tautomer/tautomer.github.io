@@ -70,7 +70,6 @@ plugins:
 # Conversion
 ############################################################
 markdown: kramdown
-mathjax: true
 highlighter: rouge
 # LSI: produce an index for related posts.
 lsi: false # Set by GitHub
