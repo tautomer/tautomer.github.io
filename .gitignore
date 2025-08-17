@@ -16,3 +16,5 @@ __pycache__
 *.sw*
 # mac
 .DS_Store
+# preprocessed images for galleries
+images/photography/**/originals/
