@@ -59,7 +59,7 @@ parser.add_argument(
     default=False,
     help="Overwrite the existing index.html with the updated one\n"
     "Otherwise index.html will remain untouched, and a new file called index.new.html is generated\n"
-    "User can examine the new homepage and decide whether to use it",
+    "User can examine the new homepage and decide whether to use it or not",
 )
 
 args = parser.parse_args()

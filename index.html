@@ -7,6 +7,31 @@ description: Posts on my work and my hobbies.
 
 <!-- <h1><span class="fas fa-house fa-sm" aria-hidden="true"></span> {{ page.title }}</h1> -->
 
+<!-- Hosting immich in LXC with iGPU passthrough -->
+<div class="clearfix">
+  <h2>Hosting immich in LXC with iGPU passthrough</h2>
+  <div class="row d-flex justify-content-start">
+    <div class="col-auto d-grid align-items-center">
+      <a href="/posts/immich_in_lxc/">
+        <img class="rounded-4 img-fluid float-left mb-2" src="/images/headline_images/immich_lxc.png" alt="PPI" width="180" height="180">
+      </a>
+    </div>
+    <div class="col-md-8 d-grid align-items-center overflow-hidden">
+      <div class="row">
+          <p style="margin-bottom: 0;">
+            A guide for directly hosting immich inside an LXC. In this way, you do not have to run immich inside a docker container which is in turn inside a VM or privileged LXC. As a bonus point, you can pass through iGPU to multiple LXCs such that you can enjoy accelerations for some ML and transcoding tasks within LXC. Additionally, I wrote a GitHub workflow routinely (or manually) checking new immich release and building the new server with GitHub's runner, which can save lots of efforts on your side.
+          </p>
+      </div>
+      <div class="row" style="margin: auto;">
+        <div class="col-auto text-center">
+          <a class="btn btn-outline-primary btn-block" style="margin: 3px;" href="/posts/immich_in_lxc/" role="button"> immich de-dockerization <i class="fa-solid fa-angles-right fa-sm"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
+
 <!-- Distributed asynchronous parallelized hyperparameter optimization with Ray -->
 <div class="clearfix">
   <h2>Distributed asynchronous parallelized hyperparameter optimization with Ray</h2>
@@ -219,7 +244,7 @@ description: Posts on my work and my hobbies.
               <tspan x="52%">Fix a dead</tspan>
               <tspan x="52%" dy="1.3em">CPU with</tspan>
               <tspan x="52%" dy="1.3em">a resistor?</tspan>
-            </text>   
+            </text>
             <text x="0" y="0" fill="red">Fix a dead</text>
           </svg>
       </a>
