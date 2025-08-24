@@ -103,7 +103,7 @@ baseurl: "" # does not include hostname
 permalink: /posts/:title/
 paginate_path: /page:num
 # Set the time zone for site generation.
-timezone: America/Denver
+timezone: America/New_York
 
 quiet: false
 defaults: []

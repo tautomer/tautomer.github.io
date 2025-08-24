@@ -8,57 +8,56 @@
 
     <!-- Navbar toggle button (Use custom botton) -->
     {% if page.url == "/" and page.path == "index.html" %}
-      <button class="navbar-custom-toggler btn btn-outline-secondary order-0" type="button"
+    <button class="navbar-custom-toggler btn btn-outline-secondary order-0" type="button" data-bs-toggle="collapse"
+      data-bs-target="#menuButton" aria-controls="menuButton" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="fa-solid fa-home"></span>&nbsp;&nbsp; 昕旸's personal blog
+    </button>
     {% else %}
-      <button class="navbar-custom-toggler btn btn-outline-secondary dropdown-toggle order-0" type="button"
-    {% endif %}
+    <button class="navbar-custom-toggler btn btn-outline-secondary dropdown-toggle order-0" type="button"
       data-bs-toggle="collapse" data-bs-target="#menuButton" aria-controls="menuButton" aria-expanded="false"
       aria-label="Toggle navigation">
-    {% if page.url == "/" and page.path == "index.html" %}
-      <span class="fa-solid fa-home"></span>&nbsp;&nbsp; 昕旸's personal blog
-    {% else %}
       <span class="fa-solid fa-bars"></span>&nbsp;&nbsp; 昕旸's personal blog
-    {% endif %}
     </button>
+    {% endif %}
 
     {% if page.url == "/" and page.path == "index.html" %}
-      <div class="navbar-collapse order-3" id="menuButton">
-    {% else %}
+    <div class="navbar-collapse order-3" id="menuButton">
+      {% else %}
       <div class="collapse navbar-collapse order-3" id="menuButton">
-    {% endif %}
+        {% endif %}
       <!-- Inside collapse of navbar -->
-      <div class="d-grid gap-2 d-md-block">
+        <div class="d-grid gap-2 d-md-block">
         <!-- Use custom buttons for navbar collapsable content -->
-        <a href="/" class="nav-item btn btn-lg btn-outline-success navbar-custom-button"><span
-            class="fa-solid fa-house"></span> Home</a>
-        <a href="/tag_index" class="nav-item btn btn-lg btn-outline-tags navbar-custom-button"><span
-            class="fa-solid fa-tags"></span> Tags</a>
-        <a href="/posts_chrono" class="nav-item btn btn-lg btn-outline-primary navbar-custom-button"><span
-            class="fa-solid fa-newspaper"></span> Posts</a>
-        <a href="/photography" class="nav-item btn btn-lg btn-outline-gallery navbar-custom-button"><span
-            class="fa-solid fa-camera-retro"></span> Gallery</a>
-        <a href="/projects" class="nav-item btn btn-lg btn-outline-info navbar-custom-button"><span
-            class="fa-solid fa-bars-progress"></span> Projects</a>
-        <a href="/about" class="nav-item btn btn-lg btn-outline-about navbar-custom-button"><span
-            class="fa-solid fa-address-card"></span> About</a>
+          <a href="/" class="nav-item btn btn-lg btn-outline-success navbar-custom-button"><span
+              class="fa-solid fa-house"></span> Home</a>
+          <a href="/tag_index" class="nav-item btn btn-lg btn-outline-tags navbar-custom-button"><span
+              class="fa-solid fa-tags"></span> Tags</a>
+          <a href="/posts_chrono" class="nav-item btn btn-lg btn-outline-primary navbar-custom-button"><span
+              class="fa-solid fa-newspaper"></span> Posts</a>
+          <a href="/photography" class="nav-item btn btn-lg btn-outline-gallery navbar-custom-button"><span
+              class="fa-solid fa-camera-retro"></span> Gallery</a>
+          <a href="/projects" class="nav-item btn btn-lg btn-outline-info navbar-custom-button"><span
+              class="fa-solid fa-bars-progress"></span> Projects</a>
+          <a href="/about" class="nav-item btn btn-lg btn-outline-about navbar-custom-button"><span
+              class="fa-solid fa-address-card"></span> About</a>
+        </div>
       </div>
-    </div>
 
     <!-- Hyperlinks on the right hand side -->
-    <div class="order-1" style="margin-right: 10px;">
-      <div class="d-flex gap-2">
-        <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}/" target="_blank" class="btn btn-lg"><i
-            class="text-secondary fab fa-linkedin fa-lg"></i></a>
-        <a href="https://github.com/{{ site.github_username }}" target="_blank" class="btn btn-lg"><i
-            class="text-secondary fab fa-github fa-lg"></i></a>
-        <a href="https://scholar.google.com/citations?hl=en&user={{ site.google_scholar }}&view_op=list_works&sortby=pubdate"
-          target="_blank" class="btn btn-lg"><i class="text-secondary fab fa-google-scholar fa-lg"></i></a>
-        <a href="https://www.instagram.com/{{ site.instagram_username }}/" target="_blank" class="btn btn-lg"><i
-            class="text-secondary fab fa-instagram fa-lg"></i></a>
-        <a href="mailto:{{ site.email }}" target="_blank" class="btn btn-lg"><i
-            class="text-secondary fas fa-envelope fa-lg"></i></a>
+      <div class="order-1" style="margin-right: 10px;">
+        <div class="d-flex gap-2">
+          <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}/" target="_blank" class="btn btn-lg"><i
+              class="text-secondary fab fa-linkedin fa-lg"></i></a>
+          <a href="https://github.com/{{ site.github_username }}" target="_blank" class="btn btn-lg"><i
+              class="text-secondary fab fa-github fa-lg"></i></a>
+          <a href="https://scholar.google.com/citations?hl=en&user={{ site.google_scholar }}&view_op=list_works&sortby=pubdate"
+            target="_blank" class="btn btn-lg"><i class="text-secondary fab fa-google-scholar fa-lg"></i></a>
+          <a href="https://www.instagram.com/{{ site.instagram_username }}/" target="_blank" class="btn btn-lg"><i
+              class="text-secondary fab fa-instagram fa-lg"></i></a>
+          <a href="mailto:{{ site.email }}" target="_blank" class="btn btn-lg"><i
+              class="text-secondary fas fa-envelope fa-lg"></i></a>
+        </div>
       </div>
-    </div>
 
-  </div>
+    </div>
 </nav>
