@@ -28,7 +28,7 @@ you to monitor the system load
 
 which looks like this
 
-![load](../../../images/homelab/homepage_system_load.png)
+![load](/assets/images/homelab/homepage_system_load.png)
 
 However, there is a problem. The widget to get system info is hardcoded
 

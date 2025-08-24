@@ -15,12 +15,12 @@ When I was testing the site locally with my own `jekyll` server, everything was
 fine. I could inside the link to a folder within the site, and the browser would
 display a page like an FTP server.
 
-![WEBrick](/images/misc/404/webrick.png)
+![WEBrick](/assets/images/misc/404/webrick.png)
 
 Then, I pushed the codes to GitHub, only to realize that the page did not work
 as I was expecting.
 
-![404](/images/misc/404/404.png)
+![404](/assets/images/misc/404/404.png)
 
 The reason is already shown on the page,
 
@@ -58,7 +58,7 @@ one in `assets/codes/hyperparameter_optimization`.
 
 It looked like this,
 
-![A basic index.html](/images/misc/404/basic.png)
+![A basic index.html](/assets/images/misc/404/basic.png)
 
 but I was not happy with it apparently, so I decided to theme it a little bit.
 

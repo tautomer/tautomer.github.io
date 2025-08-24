@@ -43,12 +43,12 @@ my expertise, so I use [logo.com][log_com] to design a simple logo for free.
 Here is the designed logo.
 
 {:style="max-width: 200px; margin: auto; background-color: #fff"}
-![Logo](/images/3d_printing/ACS/logo-no-background.svg)
+![Logo](/assets/images/3d_printing/ACS/logo-no-background.svg)
 
 Here is the resulting QR code.
 
 {:style="max-width: 500px; margin: auto"}
-![Code](/images/3d_printing/ACS/qr-code.svg)
+![Code](/assets/images/3d_printing/ACS/qr-code.svg)
 
 Unfortunately, the design of the body shape turned out to be a huge problem
 later.
@@ -60,7 +60,7 @@ the logo and its frame are always separated from the code in the imported
 curves.
 
 {:style="max-width: 800px; margin: auto"}
-![Wrong logo coordinates](/images/3d_printing/ACS/imported.png)
+![Wrong logo coordinates](/assets/images/3d_printing/ACS/imported.png)
 
 This is a small issue; I just need to reset the origin of all curve to its
 geometrical center and recenter everything to 0. As all dots and bars in the QR
@@ -68,7 +68,7 @@ code were imported as individual curves, I also joined all the bars and dots
 before moving.
 
 {:style="max-width: 800px; margin: auto"}
-![Fixed](/images/3d_printing/ACS/fixed_coordinates.png)
+![Fixed](/assets/images/3d_printing/ACS/fixed_coordinates.png)
 
 Now we can convert all parts to 2D meshes. Before solidifying/extruding them
 directly, we should simplify and fix the meshes first. Directly using meshes
@@ -82,7 +82,7 @@ Here are the things I did.
    Merging by distance will help us a lot.
 
    {:style="max-width: 1000px; margin: auto"}
-   ![Merge by distance](/images/3d_printing/ACS/merge_by_distance.png)
+   ![Merge by distance](/assets/images/3d_printing/ACS/merge_by_distance.png)
 
 2. Remove unnecessary colinear vertices with limited dissolve. Many vertices are
    completely colinear, but they might be associated with some weird edges/faces
@@ -94,13 +94,13 @@ Here are the things I did.
    `limited dissolve`, and set angle 1.
 
    {:style="max-width: 1000px; margin: auto"}
-   ![Dissolved](/images/3d_printing/ACS/limited_dissolve.png)
+   ![Dissolved](/assets/images/3d_printing/ACS/limited_dissolve.png)
 
    Without doing this, the weird edges from excess vertices converted from
    curves will cause problems to the solidify modifier.
 
    {:style="max-width: 1000px; margin: auto"}
-   ![Weird faces](/images/3d_printing/ACS/weird_faces.png)
+   ![Weird faces](/assets/images/3d_printing/ACS/weird_faces.png)
 
 3. Optionally, you can further reduce the number of vertices. The overall size
    of the printed code will only be a few centimeters anyway, the mesh does not
@@ -110,7 +110,7 @@ Then you can use the solidify modifier or directly extrude in the z axis to make
 the mesh 3D. You should not see any erroneous faces in this step.
 
 {:style="max-width: 800px; margin: auto"}
-![Model](/images/3d_printing/ACS/extruded.png)
+![Model](/assets/images/3d_printing/ACS/extruded.png)
 
 In fact, we can already slice the model in the current shape and send it to the
 printer, but I decided to add some niche changes.
@@ -133,7 +133,7 @@ to achieve this. Using different weights on some edges (or even 0 weight) can
 solve some erroneous faces from the bevel modifier.
 
 {:style="max-width: 800px; margin: auto"}
-![Beveled base](/images/3d_printing/ACS/bevel.png)
+![Beveled base](/assets/images/3d_printing/ACS/bevel.png)
 
 ### Make the logo a separate part
 
@@ -144,7 +144,7 @@ base to the base of the whole code. Just remember to add some tolerance on the
 female side. For my case, I have to give a 0.5 mm spacing on each side.
 
 {:style="max-width: 800px; margin: auto"}
-![Removable logo](/images/3d_printing/ACS/boolean.png)
+![Removable logo](/assets/images/3d_printing/ACS/boolean.png)
 
 Notice the gap between the base of the logo and hole in the base.
 
@@ -158,13 +158,13 @@ In the top view (z up), I zoom out the view and used a caliper to measure its
 size, until the size on the screen matches its physical size.
 
 {:style="max-width: 800px; margin: auto"}
-![Matching the physical size](/images/3d_printing/ACS/P1011662-Enhanced-NR-HDR.jpg)
+![Matching the physical size](/assets/images/3d_printing/ACS/P1011662-Enhanced-NR-HDR.jpg)
 
 Then I used my phone to test if the model can be scanned. This image also shows
 the infamous PWM problem of OLED at low brightness.
 
 {:style="max-width: 500px; margin: auto"}
-![Test scanning](/images/3d_printing/ACS/P1011672-Enhanced-NR.jpg)
+![Test scanning](/assets/images/3d_printing/ACS/P1011672-Enhanced-NR.jpg)
 
 ## Slice and print
 
@@ -177,7 +177,7 @@ layer number in the preview mode, type the number in the post-process script
 dialog, and re-slice the model for the final G-code.
 
 {:style="max-width: 800px; margin: auto"}
-![G-code](/images/3d_printing/ACS/cura.png)
+![G-code](/assets/images/3d_printing/ACS/cura.png)
 
 With this setting, the printer will pause at layer 24, retract the filament, and
 reload the new one.
@@ -187,10 +187,10 @@ I just have to wait until the layer where the filament needs to be changes, go
 to the printer to swap the filament.
 
 {:style="max-width: 800px; margin: auto"}
-![Printing](/images/3d_printing/ACS/P1011675-Enhanced-NR.jpg)
+![Printing](/assets/images/3d_printing/ACS/P1011675-Enhanced-NR.jpg)
 
 {:style="max-width: 800px; margin: auto"}
-![Code printed](/images/3d_printing/ACS/P1011677-Enhanced-NR.jpg)
+![Code printed](/assets/images/3d_printing/ACS/P1011677-Enhanced-NR.jpg)
 
 The first attempt of the logo print was failed. Green filament did not result in
 enough contrast against the white base and it is a little larger to fit in the
@@ -206,7 +206,7 @@ from the base upon touches. I decided to apply a thick layer of epoxy to wrap
 the whole code.
 
 {:style="max-width: 500px; margin: auto"}
-![Coating](/images/3d_printing/ACS/P1011678-Enhanced-NR.jpg)
+![Coating](/assets/images/3d_printing/ACS/P1011678-Enhanced-NR.jpg)
 
 From here you can see these inclined dots. They were broken and then glued back
 with epoxy. They were so tiny that a precise placement was not possible,
@@ -214,7 +214,7 @@ especially when they were floating in the liquid of epoxy. Did you spot the
 broken dots?
 
 {:style="max-width: 800px; margin: auto"}
-![Glued](/images/3d_printing/ACS/P1011516-Enhanced-NR.jpg)
+![Glued](/assets/images/3d_printing/ACS/P1011516-Enhanced-NR.jpg)
 
 What surprised me was the redundancy in the code. There were 3 broken dots, but
 the code could still be scanned correctly. However, I still decided to coat the
@@ -235,7 +235,7 @@ comment section below?
 Now, the epoxy is fully cured. Here is how it looks like with my LANL lanyard.
 
 {:style="max-width: 800px; margin: auto"}
-![Final](/images/3d_printing/ACS/P1011514-Enhanced-NR.jpg)
+![Final](/assets/images/3d_printing/ACS/P1011514-Enhanced-NR.jpg)
 
 See if anyone will scan the code and find this post at ACS!
 

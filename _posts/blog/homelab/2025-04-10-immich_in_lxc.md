@@ -593,7 +593,7 @@ in my fork or loeeeee's upstream repo (I do check his repo from time to time).
 [my actions]: https://github.com/tautomer/immich-in-lxc/actions
 [my release]: https://github.com/tautomer/immich-in-lxc/releases/latest
 [pat]: https://github.com/settings/personal-access-tokens
-[pat screenshot]: /images/homelab/2025-04-10-immich_in_lxc/pat_permissions.png
+[pat screenshot]: /assets/images/homelab/2025-04-10-immich_in_lxc/pat_permissions.png
 [gnu stow]: https://www.gnu.org/software/stow/
 [mail relay post]: /posts/centralized_mail_relay/
 [script]: /assets/codes/immich-in-lxc

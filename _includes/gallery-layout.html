@@ -2,9 +2,9 @@
   <div id="gallery-sizer{% if include.id_number %}-{{ include.id_number }}{% endif %}" class="gallery-sizer"></div>
   {% for picture in include.gallery.pictures %}
   <div class="image-wrapper">
-    <a href="/images/photography/{{ include.gallery.picture_path }}/{{ picture.original }}"
-    data-responsive="{% for size in picture.sizes %} /images/photography/{{ include.gallery.picture_path }}/{{ size }} {{ size | split: '-' | last | split: '.' | first | split: 'x' | first | strip }}{% unless forloop.last %},{% endunless %}{% endfor %}" class="image" {% if picture.title %} data-sub-html="<div class='caption'><h4>{{ picture.title | escape }}</h4>{% if picture.caption %}<p>{{ picture.caption | escape }}</p>{% endif %}</div>"{% endif %}>
-      <img class="rounded-3" alt="{{ picture.title }}" src="/images/photography/{{ include.gallery.picture_path }}/{{ picture.thumbnail }}" />
+    <a href="/assets/images/photography/{{ include.gallery.picture_path }}/{{ picture.original }}"
+    data-responsive="{% for size in picture.sizes %} /assets/images/photography/{{ include.gallery.picture_path }}/{{ size }} {{ size | split: '-' | last | split: '.' | first | split: 'x' | first | strip }}{% unless forloop.last %},{% endunless %}{% endfor %}" class="image" {% if picture.title %} data-sub-html="<div class='caption'><h4>{{ picture.title | escape }}</h4>{% if picture.caption %}<p>{{ picture.caption | escape }}</p>{% endif %}</div>"{% endif %}>
+      <img class="rounded-3" alt="{{ picture.title }}" src="/assets/images/photography/{{ include.gallery.picture_path }}/{{ picture.thumbnail }}" />
     </a>
   </div>
   {% endfor %}

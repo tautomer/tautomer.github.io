@@ -49,7 +49,7 @@ in 2016 and made all the way to the end of 2020, which is kind of impressive.
 The fix is simple, soldering a 100 Ω resistor on two pins on the motherboard.
 
 ![A resistor soldered to the
-motherboard](../../../images/fix_stuff/fixing_synology/fix_reddit.jpg)
+motherboard](/assets/images/fix_stuff/fixing_synology/fix_reddit.jpg)
 
 The image above was posted by [u/adprom](https://www.reddit.com/user/adprom/) in
 [this post](https://www.reddit.com/r/synology/comments/609u1l/c2538_clock_fix_confirmed_ds2415/).
@@ -64,7 +64,7 @@ the NAS apart, but the process was straightforward. To summarize,
 3. Remove all four screws holding the right panel,
 4. Remove the motherboard from the right panel.
 
-![The motherboard of DS2415+](../../../images/fix_stuff/fixing_synology/mobo.jpg)
+![The motherboard of DS2415+](/assets/images/fix_stuff/fixing_synology/mobo.jpg)
 
 The motherboard of DS2415+. Green box is socket for the "internal USB drive" for
 the stock DSM. We will solder the resistor on the pin 1 and 6 in the red box.
@@ -73,7 +73,7 @@ The pin the bottom right corner is pin 1.
 To test if the fix could really work on our NAS, I used two DuPont wires to
 temporarily connect the resistor onto the motherboard.
 
-![Test if it will work...](../../../images/fix_stuff/fixing_synology/dupont.jpg)
+![Test if it will work...](/assets/images/fix_stuff/fixing_synology/dupont.jpg)
 
 So the resistor just loosely connected to the pins. As long as I do not touch
 the motherboard, the contact seems to be stable. Then I plugged the RAM in and
@@ -81,13 +81,13 @@ only connected the 24-pin ATX connector, 4-pin EPS connector and the front LED
 cable. And guess what? The device booted up, though the status LED was amber
 because there was no bootable drive detected.
 
-![Successful minimal boot](../../../images/fix_stuff/fixing_synology/minboot.jpg)
+![Successful minimal boot](/assets/images/fix_stuff/fixing_synology/minboot.jpg)
 
 All good! Let's connect everything back, including all the disks and the rear
 fans **(If the rear fans are not connected, the NAS will flash an amber alert
 LED and beep every 3 seconds.)** and test again!
 
-![Successful boot](../../../images/fix_stuff/fixing_synology/fixed.jpg)
+![Successful boot](/assets/images/fix_stuff/fixing_synology/fixed.jpg)
 
 With disk and everything connected, I got all green lights, which means the NAS
 was already in a perfect functioning order. However, to be 100% sure, I decide
@@ -106,7 +106,7 @@ exposed right above the pins and contacts of the motherboard... Obviously, this
 could be huge safety concern, so I decide to use an insulation tape to cover the
 pins that could touch the lead of the resistor. (lol what a solution!)
 
-![My not-so-useful solder](../../../images/fix_stuff/fixing_synology/solder.jpg)
+![My not-so-useful solder](/assets/images/fix_stuff/fixing_synology/solder.jpg)
 
 RIP, my poor soldering skills. In fact, the technician in our department redid
 the soldering one day later... because my solder already failed the time when I

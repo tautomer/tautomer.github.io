@@ -22,7 +22,7 @@ support: [jquery]
       <h2>{{ gallery.title }}</h2>
       <a href="/photography/{{ gallery.directory }}/index.html">
         <img class="rounded-3 mt-3" alt="{{ gallery.title }}"
-        src="/images/photography/{% if gallery.picture_path %}{{ gallery.picture_path }}{% else %}{{ gallery.directory }}{% endif %}/{{ gallery.preview.thumbnail }}" />
+        src="/assets/images/photography/{% if gallery.picture_path %}{{ gallery.picture_path }}{% else %}{{ gallery.directory }}{% endif %}/{{ gallery.preview.thumbnail }}" />
       </a>
     </div>
     {% assign count = count | plus: 2 %}
@@ -41,7 +41,7 @@ support: [jquery]
       <h2>{{ gallery.title }}</h2>
       <a href="/photography/{{ gallery.directory }}/index.html">
         <img class="rounded-3 mt-3" alt="{{ gallery.title }}"
-        src="/images/photography/{% if gallery.picture_path %}{{ gallery.picture_path }}{% else %}{{ gallery.directory }}{% endif %}/{{ gallery.preview.thumbnail }}" />
+        src="/assets/images/photography/{% if gallery.picture_path %}{{ gallery.picture_path }}{% else %}{{ gallery.directory }}{% endif %}/{{ gallery.preview.thumbnail }}" />
       </a>
     </div>
     {% assign count = count | plus: 2 %}

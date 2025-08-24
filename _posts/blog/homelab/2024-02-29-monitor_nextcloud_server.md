@@ -23,7 +23,7 @@ up Grafana and Prometheus in an Alpine LXC. To make them actually useful, we
 need feed them some real-world data. Here I will use them to monitor the status
 of my self-hosted Nextcloud.
 
-![dashboard](/images//homelab/grafana/dashboard.png)
+![dashboard](/assets/images//homelab/grafana/dashboard.png)
 
 ## Set up the exporters
 
@@ -196,18 +196,18 @@ port for either exporter, make sure it matches here.
 After you restart your Prometheus service, you should be able to see the new
 dataset listed as `nextcloud`.
 
-![prometheus](/images/homelab/grafana/prometheus_dataset.png)
+![prometheus](/assets/images/homelab/grafana/prometheus_dataset.png)
 
 ## Add the dashboard to Grafana
 
 Now we head to grafana. Add a new data source of our Prometheus server.
 
-![data](/images/homelab/grafana/grafana_data.png)
+![data](/assets/images/homelab/grafana/grafana_data.png)
 
 Then just give a name and URL to your Prometheus. For my case, it is simply
 `http://localhost:9090`.
 
-![data_source](/images/homelab/grafana/prometheus_data_source.png)
+![data_source](/assets/images/homelab/grafana/prometheus_data_source.png)
 
 Next, we can build a dashboard from the data. To save us some efforts, I will
 directly import the existing dashboard from [ncp-monitoring-dashboard][ncp]. The
@@ -2129,7 +2129,7 @@ pasted below. It is so lengthy that I have to make it scrollable.
 However, if the dashboard is imported directly, there will be a bunch of error,
 because the data source is missing.
 
-![import](/images/homelab/grafana/imported.png)
+![import](/assets/images/homelab/grafana/imported.png)
 
 Of course, you can do this way, and fix everything manually, but there is much
 better way. We just have to replace the ID of the data source in the json file.
@@ -2137,14 +2137,14 @@ better way. We just have to replace the ID of the data source in the json file.
 1. Let us go to `Data sources` > `Prometheus`. Note the ID in the address bar of
    the browser.
 
-   ![id](/images/homelab/grafana/id.png)
+   ![id](/assets/images/homelab/grafana/id.png)
 
    See the selected string? That is the UID of our Prometheus data source.
 
 2. Globally replace the existing UID `P3791F55F620A72A5` with our own's. You can
    do this with any editor.
 
-   ![replace](/images/homelab/grafana/replace.png)
+   ![replace](/assets/images/homelab/grafana/replace.png)
 
    Do not use this "ddf3" one. Mine ID will not work for you, either.
 
@@ -2162,11 +2162,11 @@ better way. We just have to replace the ID of the data source in the json file.
    manually, just simply switch the visualization type from legacy `Graph(old)`
    to `Time series` or other types that work for you.
 
-   ![angular](/images/homelab/grafana/angular.png)
+   ![angular](/assets/images/homelab/grafana/angular.png)
 
 After this step, you should be able to see a dashboard nicely displayed.
 
-![dashboard](/images//homelab/grafana/dashboard.png)
+![dashboard](/assets/images//homelab/grafana/dashboard.png)
 
 You can start customizing the dashboard for your own needs from here, which
 should be much easier than starting from scratch.
@@ -2179,11 +2179,11 @@ described above.
 
 1. These red exclamation symbols are because of mismatching data source. 
 
-   ![legacy](/images/homelab/grafana/legacy.png)
+   ![legacy](/assets/images/homelab/grafana/legacy.png)
 
 2. Go to a certain panel, and click "Edit"
 
-   ![edit](/images/homelab/grafana/edit.png)
+   ![edit](/assets/images/homelab/grafana/edit.png)
 
 3. Cut whatever exists in the `Metric browser` box, and paste it, then the 
    `Run queries` button will be clickable. Click the button and the data should
@@ -2191,7 +2191,7 @@ described above.
    dashboards with multiple queries, cutting and pasting for any one of them
    should be enough.
 
-   ![query](/images/homelab/grafana/query.png)
+   ![query](/assets/images/homelab/grafana/query.png)
 
 4. Once you have replaced all data sources, this error should be gone.
 

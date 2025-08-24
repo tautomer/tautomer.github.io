@@ -63,7 +63,7 @@ commands.
    imagine that in a home lab setup you will need any resources for this relay.
    For my own case, the LXC has not used more than 30MB of RAM and 2.5% of 1
    vCPU in the past day.
-   ![Alpine resources assigned](/images/homelab/2025-08-14-mail_relay/resources.png)
+   ![Alpine resources assigned](/assets/images/homelab/2025-08-14-mail_relay/resources.png)
    Even 64MB of RAM should be enough for this LXC.
 
 2. Install Postfix and other dependencies.

@@ -88,7 +88,7 @@ save you some hassle.
 
 Now you should be able to see your page in the browser!
 
-![Live view](../../../images/misc/jekyll_served.png)
+![Live view](/assets/images/misc/jekyll_served.png)
 
 Here is the live view when I was working on this very post.
 
