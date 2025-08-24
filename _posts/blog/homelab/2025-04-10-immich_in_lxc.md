@@ -146,6 +146,16 @@ lxc.idmap: g 993 103 1
 lxc.idmap: g 994 100994 64541
 ```
 
+### Pre-install (new from v1.139.2)
+
+If you use GitHub workflow approach (even my build or fork your own), you can
+skip most of part of the script, as all dependencies will be built and packed by
+Github Actions. Just run `dep-ubuntu.sh` manually and `install_ffmpeg`,
+`install_postgresql`, `change_locale`, and `add_runtime_dependency` functions
+from `pre-install.sh`. Check out [this part](#new-from-version-v11392) on how to
+install the packages. If you go with this and build the server yourself, make
+sure download and install the packages before running `install.sh`.
+
 ### Build and install immich
 
 Again, just follow [loeeeee's readme][readme]. One thing to note, after the
@@ -213,6 +223,80 @@ Again, run this with the `immich` user, not root.
 
 Alternatively, you can also fork my repo and do your own release.
 
+### New from version v1.139.2
+
+Starting from version `v1.139.2`, the dependency building performed in
+`pre-install.sh` is also included in the release. The additional
+`dependencies.tar.gz` file contains the five packages built (`libjxl`,
+`libheilf`, `libraw`, `imagemagick`, and `libvips`) in GNU [stow][gnu stow]
+format and their versions stored in json files.
+
+If you have used the `pre-install.sh` script to build the dependencies, you need
+remove the installed libraries first.
+- If you still have the makefiles, you can head to `immich-in-lxc/image-source`
+  folder, and run the corresponding uninstall command for each library. They use
+  `cmake`, `make` or `ninja` to install, so you can look up the corresponding
+  uninstall command.
+
+- If you have not kept the makefiles, things are a bit more complicated. You can
+  use compare the files in `/usr/local` against the files in the stowed version
+  manually to determine which files should be removed. Make sure you back things
+  up first, i.e., move these files, rather than `rm`. I do have a
+  [script][script] that can assist with this process. It worked for me, but use
+  it at your own risk. If your LXC is a dedicated one for immich, you should be
+  fine.
+
+To do this, first download the `dependencies.tar.gz` file with root from the
+release and extract it to your desired location.
+```shell
+tar -xf dependencies.tar.gz -C /tmp
+```
+
+Next, if you are already using the stowed version, we will back it up first and
+uninstall them.
+```shell
+mv /opt/stow /opt/stow.old
+if [ "$(ls -A /opt/stow.old)" ]; then
+    cd /opt/stow.old
+    for lib in $(ls -d */); do
+        stow -q -D -t /usr/local "${lib%/}"
+    done
+    ldconfig
+fi
+```
+
+Then, we will install the new dependencies.
+```shell
+shopt -s dotglob
+mv /tmp/deps/stow/* /opt/stow/
+shopt -u dotglob
+cd /opt/stow
+for lib in $(ls -d */); do
+    stow -S -t /usr/local "${lib%/}"
+done
+ldconfig
+```
+
+After thi, you can fire the server up and see if it works.
+- If the server can run without issues, you can remove the old stowed version.
+  ```shell
+  rm -rf /opt/stow.old
+  ```
+- Otherwise, you can restore the old stowed version by running
+  ```shell
+  cd /opt/stow
+  for lib in $(ls -d */); do 
+      stow -D -t /usr/local "${lib%/}"
+  done
+  rm -rf /opt/stow
+  mv /opt/stow.old /opt/stow
+  cd /opt/stow
+  for lib in $(ls -d */); do 
+      stow -S -t /usr/local "${lib%/}"
+  done
+  ldconfig
+  ```
+
 ### If you want to build the server yourself
 
 To build the server yourself, you need to fork my repo and set up a few repo
@@ -221,9 +305,8 @@ secrets and variables.
 1. First, fork my repo (of course....)
 2. Head to [your GitHub settings for personal access tokens][pat]
 3. Generate a fine-grained personal access token for your fork
-   `your-github-username/immich-in-lxc` with the permissions of 
-   `Read access to metadata` and 
-   `Read and Write access to actions, actions variables, code, and workflows`.
+   `your-github-username/immich-in-lxc` with the read and write permissions of 
+   `Actions` and  `Variables`.
 
    ![PAT Screenshot][pat screenshot]
 
@@ -246,6 +329,9 @@ secrets and variables.
 6. Wait until the workflow finish building. You can then download the release
    from your fork. And drop-in replace the `app` and `geodata` directories in
    your current server.
+7. Optionally, update the dependencies following the instructions
+   [above](#new-from-version-v11392).
+
 
 ### Automatically update immich from the LXC
 
@@ -271,20 +357,15 @@ there is an update that day.
    #!/bin/bash
    set -e
    
-   # ===== Configurable settings =====
+   # Configurable settings
    LOG_LINES=30
+   GITHUB_USERNAME=your-github-username
    ADMIN_EMAIL="your@email.com"
-   GITHUB_REPO="your_github_username/immich-in-lxc"
    WEB_LOG_FILE="/var/log/immich/web.log"
    ML_LOG_FILE="/var/log/immich/ml.log"
-   # =================================
    
    timestamp() { date '+%Y-%m-%d %H:%M:%S'; }
-   
-   # ===== ANSI escape remover =====
-   strip_ansi() {
-       sed -r "s/\x1B\[[0-9;]*[mK]//g"
-   }
+   strip_ansi() { sed -r "s/\x1B\[[0-9;]*[mK]//g"; }
    
    send_success_email() {
        {
@@ -296,7 +377,6 @@ there is an update that day.
            echo "Please double-check the server to ensure everything is running smoothly."
        } | sendmail -t
    }
-   
    send_failure_email() {
        ML_LOG=$(tail -n "$LOG_LINES" "$ML_LOG_FILE" | strip_ansi || echo "No ML log available")
        WEB_LOG=$(tail -n "$LOG_LINES" "$WEB_LOG_FILE" | strip_ansi || echo "No Web log available")
@@ -318,12 +398,9 @@ there is an update that day.
    }
    
    echo "[INFO] $(timestamp) - Starting Immich update check"
-   
    PREV_TAG=$(cat /home/immich/prev_tag 2>/dev/null || echo "")
-   LATEST_TAG=$(curl -s https://api.github.com/repos/$GITHUB_REPO/releases/latest | jq -r '.tag_name')
-   
-   ver_latest="${LATEST_TAG#v}"
-   ver_local="${PREV_TAG#v}"
+   LATEST_TAG=$(curl -s https://api.github.com/repos/$GITHUB_USERNAME/immich-in-lxc/releases/latest | jq -r '.tag_name')
+   ver_latest="${LATEST_TAG#v}"; ver_local="${PREV_TAG#v}"
    
    if dpkg --compare-versions "$ver_latest" le "$ver_local"; then
        echo "[INFO] $(timestamp) - No newer release (latest: $LATEST_TAG, local: $PREV_TAG)"
@@ -333,24 +410,70 @@ there is an update that day.
    echo "[INFO] $(timestamp) - New version $LATEST_TAG found. Stopping services..."
    sudo systemctl stop immich-web immich-ml
    
-   echo "[INFO] $(timestamp) - Backing up and replacing server files..."
+   # Old Dependencies
+   echo "[INFO] $(timestamp) - Backing up and unstowing old dependencies..."
+   if [ -d "/opt/stow" ]; then
+       sudo mv /opt/stow /opt/stow.old
+       if [ "$(ls -A /opt/stow.old)" ]; then
+           cd /opt/stow.old
+           for lib in $(ls -d */); do
+               sudo stow -q -D -t /usr/local "${lib%/}"
+           done
+           cd - > /dev/null
+           sudo ldconfig
+       fi
+   else
+       # Create empty backup for consistent rollback
+       sudo mkdir /opt/stow.old
+   fi
+   sudo mkdir -p /opt/stow
+   
+   echo "[INFO] $(timestamp) - Replacing immich server..."
    sudo -u immich bash <<EOF
    set -e
    cd /home/immich
    mv app app.old
    mv geodata geodata.old
-   wget -q -O server.tar.gz "https://github.com/$GITHUB_REPO/releases/download/$LATEST_TAG/server.tar.gz"
-   tar -xf server.tar.gz
+   wget -q -O server.tar.gz "https://github.com/$GITHUB_USERNAME/immich-in-lxc/releases/download/$LATEST_TAG/server.tar.gz"
+   tar -xf server.tar.gz > /dev/null 2>&1
    rm server.tar.gz
    EOF
    
+   # New Dependencies
+   echo "[INFO] $(timestamp) - Replacing dependency files..."
+   STOW_TEMP_DIR=$(mktemp -d)
+   wget -q -O "$STOW_TEMP_DIR/stow.tar.gz" "https://github.com/$GITHUB_USERNAME/immich-in-lxc/releases/download/$LATEST_TAG/stow.tar.gz"
+   tar -xf "$STOW_TEMP_DIR/stow.tar.gz" -C "$STOW_TEMP_DIR" > /dev/null 2>&1
+   
+   if [ -d "$STOW_TEMP_DIR/deps/stow" ]; then
+       shopt -s dotglob
+       sudo mv $STOW_TEMP_DIR/deps/stow/* /opt/stow/
+       shopt -u dotglob
+   fi
+   if [ -f "$STOW_TEMP_DIR/deps/json/build-lock.json" ]; then
+       sudo mv $STOW_TEMP_DIR/deps/json/build-lock.json /opt/stow/
+   fi
+   rm -rf "$STOW_TEMP_DIR"
+   
+   # Stow New Dependencies
+   if [ -d "/opt/stow" ] && [ "$(ls -A /opt/stow)" ]; then
+       echo "[INFO] $(timestamp) - Stowing new dependencies..."
+       cd /opt/stow
+       for lib in $(ls -d */); do
+           sudo stow -q -S -t /usr/local "${lib%/}"
+       done
+       cd - > /dev/null
+       sudo ldconfig
+   fi
+   
+   # Fire up the server
    echo "[INFO] $(timestamp) - Starting services..."
    sudo systemctl start immich-web immich-ml
    echo "[INFO] $(timestamp) - Waiting 30s for services to stabilize..."
    sleep 30
    
    if systemctl is-active --quiet immich-web && systemctl is-active --quiet immich-ml; then
-   
+       # Success
        send_success_email
        echo "[INFO] $(timestamp) - Removing backups..."
        sudo -u immich bash <<EOF
@@ -358,43 +481,56 @@ there is an update that day.
        rm -rf app.old geodata.old
        echo "$LATEST_TAG" > prev_tag
    EOF
-   
+       sudo rm -rf /opt/stow.old
        echo "[INFO] $(timestamp) - Update completed successfully."
-   
    else
+       # Failure
        echo "[ERROR] $(timestamp) - One or more services failed to start."
-   
-       echo "[INFO] $(timestamp) - Collecting last $LOG_LINES lines from logs..."
        send_failure_email
        echo "[INFO] $(timestamp) - Restoring previous version..."
        sudo systemctl stop immich-web immich-ml
+   
+       # Rollback dependencies
+       if [ -d "/opt/stow" ] && [ "$(ls -A /opt/stow)" ]; then
+           cd /opt/stow
+           for lib in $(ls -d */); do sudo stow -q -D -t /usr/local "${lib%/}"; done
+           cd - > /dev/null
+       fi
+       sudo rm -rf /opt/stow
+       sudo mv /opt/stow.old /opt/stow
+       if [ -d "/opt/stow" ] && [ "$(ls -A /opt/stow)" ]; then
+           cd /opt/stow
+           for lib in $(ls -d */); do sudo stow -q -S -t /usr/local "${lib%/}"; done
+           cd - > /dev/null
+       fi
+       sudo ldconfig
+   
+       # Rollback server
        sudo -u immich bash <<EOF
        cd /home/immich
        rm -rf app geodata
        mv app.old app
        mv geodata.old geodata
    EOF
-   
        sudo systemctl restart immich-web immich-ml
        echo "[INFO] $(timestamp) - Restore complete."
    fi
-
    ``` 
 
 2. Make the script executable
    ```shell
    chmod +x /root/check_latest_immich_server.sh
    ```
-3. Add a cron job to run the script every day at 10:30 PM EST. You can use the
-   following command to add it to your crontab: 
+3. Add a cron job to run the script every day at 10:45 PM EST. You can use the
+   following command to add it to your crontab:
    ```shell
-   echo "30 2 * * * /root/check_latest_immich_server.sh >> /var/log/cron_immich_update.log 2>&1" | crontab -
+   echo "45 2 * * * /root/check_latest_immich_server.sh >> /var/log/cron_immich_update.log 2>&1" | crontab -
    ```
-   Note that the time is in UTC, so you need 2:30 AM UTC to get 10:30 PM EST.
+   Note that the time is in UTC, so you need 2:45 AM UTC to get 10:45 PM EST.
 
 This script will check if there is a new immich release, and if so, it will stop
 the immich services, download the latest immich server release, extract it, and
-start the services again. If either services fails for whatever reason in 30s,
+start the services again. If either service fails for whatever reason in 30s,
 it will send an email to you with the last 30 lines of the ML and web logs, and
 restore the previous version of the server. If the services start successfully,
 it will send an email to you with the success message and remove the old server
@@ -424,4 +560,6 @@ in my fork or loeeeee's upstream repo (I do check his repo from time to time).
 [my release]: https://github.com/tautomer/immich-in-lxc/releases/latest
 [pat]: https://github.com/settings/personal-access-tokens
 [pat screenshot]: /images/homelab/2025-04-10-immich_in_lxc/pat_permissions.png
+[gnu stow]: https://www.gnu.org/software/stow/
 [mail relay post]: /posts/centralized_mail_relay/
+[script]: /assets/codes/immich-in-lxc

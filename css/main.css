@@ -172,6 +172,11 @@ div#notebook {
   border-top: none
 }
 
+div.highlight > pre {
+    max-height: 600px;
+    overflow: auto;
+}
+
 @media print {
 
   div.cell,
