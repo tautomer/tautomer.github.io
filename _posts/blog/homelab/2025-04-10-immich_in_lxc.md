@@ -249,7 +249,7 @@ remove the installed libraries first.
 To do this, first download the `dependencies.tar.gz` file with root from the
 release and extract it to your desired location.
 ```shell
-tar -xf dependencies.tar.gz -C /tmp
+tar -xf dependencies.tar.gz --no-same-owner -C /tmp
 ```
 
 Next, if you are already using the stowed version, we will back it up first and
@@ -337,8 +337,8 @@ secrets and variables.
 
 To make the update process easier, I wrote a script that can be run inside the
 LXC to automatically update immich to the latest version with cron. This script
-runs around 10:30 PM EST every day, and checks if there is a new immich. As our
-GitHub workflow runs around 10 PM EST and takes about 10 minutes to finish
+runs around 10:45 PM EST every day, and checks if there is a new immich. As our
+GitHub workflow runs around 10 PM EST and takes about 20 minutes to finish
 building, this script will always be able to find the latest immich release if
 there is an update that day.
 
@@ -363,6 +363,7 @@ there is an update that day.
    ADMIN_EMAIL="your@email.com"
    WEB_LOG_FILE="/var/log/immich/web.log"
    ML_LOG_FILE="/var/log/immich/ml.log"
+   LOCK_FILE="/home/immich/pinned"
    
    timestamp() { date '+%Y-%m-%d %H:%M:%S'; }
    strip_ansi() { sed -r "s/\x1B\[[0-9;]*[mK]//g"; }
@@ -397,37 +398,88 @@ there is an update that day.
        } | sendmail -t
    }
    
+   # Argument parsing for --tag flag
+   MANUAL_TAG=""
+   for arg in "$@"; do
+       if [[ $arg == --tag=* ]]; then
+           MANUAL_TAG="${arg#*=}"
+       fi
+   done
+   
    echo "[INFO] $(timestamp) - Starting Immich update check"
    PREV_TAG=$(cat /home/immich/prev_tag 2>/dev/null || echo "")
-   LATEST_TAG=$(curl -s https://api.github.com/repos/$GITHUB_USERNAME/immich-in-lxc/releases/latest | jq -r '.tag_name')
-   ver_latest="${LATEST_TAG#v}"; ver_local="${PREV_TAG#v}"
    
-   if dpkg --compare-versions "$ver_latest" le "$ver_local"; then
-       echo "[INFO] $(timestamp) - No newer release (latest: $LATEST_TAG, local: $PREV_TAG)"
+   # Pinning logic
+   if [ -f "$LOCK_FILE" ] && [ -z "$MANUAL_TAG" ]; then
+       PINNED_TAG=$(cat "$LOCK_FILE")
+       echo "[INFO] $(timestamp) - Version is pinned to $PINNED_TAG. Automatic updates are disabled. To override, use the --tag flag."
        exit 0
+   fi
+   
+   # Determine target version
+   if [ -n "$MANUAL_TAG" ]; then
+       LATEST_TAG="$MANUAL_TAG"
+       echo "[INFO] $(timestamp) - Manual upgrade requested for tag: $LATEST_TAG"
+       # A new manual tag overrides any existing pin
+       sudo -u immich rm -f "$LOCK_FILE"
+   else
+       LATEST_TAG=$(curl -s https://api.github.com/repos/$GITHUB_USERNAME/immich-in-lxc/releases/latest | jq -r '.tag_name')
+       #Version comparison for auto-update
+       ver_latest="${LATEST_TAG#v}"; ver_local="${PREV_TAG#v}"
+       if dpkg --compare-versions "$ver_latest" le "$ver_local"; then
+           echo "[INFO] $(timestamp) - No newer release (latest: $LATEST_TAG, local: $PREV_TAG)"
+           exit 0
+       fi
    fi
    
    echo "[INFO] $(timestamp) - New version $LATEST_TAG found. Stopping services..."
    sudo systemctl stop immich-web immich-ml
    
-   # Old Dependencies
+   # Old dependencies
    echo "[INFO] $(timestamp) - Backing up and unstowing old dependencies..."
-   if [ -d "/opt/stow" ]; then
+   if [ -d "/opt/stow" ] && [ "$(ls -A /opt/stow)" ]; then
+       cd /opt/stow
+       for lib in $(ls -d */); do
+           sudo stow --verbose=0 -D -t /usr/local "${lib%/}"
+       done
+       cd - > /dev/null
+       sudo ldconfig
        sudo mv /opt/stow /opt/stow.old
-       if [ "$(ls -A /opt/stow.old)" ]; then
-           cd /opt/stow.old
-           for lib in $(ls -d */); do
-               sudo stow -q -D -t /usr/local "${lib%/}"
-           done
-           cd - > /dev/null
-           sudo ldconfig
-       fi
    else
-       # Create empty backup for consistent rollback
-       sudo mkdir /opt/stow.old
+       sudo rm -rf /opt/stow
+       sudo mkdir -p /opt/stow.old
    fi
    sudo mkdir -p /opt/stow
    
+   # Upgrade dependencies
+   echo "[INFO] $(timestamp) - Replacing dependency files..."
+   STOW_TEMP_DIR=$(mktemp -d)
+   wget -q -O "$STOW_TEMP_DIR/dependencies.tar.gz" "https://github.com/$GITHUB_USERNAME/immich-in-lxc/releases/download/$LATEST_TAG/dependencies.tar.gz"
+   tar -xvf "$STOW_TEMP_DIR/dependencies.tar.gz" -C "$STOW_TEMP_DIR" --no-same-owner > /dev/null 2>&1
+   
+   if [ -d "$STOW_TEMP_DIR/deps/stow" ]; then
+       shopt -s dotglob
+       sudo mv $STOW_TEMP_DIR/deps/stow/* /opt/stow/
+       shopt -u dotglob
+   fi
+   # TODO: we want to do a package-level handling of the stowed packages whichi will need buil-lock.json
+   if [ -f "$STOW_TEMP_DIR/deps/json/build-lock.json" ]; then
+       sudo mv $STOW_TEMP_DIR/deps/json/build-lock.json /opt/stow/
+   fi
+   rm -rf "$STOW_TEMP_DIR"
+   
+   # Stow new dependencies
+   if [ -d "/opt/stow" ] && [ "$(ls -A /opt/stow)" ]; then
+       echo "[INFO] $(timestamp) - Stowing new dependencies..."
+       cd /opt/stow
+       for lib in $(ls -d */); do
+           sudo stow --verbose=0 -S -t /usr/local "${lib%/}"
+       done
+       cd - > /dev/null
+       sudo ldconfig
+   fi
+   
+   # Upgrade the server
    echo "[INFO] $(timestamp) - Replacing immich server..."
    sudo -u immich bash <<EOF
    set -e
@@ -438,33 +490,6 @@ there is an update that day.
    tar -xf server.tar.gz > /dev/null 2>&1
    rm server.tar.gz
    EOF
-   
-   # New Dependencies
-   echo "[INFO] $(timestamp) - Replacing dependency files..."
-   STOW_TEMP_DIR=$(mktemp -d)
-   wget -q -O "$STOW_TEMP_DIR/stow.tar.gz" "https://github.com/$GITHUB_USERNAME/immich-in-lxc/releases/download/$LATEST_TAG/stow.tar.gz"
-   tar -xf "$STOW_TEMP_DIR/stow.tar.gz" -C "$STOW_TEMP_DIR" > /dev/null 2>&1
-   
-   if [ -d "$STOW_TEMP_DIR/deps/stow" ]; then
-       shopt -s dotglob
-       sudo mv $STOW_TEMP_DIR/deps/stow/* /opt/stow/
-       shopt -u dotglob
-   fi
-   if [ -f "$STOW_TEMP_DIR/deps/json/build-lock.json" ]; then
-       sudo mv $STOW_TEMP_DIR/deps/json/build-lock.json /opt/stow/
-   fi
-   rm -rf "$STOW_TEMP_DIR"
-   
-   # Stow New Dependencies
-   if [ -d "/opt/stow" ] && [ "$(ls -A /opt/stow)" ]; then
-       echo "[INFO] $(timestamp) - Stowing new dependencies..."
-       cd /opt/stow
-       for lib in $(ls -d */); do
-           sudo stow -q -S -t /usr/local "${lib%/}"
-       done
-       cd - > /dev/null
-       sudo ldconfig
-   fi
    
    # Fire up the server
    echo "[INFO] $(timestamp) - Starting services..."
@@ -482,6 +507,11 @@ there is an update that day.
        echo "$LATEST_TAG" > prev_tag
    EOF
        sudo rm -rf /opt/stow.old
+       # If a manual tag was used, create the lock file
+       if [ -n "$MANUAL_TAG" ]; then
+           echo "$LATEST_TAG" | sudo -u immich tee "$LOCK_FILE" > /dev/null
+           echo "[INFO] $(timestamp) - Version pinned to $LATEST_TAG. Automatic updates disabled."
+       fi
        echo "[INFO] $(timestamp) - Update completed successfully."
    else
        # Failure
@@ -493,14 +523,18 @@ there is an update that day.
        # Rollback dependencies
        if [ -d "/opt/stow" ] && [ "$(ls -A /opt/stow)" ]; then
            cd /opt/stow
-           for lib in $(ls -d */); do sudo stow -q -D -t /usr/local "${lib%/}"; done
+           for lib in $(ls -d */); do
+               sudo stow --verbose=0 -D -t /usr/local "${lib%/}"
+           done
            cd - > /dev/null
        fi
        sudo rm -rf /opt/stow
        sudo mv /opt/stow.old /opt/stow
        if [ -d "/opt/stow" ] && [ "$(ls -A /opt/stow)" ]; then
            cd /opt/stow
-           for lib in $(ls -d */); do sudo stow -q -S -t /usr/local "${lib%/}"; done
+           for lib in $(ls -d */); do
+               sudo stow --verbose=0 -S -t /usr/local "${lib%/}"
+           done
            cd - > /dev/null
        fi
        sudo ldconfig
