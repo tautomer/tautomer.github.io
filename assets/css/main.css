@@ -324,34 +324,88 @@ div.collapsed {
 }
 
 .back-to-top {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background: transparent;
-  display: none;
-  padding: 0;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: transparent;
+    display: none;
+    padding: 0;
 }
 
 .back-to-top:hover i {
-  color: #ecf0f1;
+    color: #ecf0f1;
 }
 
 .back-to-top i {
-  color: #5c636a; 
-  transition: color 0.2s ease-in-out;
+    color: #5c636a;
+    transition: color .2s ease-in-out;
 }
 
 .back-to-top:focus {
-  outline: none;
-  box-shadow: none;
+    outline: none;
+    box-shadow: none;
 }
 
 .back-to-top:focus-visible i {
-  color: #61afef; /* Use a bright accent color from your theme */
+    color: #61afef
 }
 
-@media (max-width: 767.98px) {
-  .back-to-top {
-    display: none !important;
+@media (max-width:767.98px) {
+    .back-to-top {
+        display: none !important
+    }
+}
+
+.main-template {
+  padding-top: 1px;
+}
+
+@media (min-width: 768px) {
+
+  /* 1. On the homepage, force the menu container to be visible */
+  .navbar-expand-on-homepage {
+    display: block !important;
+    visibility: visible;
+  }
+
+  .navbar-collapse {
+    /* Set the duration and easing of the animation */
+    transition: max-height 0.2s ease-in-out;
+    
+    /* By default, it's collapsed (has no height) and is hidden */
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .navbar-collapse.show,
+  .navbar-collapse.navbar-expand-on-homepage {
+    max-height: 500px; /* A value larger than the menu will ever be */
+    overflow: visible;
+  }
+
+  /*
+    2. THE ALIGNMENT FIX:
+    Apply flexbox to the inner button container in both scenarios.
+  */
+  .navbar-collapse.show .d-md-block,
+  .navbar-collapse.navbar-expand-on-homepage .d-md-block {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  /*
+    3. On NON-HOME pages, when the menu is expanded (.show),
+       center the buttons.
+  */
+  .navbar-collapse.show .d-md-block {
+    justify-content: center;
+  }
+
+  /*
+    4. On the HOMEPAGE, ensure the buttons are left-aligned.
+       (flex-start is the default, but we declare it for clarity).
+  */
+  .navbar-collapse.navbar-expand-on-homepage .d-md-block {
+    justify-content: flex-start;
   }
 }
