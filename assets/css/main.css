@@ -409,3 +409,36 @@ div.collapsed {
     justify-content: flex-start;
   }
 }
+
+.posts-year-header {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #444; /* A subtle separator for the year */
+  padding-bottom: 0.5rem;
+}
+
+.post-card {
+  border: 1px solid #343a40; /* A dark border that fits your theme */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Add a hover effect to make the cards feel interactive */
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  border-color: #61afef; /* An accent color on hover */
+}
+
+.post-card .card-title a {
+  text-decoration: none; /* Remove underline from title */
+  color: inherit; /* Inherit color from parent */
+}
+
+.post-card .card-title a:hover {
+  color: #61afef; /* Change title color to accent on hover */
+}
+
+.card-body {
+    margin-left: 0px;
+    margin-right: 0px;
+}
