@@ -1,0 +1,54 @@
+- title: Hosting immich in LXC with iGPU passthrough
+  image_path: /assets/images/headline_images/immich_lxc.png
+  description: "A guide for directly hosting immich inside an LXC. In this way, you do not have to run immich inside a docker container which is in turn inside a VM or privileged LXC. As a bonus point, you can pass through iGPU to multiple LXCs such that you can enjoy accelerations for some ML and transcoding tasks within LXC. Additionally, I wrote a GitHub workflow routinely (or manually) checking new immich release and building the new server with GitHub's runner, which can save lots of efforts on your side."
+  buttons:
+    - text: "Immich De-Dockerization"
+      url: /posts/immich_in_lxc/
+- title: Distributed asynchronous parallelized hyperparameter optimization with Ray
+  image_path: /assets/images/ml/ray.png
+  description: "Hyperparameter optimization is crucial for obtaining an accurate neural network. Typically, this is done through a Bayesian optimization by running a set of trials sequentially. With Ray and Ax, however, we can distribute the optimization across all allocated resources. This approach significantly reduces the wall time required for completing these tasks."
+  buttons:
+    - text: "Hyperparameter optimization with Ray"
+      url: /posts/hyperparameter_optimization_ray/
+- title: 3D print a QR code for this site for ACS Spring 2024
+  image_path: /assets/images/3d_printing/ACS/qrcode_home.png
+  description: "I will be attending the ACS Spring meeting in New Orleans next week. I thought it might be useful to make a QR code for this site so that I could use it while networking. Instead of print a 2D image, I decided to make it 3D."
+  buttons:
+    - text: "3D printed QR code for this site"
+      url: /posts/qr_code_for_acs/
+- title: Build GitHub Pages locally with Jekyll
+  image_path: /assets/images/misc/jekyll_cli.png
+  description: "When you are working with Github Pages, it is such a pain to test it, especially if you are working on something like this Jekyll-based site. Without setting up a local environment, to view any change, you have to git commit and push, then wait until GitHub to have your site updated. I decided to follow the official tutorial to do it myself."
+  buttons:
+    - text: "Build on WSL"
+      url: /posts/build_github_pages_locally/
+    - text: "On an Alpine LXC"
+      url: /posts/build_github_pages_locally_with_alpine_lxc/
+- title: Predict protein-protein interactions with a neural network
+  image_path: /assets/images/ml/ppi/ppi_logo.png
+  description: "Well, I recently review a manuscript on predicting the so-called \"protein-protein interactions\" (PPI) with a convolutional neural network (CNN). The quality of the paper was exceptionally low, but I was really curious on the validity of their results and if I could achieve better predictions, so here it is. The protein to the left is 8IUA rendered with VMD."
+  buttons:
+    - text: "Process the dataset"
+      url: /posts/protein_protein_interaction_p1/
+    - text: "Build the network"
+      url: /posts/protein_protein_interaction_p2/
+    - text: "Train the network"
+      url: /posts/protein_protein_interaction_p3/
+- title: Encrypt and resolve your self-hosted services
+  image_path: /assets/images/homelab/ssl/ssl_warning.png
+  description: "If you are a home lab person, there is no need to explain why the problem here is annoying. Use Nginx Proxy Manager and AdGuard Home to certify your self-hosted services and access them without port numbers."
+  buttons:
+    - text: "Let's encrypt and resolve"
+      url: /posts/npm_reverse_proxy/
+- title: Host Homepage inside a Alpine LXC
+  image_path: https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/homepage.png
+  description: "Homepage is popular dashboard application that you can self-host. A convenient script to set up Homepage inside a Debian LXC is already provided by Proxmox VE Helper-Scripts, but I just feel it is such an overkill to use Debian here. So here is a quick tutorial on how to set up the Homepage application within Alpine Linux from scratch."
+  buttons:
+    - text: "Homepage @ Alpine"
+      url: /posts/host_homepage_in_alpine/
+- title: Fix Synology DS2415+ NAS that suffered from an Intel CPU bug
+  image_path: /assets/images/fix_stuff/fixing_synology/intel.jpg
+  description: "There is a hardware bug in certain Intel Atom CPUs. These CPUs will degrade over time and eventually the computer will not boot up due to the clock issue of the CPU. Funnily, fixing the problem only need one resistor to be soldered on the motherboard. The only thing is that the CPU will die again and by that time, there is no way to fix it."
+  buttons:
+    - text: "First time soldering stuff"
+      url: /posts/fix_synology_ds2415+/

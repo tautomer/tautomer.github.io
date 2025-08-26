@@ -1,0 +1,26 @@
+<div class="card featured-post-card mb-4">
+  <div class="row g-0">
+    <!-- Image Column -->
+    <div class="col-md-3 featured-post-image-container">
+      <a href="{{ featured_post.buttons[0].url }}">
+        <img src="{{ featured_post.image_path }}" class="img-fluid rounded-3" alt="{{ featured_post.title }}">
+      </a>
+    </div>
+    <!-- Text and Button Column -->
+    <div class="col-md-9">
+      <div class="card-body d-flex flex-column h-100">
+        <h3 class="featured-card-title">{{ featured_post.title }}</h3>
+        <p class="card-text flex-grow-1">{{ featured_post.description }}</p>
+
+        <!-- Button Group -->
+        <div class="mt-auto justify-content-center d-flex flex-wrap featured-button-group">
+          {% for button in featured_post.buttons %}
+            <a class="btn btn-outline-primary me-2 mb-2" href="{{ button.url }}" role="button">
+              {{ button.text }} <i class="fa-solid fa-angles-right fa-sm"></i>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

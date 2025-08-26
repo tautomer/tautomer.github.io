@@ -354,6 +354,9 @@ div.collapsed {
     .back-to-top {
         display: none !important
     }
+    .featured-button-group {
+        margin-top: 8px !important;
+    }
 }
 
 .main-template {
@@ -410,35 +413,84 @@ div.collapsed {
   }
 }
 
-.posts-year-header {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #444; /* A subtle separator for the year */
-  padding-bottom: 0.5rem;
-}
-
-.post-card {
-  border: 1px solid #343a40; /* A dark border that fits your theme */
+/* Core post card styles for both featured and non-featured */
+.post-card, .featured-post-card {
+  border: 1px solid #343a40;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-/* Add a hover effect to make the cards feel interactive */
-.post-card:hover {
+/* Hover effect for both cards */
+.post-card:hover, .featured-post-card:hover {
   transform: translateY(-5px);
+  border-color: #61afef; /* Accent color on hover */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  border-color: #61afef; /* An accent color on hover */
 }
 
+/* Specific image styles for featured cards */
+.featured-post-image-container {
+  /* This is the modern CSS property that forces a 1:1 aspect ratio */
+  aspect-ratio: 1 / 1;
+
+  /* We re-add padding here so you can control it from one central place */
+  padding: 2rem; /* Adjust this value to give the image some breathing room */
+
+  /* These ensure the <a> tag and <img> tag fill the container */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.featured-post-image-container img {
+  /* This ensures the image fills the square container without stretching */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crops the image to fit, preserving its aspect ratio */
+}
+
+/* Shared card body and title styles */
+.card-body {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 12px;
+}
+
+.card-title {
+  margin-top: 0px;
+  margin-bottom: 16px;
+}
+
+.featured-card-title {
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+/* Featured card title color */
+.featured-post-card .card-title {
+  color: #c8ceda;
+}
+
+.featured-post-card {
+    margin-bottom: 16px !important;
+}
+
+/* Non-featured card title link styles */
 .post-card .card-title a {
-  text-decoration: none; /* Remove underline from title */
-  color: inherit; /* Inherit color from parent */
+  text-decoration: none;
+  color: inherit;
 }
 
 .post-card .card-title a:hover {
-  color: #61afef; /* Change title color to accent on hover */
+  color: #61afef;
 }
 
-.card-body {
-    margin-left: 0px;
-    margin-right: 0px;
+.card-text {
+  margin-bottom: 8px;
+}
+
+/* Posts Year Header */
+.posts-year-header {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.5rem;
 }
