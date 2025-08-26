@@ -1,0 +1,157 @@
+/*
+ * Giscus Custom Theme: "One Dark"
+ *
+ * This theme is built upon the excellent structure of the Catppuccin "Frappe" theme.
+ * We have replaced the color palette in the :root with our own "One Dark" variables.
+ * This provides a complete, polished theme with minimal effort.
+ */
+
+:root {
+  /*
+  ==================================================================
+    Step 1: Define our "One Dark" color palette.
+    We are mapping our colors to the variable names used by the theme.
+  ==================================================================
+  */
+
+  /* Main background, text, and border colors */
+  --ctp-frappe-base: #21252b;        /* Main background */
+  --ctp-frappe-surface0: #282c34;     /* Input boxes and secondary backgrounds */
+  --ctp-frappe-surface1: #3e4451;     /* Hovered elements */
+  --ctp-frappe-overlay2: #3e4451;     /* Borders */
+  --ctp-frappe-text: #abb2bf;         /* Primary text */
+  --ctp-frappe-subtext0: #828a98;      /* Secondary/dimmer text */
+
+  /* Primary accent color (blue) */
+  --ctp-frappe-blue: #61afef;
+  --ctp-frappe-sapphire: #61afef;     /* Map other accents to our primary blue */
+  --ctp-frappe-sky: #61afef;
+
+  /* Other accent colors (we'll use a mix of our blue and gray for consistency) */
+  --ctp-frappe-mauve: #c678dd;        /* A purple accent for variety if needed */
+  --ctp-frappe-rosewater: #c8ceda;    /* Use a light text color for this */
+  --ctp-frappe-flamingo: #c8ceda;
+  --ctp-frappe-pink: #c8ceda;
+  --ctp-frappe-red: #e06c75;          /* A red for errors/deletions */
+  --ctp-frappe-maroon: #e06c75;
+  --ctp-frappe-peach: #d19a66;        /* An orange/peach accent */
+  --ctp-frappe-yellow: #e5c07b;       /* A yellow accent */
+  --ctp-frappe-green: #98c379;        /* A green accent */
+  --ctp-frappe-teal: #56b6c2;         /* A teal accent */
+
+  /* --- Giscus-specific variables --- */
+  --giscus-shadow: 0 0 0 1px var(--ctp-frappe-overlay2);
+  --giscus-border-radius: 6px;
+  --giscus-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+
+/*
+==================================================================
+  Step 2: The full, comprehensive theme structure.
+  This is the brilliant code from the Catppuccin theme. It will
+  now use all the colors we defined above.
+==================================================================
+*/
+
+.gsc-main {
+  font-family: var(--giscus-font-family) !important;
+  background-color: var(--ctp-frappe-base) !important;
+}
+
+.gsc-main,
+.gsc-comments {
+  color: var(--ctp-frappe-text) !important;
+  padding: 8px;
+}
+
+.gsc-comment-box-main,
+.gsc-comment-box,
+.gsc-comment-box-tabs,
+.gsc-comment-box-textarea,
+.gsc-comment-box-buttons,
+.gsc-comment-box-button,
+.gsc-comment-box-button:hover,
+.gsc-comment-box-button-active,
+.gsc-comment-box-button-active:hover {
+  background-color: var(--ctp-frappe-surface0) !important;
+}
+
+.gsc-button-primary {
+  background-color: var(--ctp-frappe-blue) !important;
+}
+
+.gsc-button-primary:hover {
+  background-color: var(--ctp-frappe-sapphire) !important;
+}
+
+.gsc-button,
+.gsc-button-primary {
+  color: var(--ctp-frappe-base) !important;
+}
+
+.gsc-comment-box-tabs {
+  border-bottom: 1px solid var(--ctp-frappe-overlay2) !important;
+}
+
+.gsc-tab-active {
+  border-bottom: 1px solid var(--ctp-frappe-blue) !important;
+  color: var(--ctp-frappe-text) !important;
+}
+
+.gsc-tab {
+  color: var(--ctp-frappe-subtext0) !important;
+}
+
+.gsc-comment-box-button,
+.gsc-button {
+  box-shadow: var(--giscus-shadow) !important;
+  border-radius: var(--giscus-border-radius) !important;
+}
+
+.gsc-comment-box-textarea:focus {
+  box-shadow: 0 0 0 1px var(--ctp-frappe-blue) !important;
+}
+
+.gsc-timeline,
+.gsc-comment-box {
+  border: 0 !important;
+}
+
+.gsc-comment-box-main {
+  box-shadow: var(--giscus-shadow) !important;
+  border-radius: var(--giscus-border-radius) !important;
+}
+
+.gsc-comment {
+  box-shadow: var(--giscus-shadow) !important;
+  border-radius: var(--giscus-border-radius) !important;
+}
+
+a.gsc-link {
+  color: var(--ctp-frappe-blue) !important;
+}
+
+.gsc-comment-author {
+  color: var(--ctp-frappe-text) !important;
+  font-weight: 500 !important;
+}
+
+.giscus-frame {
+  background-color: var(--ctp-frappe-surface0) !important;
+  box-shadow: var(--giscus-shadow) !important;
+}
+
+.gsc-reactions-button {
+  border-radius: var(--giscus-border-radius) !important;
+}
+
+.gsc-input {
+  box-shadow: var(--giscus-shadow) !important;
+  border-radius: var(--giscus-border-radius) !important;
+  background-color: var(--ctp-frappe-surface0) !important;
+}
+
+.gsc-input:focus {
+  box-shadow: 0 0 0 1px var(--ctp-frappe-blue) !important;
+}
