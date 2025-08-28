@@ -9,13 +9,14 @@ dependencies:
   - bs4
   - nbconvert
   - ipython
-  - python=3.11
+  - python=3.13
   - black
   - isort
   - flake8
   - pyyaml
   - mypy
   - pip
+  - djlint
   - pip:
     - python-slugify
 
