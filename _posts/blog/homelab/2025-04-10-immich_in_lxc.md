@@ -309,9 +309,7 @@ secrets and variables.
    `Actions` and  `Variables`.
 
    ![PAT Screenshot][pat screenshot]
-
-   Click `+ Add permissions` and enter `actions` and `metadata` in the search
-   box.
+   
 4. Copy the token and add it to your fork's repo secrets as `ACTIONS_PAT`. Note
    that, this step is in your fork settings, not your account settings.
    `https://github.com/your-username-here/immich-in-lxc/settings/secrets/actions`
@@ -435,51 +433,56 @@ there is an update that day.
    echo "[INFO] $(timestamp) - New version $LATEST_TAG found. Stopping services..."
    sudo systemctl stop immich-web immich-ml
    
-   # Old dependencies
-   echo "[INFO] $(timestamp) - Backing up and unstowing old dependencies..."
-   if [ -d "/opt/stow" ] && [ "$(ls -A /opt/stow)" ]; then
-       cd /opt/stow
-       for lib in $(ls -d */); do
-           sudo stow --verbose=0 -D -t /usr/local "${lib%/}"
-       done
-       cd - > /dev/null
-       sudo ldconfig
-       sudo mv /opt/stow /opt/stow.old
-   else
-       sudo rm -rf /opt/stow
-       sudo mkdir -p /opt/stow.old
-   fi
-   sudo mkdir -p /opt/stow
-   
-   # Upgrade dependencies
-   echo "[INFO] $(timestamp) - Replacing dependency files..."
+   # Conditionally handle dependencies
+   DEPENDENCIES_UPDATED=false
    STOW_TEMP_DIR=$(mktemp -d)
-   wget -q -O "$STOW_TEMP_DIR/dependencies.tar.gz" "https://github.com/$GITHUB_USERNAME/immich-in-lxc/releases/download/$LATEST_TAG/dependencies.tar.gz"
-   tar -xvf "$STOW_TEMP_DIR/dependencies.tar.gz" -C "$STOW_TEMP_DIR" --no-same-owner > /dev/null 2>&1
    
-   if [ -d "$STOW_TEMP_DIR/deps/stow" ]; then
-       shopt -s dotglob
-       sudo mv $STOW_TEMP_DIR/deps/stow/* /opt/stow/
-       shopt -u dotglob
-   fi
-   # TODO: we want to do a package-level handling of the stowed packages whichi will need buil-lock.json
-   if [ -f "$STOW_TEMP_DIR/deps/json/build-lock.json" ]; then
-       sudo mv $STOW_TEMP_DIR/deps/json/build-lock.json /opt/stow/
+   echo "[INFO] $(timestamp) - Checking for dependency package..."
+   if wget -q -O "$STOW_TEMP_DIR/dependencies.tar.gz" "https://github.com/$GITHUB_USERNAME/immich-in-lxc/releases/download/$LATEST_TAG/dependencies.tar.gz"; then
+       DEPENDENCIES_UPDATED=true
+       echo "[INFO] $(timestamp) - New dependency package found. Starting update..."
+   
+       #  Unstow and backup old dependencies
+       if [ -d "/opt/stow" ] && [ "$(ls -A /opt/stow)" ]; then
+           cd /opt/stow
+           for lib in $(ls -d */); do
+               sudo stow --verbose=0 -D -t /usr/local "${lib%/}"
+           done
+           cd - > /dev/null
+           sudo ldconfig
+           sudo mv /opt/stow /opt/stow.old
+       else
+           sudo rm -rf /opt/stow
+           sudo mkdir -p /opt/stow.old
+       fi
+       sudo mkdir -p /opt/stow
+   
+       # Extract and restructure new dependencies
+       tar -xf "$STOW_TEMP_DIR/dependencies.tar.gz" -C "$STOW_TEMP_DIR" --no-same-owner > /dev/null 2>&1
+       if [ -d "$STOW_TEMP_DIR/deps/stow" ]; then
+           shopt -s dotglob
+           sudo mv $STOW_TEMP_DIR/deps/stow/* /opt/stow/
+           shopt -u dotglob
+       # TODO: we want to do a package-level handling of the stowed packages whichi will need buil-lock.json
+       fi
+       if [ -f "$STOW_TEMP_DIR/deps/json/build-lock.json" ]; then
+           sudo mv $STOW_TEMP_DIR/deps/json/build-lock.json /opt/stow/
+       fi
+   
+       # Stow new dependencies
+       if [ -d "/opt/stow" ] && [ "$(ls -A /opt/stow)" ]; then
+           cd /opt/stow
+           for lib in $(ls -d */); do
+               sudo stow --verbose=0 -S -t /usr/local "${lib%/}"
+           done
+           cd - > /dev/null
+           sudo ldconfig
+       fi
+   else
+       echo "[INFO] $(timestamp) - No dependency package found for this release. Skipping."
    fi
    rm -rf "$STOW_TEMP_DIR"
    
-   # Stow new dependencies
-   if [ -d "/opt/stow" ] && [ "$(ls -A /opt/stow)" ]; then
-       echo "[INFO] $(timestamp) - Stowing new dependencies..."
-       cd /opt/stow
-       for lib in $(ls -d */); do
-           sudo stow --verbose=0 -S -t /usr/local "${lib%/}"
-       done
-       cd - > /dev/null
-       sudo ldconfig
-   fi
-   
-   # Upgrade the server
    echo "[INFO] $(timestamp) - Replacing immich server..."
    sudo -u immich bash <<EOF
    set -e
@@ -506,7 +509,9 @@ there is an update that day.
        rm -rf app.old geodata.old
        echo "$LATEST_TAG" > prev_tag
    EOF
-       sudo rm -rf /opt/stow.old
+       if [ "$DEPENDENCIES_UPDATED" = "true" ]; then
+           sudo rm -rf /opt/stow.old
+       fi
        # If a manual tag was used, create the lock file
        if [ -n "$MANUAL_TAG" ]; then
            echo "$LATEST_TAG" | sudo -u immich tee "$LOCK_FILE" > /dev/null
@@ -520,24 +525,26 @@ there is an update that day.
        echo "[INFO] $(timestamp) - Restoring previous version..."
        sudo systemctl stop immich-web immich-ml
    
-       # Rollback dependencies
-       if [ -d "/opt/stow" ] && [ "$(ls -A /opt/stow)" ]; then
-           cd /opt/stow
-           for lib in $(ls -d */); do
-               sudo stow --verbose=0 -D -t /usr/local "${lib%/}"
-           done
-           cd - > /dev/null
+       # Conditional rollback of dependencies
+       if [ "$DEPENDENCIES_UPDATED" = "true" ]; then
+           if [ -d "/opt/stow" ] && [ "$(ls -A /opt/stow)" ]; then
+               cd /opt/stow
+               for lib in $(ls -d */); do
+                   sudo stow --verbose=0 -D -t /usr/local "${lib%/}"
+               done
+               cd - > /dev/null
+           fi
+           sudo rm -rf /opt/stow
+           sudo mv /opt/stow.old /opt/stow
+           if [ -d "/opt/stow" ] && [ "$(ls -A /opt/stow)" ]; then
+               cd /opt/stow
+               for lib in $(ls -d */); do
+                   sudo stow --verbose=0 -S -t /usr/local "${lib%/}"
+               done
+               cd - > /dev/null
+           fi
+           sudo ldconfig
        fi
-       sudo rm -rf /opt/stow
-       sudo mv /opt/stow.old /opt/stow
-       if [ -d "/opt/stow" ] && [ "$(ls -A /opt/stow)" ]; then
-           cd /opt/stow
-           for lib in $(ls -d */); do
-               sudo stow --verbose=0 -S -t /usr/local "${lib%/}"
-           done
-           cd - > /dev/null
-       fi
-       sudo ldconfig
    
        # Rollback server
        sudo -u immich bash <<EOF
