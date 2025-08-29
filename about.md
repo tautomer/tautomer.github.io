@@ -23,7 +23,8 @@ I am theoretical chemist trying to understand chemical reactions through
 molecular dynamics simulations. Currently, I am working on building a deep
 neural network framework for predicting excited state properties. Before joining
 LANL as a postdoc, I did my PhD at University of Rochester. You can download my
-resume [here][resume].
+resume
+[here]({{ '/assets/files/resume/Resume_Xinyang_Li.pdf' | relative_url }}){:target="_blank" rel="noopener"}.
 
 #### Skills
 
@@ -117,12 +118,13 @@ For the ones listed with a cover art, I made all of them.
 
 ### Technical side of this blog
 
-This blog is made using [Jekyll][jekyll] by [Peter Roelants][peterroelants] and
-is hosted on [GitHub Pages][gh_pages]. To know more how this blog is made, and
-how he converted notebooks to blog posts see [hosting Jupyter notebooks on a
-blog][tech]. The gallery code is modified from [this repo][gallery] and the css
-is modified based on [the gallery.css provided here][gallery_css]. The syntax
-highlight theme is One Dark taken from [here][syntax_css].
+This blog is made with [Jekyll][jekyll] originally by [Peter
+Roelants][peterroelants] and is hosted on [GitHub Pages][gh_pages]. To know more
+how this blog is made, and how he converted notebooks to blog posts see [hosting
+Jupyter notebooks on a blog][tech]. The gallery code is modified from [this
+repo][gallery] and the css is modified based on [the gallery.css provided
+here][gallery_css]. The syntax highlight theme is One Dark taken from
+[here][syntax_css].
 
 Please get in touch with me if you have any comments or questions. You can
 contact me via the channels below:

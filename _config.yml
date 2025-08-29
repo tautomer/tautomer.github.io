@@ -12,8 +12,8 @@ description: Aggregation of notes and code samples.
 # Your name, as you want it to appear underneath each post and in the footer
 author: Xinyang Li
 # Your email if you want it to be linked on the contact page
-author_email: lix@lanl.gov
-email: lix@lanl.gov
+author_email: toosimple@outlook.com
+email: toosimple@outlook.com
 # The URL of your actual domain. This will be used to make absolute links in the RSS feed.
 url: https://tautomer.github.io
 twitter_username: XinyangLiChem
@@ -32,6 +32,8 @@ destination: ./_site
 layouts_dir: ./_layouts
 data_dir: ./_data
 collections: null
+asset_dir: "/assets"
+asset_suffix: ".min"
 
 defaults:
   - scope:

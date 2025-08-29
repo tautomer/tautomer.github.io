@@ -1,7 +1,7 @@
 {% if jekyll.environment == "development" %}
-  {% assign giscus_theme_url = "http://localhost:4000/assets/css/giscus-theme.css" %}
+  {% assign giscus_theme_url = "http://localhost:4000{{ site.asset_dir }}/css/giscus-theme.css" %}
 {% else %}
-  {% assign giscus_theme_url = site.url | append: "/assets/css/giscus-theme.min.css" %}
+  {% assign giscus_theme_url = site.url | append: "{{ site.asset_dir }}/css/giscus-theme.min.css" %}
 {% endif %}
 <div class="p-6">
   <script src="https://giscus.app/client.js"
