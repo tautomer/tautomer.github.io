@@ -7,13 +7,13 @@
 	{% else %}
 		{% assign asset_suffix = site.asset_suffix %}
 	{% endif %}
-<script src="{{ site.asset_dir }}/js/input_exapand_collapse{{ asset_suffix }}.js"></script>
-<script src="{{ site.asset_dir }}/js/code_block_modifier{{ asset_suffix }}.js"></script>
+<script src="{{ site.assets.js }}/input_exapand_collapse{{ asset_suffix }}.js"></script>
+<script src="{{ site.assets.js }}/code_block_modifier{{ asset_suffix }}.js"></script>
 <!-- Back to top button -->
 <a id="back-to-top" href="#" class="back-to-top" role="button" aria-label="Back to top">
   <i class="fas fa-square-caret-up fa-3x"></i>
 </a>
-<script src="{{ site.asset_dir }}/js/back_to_top{{ asset_suffix }}.js"></script>
+<script src="{{ site.assets.js }}/back_to_top{{ asset_suffix }}.js"></script>
 <!-- only load mermaid if a post actually use it -->
 {% if page.mermaid %}
 <script src="https://unpkg.com/mermaid@10.8.0/dist/mermaid.min.js"></script>

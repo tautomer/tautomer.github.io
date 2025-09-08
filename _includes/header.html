@@ -17,10 +17,10 @@
 	{% else %}
 		{% assign asset_suffix = site.asset_suffix %}
 	{% endif %}
-	<link rel="stylesheet" href="{{ site.asset_dir }}/css/notebook{{ asset_suffix }}.css">
-	<link rel="stylesheet" href="{{ site.asset_dir }}/css/main{{ asset_suffix }}.css">
-	<link rel="stylesheet" href="{{ site.asset_dir }}/css/syntax{{ asset_suffix }}.css">
-	<link rel="stylesheet" href="{{ site.asset_dir }}/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="{{ site.assets.css }}/notebook{{ asset_suffix }}.css">
+	<link rel="stylesheet" href="{{ site.assets.css }}/main{{ asset_suffix }}.css">
+	<link rel="stylesheet" href="{{ site.assets.css }}/syntax{{ asset_suffix }}.css">
+	<link rel="stylesheet" href="{{ site.assets.css }}/fontawesome-all.min.css">
 	<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
 	<!-- jQuery in header because of Bokeh -->
@@ -49,6 +49,6 @@
 	<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
 	{% endif %}
 	{% if page.support contains 'jquery' %}
-	<link rel="stylesheet" href="{{ site.asset_dir }}/css/gallery{{ asset_suffix }}.css">
+	<link rel="stylesheet" href="{{ site.assets.css }}/gallery{{ asset_suffix }}.css">
 	{% endif %}
 </head>

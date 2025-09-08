@@ -29,11 +29,12 @@ source: . # Set by GitHub
 destination: ./_site
 #plugins_dir: ./_plugins
 # This folder is for the main templates your content will be inserted into. You can have different layouts for different pages or page sections.
-layouts_dir: ./_layouts
-data_dir: ./_data
 collections: null
-asset_dir: "/assets"
 asset_suffix: ".min"
+assets:
+  css: /assets/css
+  js: /assets/js
+  images: /assets/images
 
 defaults:
   - scope:
@@ -111,7 +112,6 @@ paginate_path: /page:num
 timezone: America/New_York
 
 quiet: false
-defaults: []
 
 
 # Analytics
