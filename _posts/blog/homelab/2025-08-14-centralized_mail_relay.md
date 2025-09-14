@@ -118,8 +118,14 @@ commands.
    The log file `/var/log/messages` should show that the email is sent
    successfully. If there are any errors, check the Postfix configuration and
    ensure that the app password is correct and the service is running.
+
+7. If everything works as it should, ad postfix to the default services to
+   start on boot:
+   ```shell
+   rc-update add postfix default
+   ```
    
-7. Finally, the plaintext password is no longer needed, so we remove it for
+8. Finally, the plaintext password is no longer needed, so we remove it for
    security reasons. Run the following command to remove the plaintext password
    file:
    ```shell    
