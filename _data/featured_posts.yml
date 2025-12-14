@@ -1,3 +1,9 @@
+- title: Back up NAS photos to Google Photos using Pixel XL
+  image_path: /assets/images/headline_images/pixel_cooling.jpg
+  description: "If you have a spare og Pixel or Pixel XL, you have free unlimited Google Photos backup at the original quality. Here is the catch. If you have a large amount of data, batch copying everything to the phone's internal storage, backing it up, and then deleting can be a problem to the longevity of the phone's storage. Instead of explicitly copying, this is a simple setup guide to back up photos from a NAS to Google Photos using a Pixel XL device."
+  buttons:
+    - text: "Unlimited Google Photos backup"
+      url: /posts/google_photos_pixel_xl/
 - title: Hosting immich in LXC with iGPU passthrough
   image_path: /assets/images/headline_images/immich_lxc.png
   description: "A guide for directly hosting immich inside an LXC. In this way, you do not have to run immich inside a docker container which is in turn inside a VM or privileged LXC. As a bonus point, you can pass through iGPU to multiple LXCs such that you can enjoy accelerations for some ML and transcoding tasks within LXC. Additionally, I wrote a GitHub workflow routinely (or manually) checking new immich release and building the new server with GitHub's runner, which can save lots of efforts on your side."
