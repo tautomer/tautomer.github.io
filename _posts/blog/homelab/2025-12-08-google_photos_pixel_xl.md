@@ -73,24 +73,26 @@ module.
 3. Modify the installation script `install.sh` file to create an additional
    symlink and use latest `rclone` binary. 
 
-   1. Replace the download links in the following block.
+   1. Optionally replace the download links in the following block for `arm64`,
+      as we will only use this for our Pixel.
       
       ```shell
         if [ "$ARCH" == "arm" ];then
           ui_print "+ downloading rclone-$ARCH to $MODPATH/rclone"
-          curl "https://beta.rclone.org/v1.72.0/testbuilds/rclone-android-16-armv7a.gz" | gunzip -d - > "$MODPATH"/rclone
+          curl "https://beta.rclone.org/test/testbuilds-latest/rclone-android-16-armv7a.gz" | gunzip -d - > "$MODPATH"/rclone
         elif [ "$ARCH" == "arm64" ];then
           ui_print "+ downloading rclone-$ARCH to $MODPATH/rclone"
-          curl "https://beta.rclone.org/v1.72.0/testbuilds/rclone-android-21-armv8a.gz" | gunzip -d - > "$MODPATH"/rclone
+          curl "https://beta.rclone.org/test/testbuilds-latest/rclone-android-21-armv8a.gz" | gunzip -d - > "$MODPATH"/rclone
         elif [ "$ARCH" == "x86" ];then
-          curl "https://beta.rclone.org/v1.72.0/testbuilds/rclone-android-16-x86.gz" | gunzip -d - > "$MODPATH"/rclone
+          curl "https://beta.rclone.org/test/testbuilds-latest/rclone-android-16-x86.gz" | gunzip -d - > "$MODPATH"/rclone
         elif [ "$ARCH" == "x64" ];then
-          curl "https://beta.rclone.org/v1.72.0/testbuilds/rclone-android-21-x64.gz" | gunzip -d - > "$MODPATH"/rclone
+          curl "https://beta.rclone.org/test/testbuilds-latest/rclone-android-21-x64.gz" | gunzip -d - > "$MODPATH"/rclone
         fi
      ```
-     Replace `https://beta.rclone.org/v1.72.0/testbuilds` with
-     `https://beta.rclone.org/test/testbuilds-latest/{tarball_name}`. You can
-     only do this for arm64.
+     Replace `https://beta.rclone.org/test/testbuilds-latest` with
+     `https://beta.rclone.org/v1.72.0/testbuilds` or `v1.71.0`. I have tested
+     them myself. While the current latest build works, you will never know if
+     it will break in the future.
 
     2. In the following block, we need to link `fusermount` to `fusermount3` as well.
         
@@ -122,11 +124,19 @@ module.
     
       This should allow us to mount the SMB share without issues.
 
-4. Zip the folder to a ZIP file. Make sure the contents of the repo is directly
+4. Modify `common/service.sh` to create the `fusermount3` symlink every time
+   the module is started. Add the following line after the existing `ln -sf`
+   lines in the middle of the file.
+
+   ```shell
+   ln -sf ${HOME}/fusermount /sbin/fusermount3
+   ```
+
+5. Zip the folder to a ZIP file. Make sure the contents of the repo is directly
    in the root of the ZIP file, so the top level is directly `install.sh`,
    `binary`, etc. 
 
-5. Transfer the ZIP file to your Pixel device and install it through Magisk.
+6. Transfer the ZIP file to your Pixel device and install it through Magisk.
 
 ### 3. Configure and mount the SMB share
 
@@ -190,6 +200,15 @@ ADD_PARAMS="--read-only --transfers 8 --checkers 16"
   increasing `DIRCACHETIME`, `BUFFERSIZE` and `READCHUNKSIZE` should help with
   indexing the huge folders. Also, I mounted the share as read-only to prevent
   any accidental deletion of files. This should be an upload-only setup.
+
+**Note**: If the `param` file is created on Windows, the Carriage Return (CRLF)
+will break the rclone script. Make sure to convert the line endings to Unix (LF)
+format. If you have `termux` installed, you can use `sed` to globally remove the
+CRLF characters.
+
+```shell
+sed -i 's/\r//g' /sdcard/.rclone/.your_remote_name.param
+```
 
 After all these, reboot your device. If everything goes well, you should see a
 new folder `/sdcard/nas_photos` that contains all your NAS photos. Give Google
