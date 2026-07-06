@@ -1,0 +1,4 @@
+{% comment %}
+  Sets `asset_suffix` for asset URLs: "" in development (unminified), site.asset_suffix
+  (".min") otherwise. Include before referencing {{ asset_suffix }}.
+{% endcomment %}{% if jekyll.environment == "development" %}{% assign asset_suffix = "" %}{% else %}{% assign asset_suffix = site.asset_suffix %}{% endif %}

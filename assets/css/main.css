@@ -76,13 +76,21 @@ div {
     font-size: 1.25rem
 }
 
+.navbar-custom {
+    background-color: #1e2227
+}
+
+.navbar-social {
+    margin-right: 10px
+}
+
 body {
     overflow: visible;
     padding: 0 0 8px
 }
 
 .main-template {
-    padding: 60px 5px 0 5px;
+    padding: 1px 5px 0 5px;
     text-align: left
 }
 
@@ -284,7 +292,7 @@ div.collapsed {
     color: #4b4b4b
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
     .navbar-wrapper {
         margin-top: 20px
     }
@@ -310,6 +318,43 @@ div.collapsed {
         padding-right: 50px;
         margin-left: 0;
         margin-right: 0
+    }
+
+    /* On the homepage, force the menu container to be visible */
+    .navbar-expand-on-homepage {
+        display: block !important;
+        visibility: visible;
+    }
+
+    .navbar-collapse {
+        /* Set the duration and easing of the animation */
+        transition: max-height 0.2s ease-in-out;
+        /* By default, it's collapsed (has no height) and is hidden */
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .navbar-collapse.show,
+    .navbar-collapse.navbar-expand-on-homepage {
+        max-height: 500px; /* A value larger than the menu will ever be */
+        overflow: visible;
+    }
+
+    /* Apply flexbox to the inner button container in both scenarios. */
+    .navbar-collapse.show .d-md-block,
+    .navbar-collapse.navbar-expand-on-homepage .d-md-block {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    /* On NON-HOME pages, when the menu is expanded (.show), center the buttons. */
+    .navbar-collapse.show .d-md-block {
+        justify-content: center;
+    }
+
+    /* On the HOMEPAGE, ensure the buttons are left-aligned. */
+    .navbar-collapse.navbar-expand-on-homepage .d-md-block {
+        justify-content: flex-start;
     }
 }
 
@@ -357,60 +402,6 @@ div.collapsed {
     .featured-button-group {
         margin-top: 8px !important;
     }
-}
-
-.main-template {
-  padding-top: 1px;
-}
-
-@media (min-width: 768px) {
-
-  /* 1. On the homepage, force the menu container to be visible */
-  .navbar-expand-on-homepage {
-    display: block !important;
-    visibility: visible;
-  }
-
-  .navbar-collapse {
-    /* Set the duration and easing of the animation */
-    transition: max-height 0.2s ease-in-out;
-    
-    /* By default, it's collapsed (has no height) and is hidden */
-    max-height: 0;
-    overflow: hidden;
-  }
-
-  .navbar-collapse.show,
-  .navbar-collapse.navbar-expand-on-homepage {
-    max-height: 500px; /* A value larger than the menu will ever be */
-    overflow: visible;
-  }
-
-  /*
-    2. THE ALIGNMENT FIX:
-    Apply flexbox to the inner button container in both scenarios.
-  */
-  .navbar-collapse.show .d-md-block,
-  .navbar-collapse.navbar-expand-on-homepage .d-md-block {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  /*
-    3. On NON-HOME pages, when the menu is expanded (.show),
-       center the buttons.
-  */
-  .navbar-collapse.show .d-md-block {
-    justify-content: center;
-  }
-
-  /*
-    4. On the HOMEPAGE, ensure the buttons are left-aligned.
-       (flex-start is the default, but we declare it for clarity).
-  */
-  .navbar-collapse.navbar-expand-on-homepage .d-md-block {
-    justify-content: flex-start;
-  }
 }
 
 /* Core post card styles for both featured and non-featured */

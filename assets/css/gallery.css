@@ -91,3 +91,14 @@ html {
         margin-right: 0
     }
 }
+
+/* lightGallery dark-theme overrides (moved from header.html) */
+.lg-backdrop {
+    background-color: #222529 !important;
+}
+
+.lg-sub-html {
+    background-color: rgba(34, 37, 41, 0.7) !important;
+    color: #fff !important;
+    padding: 10px !important;
+}

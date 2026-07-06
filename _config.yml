@@ -7,6 +7,8 @@
 # Name of your blog (this will show up at the top of your page and in the RSS feed)
 title: Xinyang's Blog
 name: Xinyang's Blog
+# Text shown in the navbar toggle button (kept separate from `title`)
+navbar_title: "昕旸's personal blog"
 # Short description (goes below the title; it will also be used in the RSS feed)
 description: Aggregation of notes and code samples.
 # Your name, as you want it to appear underneath each post and in the footer

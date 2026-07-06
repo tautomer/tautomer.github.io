@@ -1,33 +1,28 @@
-<nav class="navbar navbar-dark" style="background-color: #1e2227;">
+{% comment %} Homepage gets an expanded navbar and a home icon; other pages collapse to a menu. {% endcomment %}
+{% assign is_home = false %}
+{% if page.url == "/" and page.path == "index.html" %}{% assign is_home = true %}{% endif %}
+
+<nav class="navbar navbar-dark navbar-custom">
   <!-- flex-wrap allows items to wrap to the next line -->
   <div class="container-fluid flex-wrap">
 
     <!-- A simple back button -->
-    <button class="btn btn-lg" onclick="history.back()">
+    <button class="btn btn-lg" onclick="history.back()" aria-label="Go back">
       <i class="text-secondary fa-solid fa-arrow-left"></i>
     </button>
 
-    <!-- Navbar toggle button (Use custom button) -->
-    {% if page.url == "/" and page.path == "index.html" %}
-    <button class="navbar-custom-toggler btn btn-outline-secondary order-0" type="button" data-bs-toggle="collapse"
-      data-bs-target="#menuButton" aria-controls="menuButton" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="fa-solid fa-home"></span>&nbsp;&nbsp; 昕旸's personal blog
-    </button>
-    {% else %}
-    <button class="navbar-custom-toggler btn btn-outline-secondary dropdown-toggle order-0" type="button"
+    <!-- Navbar toggle button (use custom button) -->
+    <button class="navbar-custom-toggler btn btn-outline-secondary order-0{% unless is_home %} dropdown-toggle{% endunless %}" type="button"
       data-bs-toggle="collapse" data-bs-target="#menuButton" aria-controls="menuButton" aria-expanded="false"
       aria-label="Toggle navigation">
-      <span class="fa-solid fa-bars"></span>&nbsp;&nbsp; 昕旸's personal blog
+      <span class="fa-solid {% if is_home %}fa-home{% else %}fa-bars{% endif %}"></span>&nbsp;&nbsp; {{ site.navbar_title }}
     </button>
-    {% endif %}
 
     <!--
       w-100 to force this div to take 100% width, making it wrap to a new line.
       navbar-expand-on-homepage class is used to force expand the navbar on the homepage.
     -->
-    <div
-      class="collapse navbar-collapse w-100 {% if page.url == '/' and page.path == 'index.html' %}navbar-expand-on-homepage{% endif %} order-3"
-      id="menuButton">
+    <div class="collapse navbar-collapse w-100 {% if is_home %}navbar-expand-on-homepage{% endif %} order-3" id="menuButton">
       <!-- Inside collapse of navbar -->
       <div class="d-grid gap-2 d-md-block">
         <!-- Use custom buttons for navbar collapsable content -->
@@ -47,17 +42,17 @@
     </div>
 
     <!-- Hyperlinks on the right hand side -->
-    <div class="order-1" style="margin-right: 10px;">
+    <div class="order-1 navbar-social">
       <div class="d-flex gap-2">
-        <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}/" target="_blank" class="btn btn-lg"><i
+        <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}/" target="_blank" rel="noopener" class="btn btn-lg" aria-label="LinkedIn"><i
             class="text-secondary fab fa-linkedin fa-lg"></i></a>
-        <a href="https://github.com/{{ site.github_username }}" target="_blank" class="btn btn-lg"><i
+        <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" class="btn btn-lg" aria-label="GitHub"><i
             class="text-secondary fab fa-github fa-lg"></i></a>
         <a href="https://scholar.google.com/citations?hl=en&user={{ site.google_scholar }}&view_op=list_works&sortby=pubdate"
-          target="_blank" class="btn btn-lg"><i class="text-secondary fab fa-google-scholar fa-lg"></i></a>
-        <a href="https://www.instagram.com/{{ site.instagram_username }}/" target="_blank" class="btn btn-lg"><i
+          target="_blank" rel="noopener" class="btn btn-lg" aria-label="Google Scholar"><i class="text-secondary fab fa-google-scholar fa-lg"></i></a>
+        <a href="https://www.instagram.com/{{ site.instagram_username }}/" target="_blank" rel="noopener" class="btn btn-lg" aria-label="Instagram"><i
             class="text-secondary fab fa-instagram fa-lg"></i></a>
-        <a href="mailto:{{ site.email }}" target="_blank" class="btn btn-lg"><i
+        <a href="mailto:{{ site.email }}" class="btn btn-lg" aria-label="Email"><i
             class="text-secondary fas fa-envelope fa-lg"></i></a>
       </div>
     </div>
