@@ -11,8 +11,11 @@ name: Xinyang's Blog
 navbar_title: "昕旸's personal blog"
 # Short description (goes below the title; it will also be used in the RSS feed)
 description: Aggregation of notes and code samples.
-# Your name, as you want it to appear underneath each post and in the footer
-author: Xinyang Li
+# Your name, as you want it to appear underneath each post and in the footer.
+# Object form so jekyll-seo-tag emits a valid twitter:creator handle.
+author:
+  name: Xinyang Li
+  twitter: XinyangLiChem
 # Your email if you want it to be linked on the contact page
 author_email: toosimple@outlook.com
 email: toosimple@outlook.com
@@ -71,6 +74,21 @@ plugins:
   - github-pages
   - jekyll-sitemap
   - jekyll-redirect-from
+  - jekyll-seo-tag
+
+# SEO / social sharing (jekyll-seo-tag)
+############################################################
+# Default preview image used for Open Graph / Twitter cards when a page
+# defines no `image`. Posts can override with front-matter `image:`.
+logo: /assets/images/favicon/android-icon-192x192.png
+twitter:
+  username: XinyangLiChem
+  card: summary
+social:
+  name: Xinyang Li
+  links:
+    - https://github.com/tautomer
+    - https://www.linkedin.com/in/lxy-/
 
 # Conversion
 ############################################################
