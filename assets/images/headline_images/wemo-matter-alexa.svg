@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
+  <title id="title">A smart plug connected to a home and voice assistant</title>
+  <desc id="desc">A glowing path connects a smart plug, a home hub, and a voice assistant speaker.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#10253d"/><stop offset="1" stop-color="#1b4653"/>
+    </linearGradient>
+    <linearGradient id="hub" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#7ee8dd"/><stop offset="1" stop-color="#49a9df"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#071725" flood-opacity=".35"/>
+    </filter>
+  </defs>
+  <rect width="640" height="640" rx="48" fill="url(#bg)"/>
+  <circle cx="320" cy="287" r="220" fill="#fff" opacity=".035"/>
+  <circle cx="320" cy="287" r="166" fill="none" stroke="#a4e7e0" stroke-opacity=".12" stroke-width="2"/>
+  <path d="M190 351 C 214 330 231 314 249 301 M391 301 C 409 314 426 330 450 351" fill="none" stroke="#78e1d6" stroke-width="7" stroke-linecap="round" stroke-dasharray="2 16"/>
+  <g filter="url(#shadow)">
+    <rect x="72" y="292" width="136" height="148" rx="33" fill="#f2f8f6"/>
+    <rect x="107" y="265" width="13" height="36" rx="5" fill="#b7cfce"/>
+    <rect x="160" y="265" width="13" height="36" rx="5" fill="#b7cfce"/>
+    <rect x="115" y="337" width="10" height="28" rx="5" fill="#547782"/>
+    <rect x="155" y="337" width="10" height="28" rx="5" fill="#547782"/>
+    <circle cx="140" cy="386" r="10" fill="#58c9b8"/>
+    <circle cx="320" cy="270" r="87" fill="url(#hub)"/>
+    <path d="M274 270 L320 230 L366 270 M285 263 V308 H355 V263" fill="none" stroke="#12334b" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="320" cy="277" r="6" fill="#12334b"/>
+    <path d="M320 284 V296 M320 287 L305 300 M320 287 L335 300" fill="none" stroke="#12334b" stroke-width="5" stroke-linecap="round"/>
+    <rect x="432" y="294" width="136" height="146" rx="48" fill="#dcebe9"/>
+    <rect x="441" y="310" width="118" height="104" rx="38" fill="#233f4d"/>
+    <path d="M461 400 H539" stroke="#6ce4e4" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="500" cy="355" r="4" fill="#a5d7d4"/>
+  </g>
+  <g font-family="system-ui, -apple-system, sans-serif" text-anchor="middle" fill="#d7eeee">
+    <text x="140" y="479" font-size="19" font-weight="600" letter-spacing="1">WEMO</text>
+    <text x="320" y="389" font-size="19" font-weight="600" letter-spacing="1">HOME ASSISTANT</text>
+    <text x="500" y="479" font-size="19" font-weight="600" letter-spacing="1">ALEXA</text>
+    <text x="320" y="552" font-size="16" font-weight="600" letter-spacing="3" fill="#85d8d1">CONNECTED BY MATTER</text>
+  </g>
+</svg>

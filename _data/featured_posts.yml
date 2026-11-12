@@ -1,3 +1,9 @@
+- title: Bringing Wemo plugs back to Alexa with Home Assistant and Matter
+  image_path: /assets/images/headline_images/wemo-matter-alexa.svg
+  description: "A perfectly usable smart plug should not become useless when its cloud service goes away. This guide walks through connecting a compatible Wemo device to Wi-Fi with pyWeMo, controlling it locally with Home Assistant, and exposing it to Alexa through Home Assistant Matter Hub. It also covers reusing an existing bridge, choosing which switches to expose, and troubleshooting discovery and connectivity along the way."
+  buttons:
+    - text: "Wemo, Home Assistant, and Alexa"
+      url: /posts/wemo-home-assistant-matter-alexa/
 - title: Back up NAS photos to Google Photos using Pixel XL
   image_path: /assets/images/headline_images/pixel_cooling.jpg
   description: "If you have a spare og Pixel or Pixel XL, you have free unlimited Google Photos backup at the original quality. Here is the catch. If you have a large amount of data, batch copying everything to the phone's internal storage, backing it up, and then deleting can be a problem to the longevity of the phone's storage. Instead of explicitly copying, this is a simple setup guide to back up photos from a NAS to Google Photos using a Pixel XL device."
